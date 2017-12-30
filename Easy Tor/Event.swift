@@ -45,3 +45,5 @@ struct Event {
         return ["content":content, "addedByUser":addedByUser]
 }
 }
+
+//event
