@@ -1,0 +1,6 @@
+framework module Pods_Easy_Tor {
+  umbrella header "Pods-Easy Tor-umbrella.h"
+
+  export *
+  module * { export * }
+}

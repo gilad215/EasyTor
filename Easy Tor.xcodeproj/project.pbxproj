@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0ED24EDE03D258C1BAFE0B9F /* Pods_Easy_Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */; };
+		956DE9E21FF52F1500D11C89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956DE9E11FF52F1500D11C89 /* LoginViewController.swift */; };
+		95ABC5211FEA966900B70325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABC5201FEA966900B70325 /* AppDelegate.swift */; };
+		95ABC5231FEA966900B70325 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABC5221FEA966900B70325 /* FirstViewController.swift */; };
+		95ABC5281FEA966A00B70325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC5261FEA966A00B70325 /* Main.storyboard */; };
+		95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC5291FEA966A00B70325 /* Assets.xcassets */; };
+		95ABC52D1FEA966A00B70325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC52B1FEA966A00B70325 /* LaunchScreen.storyboard */; };
+		95E3B3E11FF7B7F8008B7CB9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3B3E01FF7B7F8008B7CB9 /* RegisterViewController.swift */; };
+		95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3B3E21FF7CFB6008B7CB9 /* Event.swift */; };
+		95EFD7751FEBB2E100555ADC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easy_Tor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		296757946CD71CDD92BFE0C1 /* Pods-Easy Tor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy Tor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor.release.xcconfig"; sourceTree = "<group>"; };
+		7B2ACEA33D5598C05FC3AC31 /* Pods-Easy Tor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy Tor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor.debug.xcconfig"; sourceTree = "<group>"; };
+		956DE9E11FF52F1500D11C89 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		95ABC51D1FEA966900B70325 /* Easy Tor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Tor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95ABC5201FEA966900B70325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		95ABC5221FEA966900B70325 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		95ABC5271FEA966A00B70325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		95ABC5291FEA966A00B70325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		95ABC52C1FEA966A00B70325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		95ABC52E1FEA966A00B70325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95E3B3E01FF7B7F8008B7CB9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		95E3B3E21FF7CFB6008B7CB9 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95ABC51A1FEA966900B70325 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0ED24EDE03D258C1BAFE0B9F /* Pods_Easy_Tor.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50AAFE549E29909E4D4C5E45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7B1FAE646B03F5C40C4BA288 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B2ACEA33D5598C05FC3AC31 /* Pods-Easy Tor.debug.xcconfig */,
+				296757946CD71CDD92BFE0C1 /* Pods-Easy Tor.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		95ABC5141FEA966900B70325 = {
+			isa = PBXGroup;
+			children = (
+				95ABC51F1FEA966900B70325 /* Easy Tor */,
+				95ABC51E1FEA966900B70325 /* Products */,
+				7B1FAE646B03F5C40C4BA288 /* Pods */,
+				50AAFE549E29909E4D4C5E45 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		95ABC51E1FEA966900B70325 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95ABC51D1FEA966900B70325 /* Easy Tor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95ABC51F1FEA966900B70325 /* Easy Tor */ = {
+			isa = PBXGroup;
+			children = (
+				95E3B3E21FF7CFB6008B7CB9 /* Event.swift */,
+				95ABC5201FEA966900B70325 /* AppDelegate.swift */,
+				95ABC5221FEA966900B70325 /* FirstViewController.swift */,
+				956DE9E11FF52F1500D11C89 /* LoginViewController.swift */,
+				95E3B3E01FF7B7F8008B7CB9 /* RegisterViewController.swift */,
+				95ABC5261FEA966A00B70325 /* Main.storyboard */,
+				95ABC5291FEA966A00B70325 /* Assets.xcassets */,
+				95ABC52B1FEA966A00B70325 /* LaunchScreen.storyboard */,
+				95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */,
+				95ABC52E1FEA966A00B70325 /* Info.plist */,
+			);
+			path = "Easy Tor";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95ABC51C1FEA966900B70325 /* Easy Tor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95ABC5311FEA966A00B70325 /* Build configuration list for PBXNativeTarget "Easy Tor" */;
+			buildPhases = (
+				A6C6A75C81CF64C1A9C84362 /* [CP] Check Pods Manifest.lock */,
+				95ABC5191FEA966900B70325 /* Sources */,
+				95ABC51A1FEA966900B70325 /* Frameworks */,
+				95ABC51B1FEA966900B70325 /* Resources */,
+				78BC1FB540E25855B6E47135 /* [CP] Embed Pods Frameworks */,
+				F901ED58915156372D1D03CD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Easy Tor";
+			productName = "Easy Tor";
+			productReference = 95ABC51D1FEA966900B70325 /* Easy Tor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95ABC5151FEA966900B70325 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Gilad Lekner";
+				TargetAttributes = {
+					95ABC51C1FEA966900B70325 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 95ABC5181FEA966900B70325 /* Build configuration list for PBXProject "Easy Tor" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 95ABC5141FEA966900B70325;
+			productRefGroup = 95ABC51E1FEA966900B70325 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95ABC51C1FEA966900B70325 /* Easy Tor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95ABC51B1FEA966900B70325 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95ABC52D1FEA966A00B70325 /* LaunchScreen.storyboard in Resources */,
+				95EFD7751FEBB2E100555ADC /* GoogleService-Info.plist in Resources */,
+				95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */,
+				95ABC5281FEA966A00B70325 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78BC1FB540E25855B6E47135 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6C6A75C81CF64C1A9C84362 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Easy Tor-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F901ED58915156372D1D03CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95ABC5191FEA966900B70325 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				956DE9E21FF52F1500D11C89 /* LoginViewController.swift in Sources */,
+				95E3B3E11FF7B7F8008B7CB9 /* RegisterViewController.swift in Sources */,
+				95ABC5211FEA966900B70325 /* AppDelegate.swift in Sources */,
+				95ABC5231FEA966900B70325 /* FirstViewController.swift in Sources */,
+				95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		95ABC5261FEA966A00B70325 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95ABC5271FEA966A00B70325 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		95ABC52B1FEA966A00B70325 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95ABC52C1FEA966A00B70325 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95ABC52F1FEA966A00B70325 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		95ABC5301FEA966A00B70325 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95ABC5321FEA966A00B70325 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B2ACEA33D5598C05FC3AC31 /* Pods-Easy Tor.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Easy Tor/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Colman.ezTor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		95ABC5331FEA966A00B70325 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 296757946CD71CDD92BFE0C1 /* Pods-Easy Tor.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Easy Tor/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Colman.ezTor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95ABC5181FEA966900B70325 /* Build configuration list for PBXProject "Easy Tor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95ABC52F1FEA966A00B70325 /* Debug */,
+				95ABC5301FEA966A00B70325 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95ABC5311FEA966A00B70325 /* Build configuration list for PBXNativeTarget "Easy Tor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95ABC5321FEA966A00B70325 /* Debug */,
+				95ABC5331FEA966A00B70325 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95ABC5151FEA966900B70325 /* Project object */;
+}
