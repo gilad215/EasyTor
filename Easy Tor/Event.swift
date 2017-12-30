@@ -26,15 +26,17 @@ struct Event {
     }
     
     init (snapshot:DataSnapshot) {
+        
         key = snapshot.key
         ref = snapshot.ref
         let value = snapshot.value as? NSDictionary
         
-        let event = value?["event"] as? String ?? ""
+        let event = value?["content"] as? String ?? ""
         let date = value?["date"] as? String ?? ""
-        let addedby=value?["addedByUser"] as? String ?? ""
+        let addedby = value?["addedByUser"] as? String ?? ""
         
         self.content=event
+        print("Content of event:"+self.content)
         self.date=date
         self.addedByUser=addedby
         

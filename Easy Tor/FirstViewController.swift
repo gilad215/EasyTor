@@ -16,7 +16,10 @@ class FirstViewController: UIViewController {
     var user_name:String!
 
     @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var table: UITableView!
+    
+    @IBOutlet weak var event1: UILabel!
+    @IBOutlet weak var event2: UILabel!
+    @IBOutlet weak var event3: UILabel!
     
     override func viewDidLoad() {
         ref = Database.database().reference()
@@ -29,6 +32,7 @@ class FirstViewController: UIViewController {
             self.label1.text="Hello "+fname
             self.user_name=fname+" "+lname
         })
+        startObserving()
         
         
     }
@@ -60,7 +64,7 @@ class FirstViewController: UIViewController {
     }
     
     func startObserving(){
-        ref.observe(DataEventType.value) { (snapshot) in
+        ref.child("events").observe(DataEventType.value) { (snapshot) in
             var newEvents=[Event]()
             for event in snapshot.children
             {
@@ -69,7 +73,11 @@ class FirstViewController: UIViewController {
             }
             
             self.events=newEvents
-            self.table.reloadData()
+            print("events size:",self.events.count);
+            self.event1.text=self.events[0].content+" "+self.events[0].date
+            self.event2.text=self.events[1].content+" "+self.events[1].date
+            //self.event3.text=self.events[2].content+" "+self.events[2].date
+
         }
     }
     
