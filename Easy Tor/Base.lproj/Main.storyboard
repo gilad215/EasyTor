@@ -103,6 +103,55 @@
                                     <action selector="valuechanged:" destination="yKz-z1-P9h" eventType="valueChanged" id="NdB-qt-xtf"/>
                                 </connections>
                             </segmentedControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1d-bu-pT2" userLabel="Client View">
+                                <rect key="frame" x="16" y="171" width="343" height="314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uHs-7R-fFM" colorLabel="IBBuiltInLabel-Red">
+                                        <rect key="frame" x="63" y="179" width="217" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xxy-P1-ahC" colorLabel="IBBuiltInLabel-Red">
+                                        <rect key="frame" x="63" y="141" width="217" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UwX-xJ-Iab" colorLabel="IBBuiltInLabel-Red">
+                                        <rect key="frame" x="63" y="25" width="217" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Izc-kg-gbQ" colorLabel="IBBuiltInLabel-Red">
+                                        <rect key="frame" x="63" y="63" width="217" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHs-9Y-210">
+                                        <rect key="frame" x="63" y="101" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOF-pJ-onV">
+                                        <rect key="frame" x="183" y="101" width="97" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AZH-nM-Vsk">
                                 <rect key="frame" x="16" y="151" width="343" height="303"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -161,14 +210,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WW-Nx-4Rb">
-                                <rect key="frame" x="0.0" y="488" width="375" height="179"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="yKz-z1-P9h" id="O1P-IO-jfc"/>
-                                    <outlet property="delegate" destination="yKz-z1-P9h" id="XZO-aT-JXJ"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afb-LD-DRA">
                                 <rect key="frame" x="134" y="462" width="107" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -177,6 +218,14 @@
                                     <action selector="createAcc:" destination="yKz-z1-P9h" eventType="touchUpInside" id="IZy-XB-8ff"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WW-Nx-4Rb">
+                                <rect key="frame" x="0.0" y="488" width="375" height="179"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yKz-z1-P9h" id="O1P-IO-jfc"/>
+                                    <outlet property="delegate" destination="yKz-z1-P9h" id="XZO-aT-JXJ"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XJ1-Hf-w8b"/>
@@ -186,8 +235,15 @@
                         <outlet property="businessView" destination="AZH-nM-Vsk" id="oS2-0q-rqe"/>
                         <outlet property="categoryBtn" destination="yPt-IK-1Tl" id="Vdg-hp-nRv"/>
                         <outlet property="city" destination="GdT-QR-nZ6" id="x3A-MA-fgR"/>
+                        <outlet property="clientAddress" destination="XOF-pJ-onV" id="aJY-ni-yjd"/>
+                        <outlet property="clientCity" destination="OHs-9Y-210" id="3Pd-79-eBb"/>
+                        <outlet property="clientMAil" destination="xxy-P1-ahC" id="Ite-vC-dFT"/>
+                        <outlet property="clientName" destination="UwX-xJ-Iab" id="Tjy-7s-JLG"/>
+                        <outlet property="clientPhone" destination="Izc-kg-gbQ" id="gJW-uY-u1P"/>
+                        <outlet property="clientPwd" destination="uHs-7R-fFM" id="Zyo-cP-MFC"/>
+                        <outlet property="clientView" destination="K1d-bu-pT2" id="AI8-pb-Byy"/>
                         <outlet property="emailTxt" destination="Dk0-dv-2Qb" id="G63-sv-UFC"/>
-                        <outlet property="fullName" destination="NUY-2e-ANg" id="HHG-2S-XlN"/>
+                        <outlet property="fullName" destination="NUY-2e-ANg" id="SNe-GN-9c5"/>
                         <outlet property="phoneTxt" destination="BS2-EC-TKL" id="loB-tw-ZuU"/>
                         <outlet property="picker" destination="7WW-Nx-4Rb" id="Jv9-Eg-YU7"/>
                         <outlet property="pwdTxt" destination="GMz-79-Hzu" id="iEQ-0L-aLH"/>

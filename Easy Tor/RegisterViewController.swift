@@ -13,6 +13,7 @@ import FirebaseDatabase
 class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDataSource{
 
     //business
+    
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var pwdTxt: UITextField!
@@ -26,6 +27,17 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
     var category:String!
     @IBOutlet weak var seg: UISegmentedControl!
     @IBOutlet weak var businessView: UIView!
+    
+    //client
+    @IBOutlet weak var clientView: UIView!
+    @IBOutlet weak var clientName: UITextField!
+    @IBOutlet weak var clientPhone: UITextField!
+    @IBOutlet weak var clientCity: UITextField!
+    @IBOutlet weak var clientAddress: UITextField!
+    @IBOutlet weak var clientMAil: UITextField!
+    @IBOutlet weak var clientPwd: UITextField!
+    
+    
     
     var ref: DatabaseReference!
 
@@ -52,27 +64,44 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
 
     @IBAction func createAcc(_ sender: Any) {
         ref = Database.database().reference()
-        let name=fullName.text?.split(separator: " ")
-        let fname=name![0]
-        let lname=name![1]
+        if seg.selectedSegmentIndex == 0
+        {
+        
         Auth.auth().createUser(withEmail: emailTxt.text!, password: pwdTxt.text!) { (user, error) in
-            self.ref.child("users").child("business").child((user?.uid)!).setValue(["firstName":fname,"lastName":lname,"phone":self.phoneTxt.text,"address":self.address.text,"city":self.city.text,"category":self.category])
-            print("Created user!")
+            self.ref.child("users").child("business").child((user?.uid)!).setValue(["businessName":self.fullName.text,"phone":self.phoneTxt.text,"address":self.address.text,"city":self.city.text,"category":self.category])
+            print("Created Business!")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UITabBarController
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController=tabVC
             
+            
         }
-        
-        
+        }
+        else {
+        let name=clientName.text?.split(separator: " ")
+        let fname=name![0]
+        let lname=name![1]
+            Auth.auth().createUser(withEmail: clientMAil.text!, password: clientPwd.text!) { (user, error) in
+                self.ref.child("users").child("clients").child((user?.uid)!).setValue(["fname":fname,"lname":lname,"phone":self.clientPhone.text,"address":self.clientAddress.text,"city":self.clientCity.text])
+                print("Created Client!")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UITabBarController
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController=tabVC
+        }
+        }
     }
     @IBAction func valuechanged(_ sender: Any) {
         if seg.selectedSegmentIndex == 0
         {
+            clientView.isHidden=true
             businessView.isHidden=false
         }
-        else { businessView.isHidden=true}
+        else { businessView.isHidden=true
+            clientView.isHidden=false
+            picker.isHidden=true
+        }
     }
     
     @IBAction func categoryPressed(_ sender: Any) {
