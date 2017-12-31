@@ -61,7 +61,7 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UITabBarController
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController=tabVC
+            appDelegate.window?.rootViewController=tabVC
             
         }
         
