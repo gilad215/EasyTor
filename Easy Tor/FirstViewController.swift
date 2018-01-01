@@ -25,6 +25,8 @@ class FirstViewController: UIViewController {
         ref = Database.database().reference()
         super.viewDidLoad()
         let clientuid=Auth.auth().currentUser?.uid
+
+        
         ref.child("users").child(clientuid!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let fname = value?["firstName"] as? String ?? ""
@@ -74,8 +76,8 @@ class FirstViewController: UIViewController {
             
             self.events=newEvents
             print("events size:",self.events.count);
-            self.event1.text=self.events[0].content+" "+self.events[0].date
-            self.event2.text=self.events[1].content+" "+self.events[1].date
+            //self.event1.text=self.events[0].content+" "+self.events[0].date
+            //self.event2.text=self.events[1].content+" "+self.events[1].date
             //self.event3.text=self.events[2].content+" "+self.events[2].date
 
         }

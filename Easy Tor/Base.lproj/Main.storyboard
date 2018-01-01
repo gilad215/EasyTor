@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jq7-ZM-m4P">
-                                <rect key="frame" x="33" y="401" width="326" height="103"/>
+                                <rect key="frame" x="24" y="456" width="326" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.86949938329057375" green="0.89116786640942591" blue="0.93308775906735753" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exp-b6-uUt">
-                                <rect key="frame" x="33" y="264" width="326" height="103"/>
+                                <rect key="frame" x="24" y="319" width="326" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.86949938329999998" green="0.89116786640000001" blue="0.93308775909999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -43,15 +43,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPv-X6-a9e">
-                                <rect key="frame" x="33" y="135" width="326" height="103"/>
+                                <rect key="frame" x="24" y="184" width="326" height="103"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.86949938329999998" green="0.89116786640000001" blue="0.93308775909999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.26108368320000003" green="0.26759005629999999" blue="0.28017729920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="33" y="86" width="249" height="36"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Label1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                                <rect key="frame" x="63" y="50" width="249" height="36"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -337,35 +337,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-7h-VNA">
+                            <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-7h-VNA">
                                 <rect key="frame" x="36" y="159" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="daySwitched:" destination="scE-DS-3Bd" eventType="valueChanged" id="huH-R8-cBi"/>
+                                </connections>
                             </switch>
-                            <switch opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BkD-ft-1QI">
+                            <switch opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BkD-ft-1QI">
                                 <rect key="frame" x="36" y="254" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="daySwitched:" destination="scE-DS-3Bd" eventType="valueChanged" id="Bzh-3I-Rn2"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9TF-Ha-pMw">
+                            <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9TF-Ha-pMw">
                                 <rect key="frame" x="36" y="208" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="daySwitched:" destination="scE-DS-3Bd" eventType="valueChanged" id="IQC-S2-b8t"/>
+                                </connections>
                             </switch>
-                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QaQ-qT-dtN">
+                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QaQ-qT-dtN">
                                 <rect key="frame" x="36" y="103" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="daySwitched:" destination="scE-DS-3Bd" eventType="valueChanged" id="m14-tu-sa8"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZGf-5J-8Zq">
+                            <switch opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZGf-5J-8Zq">
                                 <rect key="frame" x="36" y="301" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="daySwitched:" destination="scE-DS-3Bd" eventType="valueChanged" id="8lI-I7-tgu"/>
+                                </connections>
                             </switch>
-                            <switch opaque="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0vs-FS-80D">
+                            <switch opaque="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0vs-FS-80D">
                                 <rect key="frame" x="36" y="347" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="daySwitched:" destination="scE-DS-3Bd" eventType="valueChanged" id="lPP-lb-zZx"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sunday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6K-4s-NBY">
                                 <rect key="frame" x="119" y="108" width="58" height="21"/>
@@ -409,9 +421,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3j-1b-FiE">
+                            <switch opaque="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="U3j-1b-FiE">
                                 <rect key="frame" x="36" y="393" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="daySwitched:" destination="scE-DS-3Bd" eventType="valueChanged" id="ESn-Tk-ONe"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saturday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGr-hA-DtZ">
                                 <rect key="frame" x="116" y="398" width="69" height="21"/>
@@ -430,6 +445,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zG1-rE-Web">
                                 <rect key="frame" x="234" y="103" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="G9i-vd-ZgT"/>
@@ -438,6 +454,7 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hZ-NI-zk8">
                                 <rect key="frame" x="295" y="103" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Closed"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="IZ6-8V-aGb"/>
@@ -446,6 +463,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yN6-yl-yUO">
                                 <rect key="frame" x="234" y="154" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="2v0-UA-xTe"/>
@@ -454,6 +472,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrO-gx-x1J">
                                 <rect key="frame" x="295" y="154" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Closed"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="Xlx-N7-i67"/>
@@ -462,6 +481,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEw-RR-zut">
                                 <rect key="frame" x="234" y="203" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="azM-Fg-vhu"/>
@@ -470,6 +490,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pG-rr-5MG">
                                 <rect key="frame" x="295" y="203" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Closed"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="1pN-63-qCq"/>
@@ -478,6 +499,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avl-uS-r9c">
                                 <rect key="frame" x="234" y="255" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="ZjS-BL-AJu"/>
@@ -486,6 +508,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VC7-tB-Szc">
                                 <rect key="frame" x="295" y="255" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Closed"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="ota-17-Xlu"/>
@@ -494,6 +517,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMy-M7-ZJp">
                                 <rect key="frame" x="234" y="306" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="x8Z-eB-VDp"/>
@@ -502,6 +526,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qiz-Ga-Gcw">
                                 <rect key="frame" x="295" y="306" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Closed"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="lRH-2u-87X"/>
@@ -510,6 +535,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIG-RY-9av">
                                 <rect key="frame" x="234" y="348" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="gi6-2d-Gk3"/>
@@ -518,6 +544,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-lW-6BY">
                                 <rect key="frame" x="295" y="348" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Closed"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="Bz2-1v-hoO"/>
@@ -526,6 +553,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcb-4p-1hC">
                                 <rect key="frame" x="234" y="393" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Open"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="T9r-QM-9mr"/>
@@ -534,6 +562,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s49-f8-qxs">
                                 <rect key="frame" x="295" y="393" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title="Closed"/>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="Zbe-hm-2X1"/>
@@ -546,6 +575,16 @@
                                     <!--2018-01-01 11:56:35 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqg-gb-bkC">
+                                <rect key="frame" x="295" y="33" width="41" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="IG9-xS-pQY"/>
+                                </constraints>
+                                <state key="normal" title="Finish"/>
+                                <connections>
+                                    <action selector="pressedFinish:" destination="scE-DS-3Bd" eventType="touchUpInside" id="VJf-cm-HiJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="P3H-c1-BMw"/>
@@ -553,19 +592,26 @@
                     <connections>
                         <outlet property="friday_closed" destination="ZmK-lW-6BY" id="Zzk-ZW-IZ4"/>
                         <outlet property="friday_open" destination="pIG-RY-9av" id="Hac-UW-pKm"/>
+                        <outlet property="friday_switch" destination="0vs-FS-80D" id="GOc-RI-4T2"/>
                         <outlet property="monday_closed" destination="BrO-gx-x1J" id="S1T-cs-SnP"/>
                         <outlet property="monday_open" destination="yN6-yl-yUO" id="Efx-yw-6DH"/>
+                        <outlet property="monday_switch" destination="LIg-7h-VNA" id="Nmk-4I-86L"/>
                         <outlet property="saturday_closed" destination="s49-f8-qxs" id="gPa-LI-8G1"/>
                         <outlet property="saturday_open" destination="rcb-4p-1hC" id="7zn-SO-xfb"/>
+                        <outlet property="saturday_switch" destination="U3j-1b-FiE" id="dOS-8B-BZ3"/>
                         <outlet property="sunday_closed" destination="9hZ-NI-zk8" id="byL-gS-dsO"/>
                         <outlet property="sunday_open" destination="zG1-rE-Web" id="Nib-YM-vbp"/>
+                        <outlet property="sunday_switch" destination="QaQ-qT-dtN" id="NGo-oO-fbP"/>
                         <outlet property="thursday_closed" destination="Qiz-Ga-Gcw" id="gq0-b4-Tt1"/>
                         <outlet property="thursday_open" destination="rMy-M7-ZJp" id="x4w-wB-fSR"/>
+                        <outlet property="thursday_switch" destination="ZGf-5J-8Zq" id="jVB-fC-16h"/>
                         <outlet property="timePicker" destination="fjY-r6-Sls" id="wPg-Ma-Wg9"/>
                         <outlet property="tuesday_closed" destination="5pG-rr-5MG" id="jqN-Pr-iRP"/>
                         <outlet property="tuesday_open" destination="yEw-RR-zut" id="CAi-Of-e2m"/>
+                        <outlet property="tuesday_switch" destination="9TF-Ha-pMw" id="dKs-eY-GvX"/>
                         <outlet property="wednesday_closed" destination="VC7-tB-Szc" id="OJS-Dq-D2P"/>
                         <outlet property="wednesday_open" destination="avl-uS-r9c" id="2yr-eW-uyJ"/>
+                        <outlet property="wednesday_switch" destination="BkD-ft-1QI" id="5h5-HK-jgg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHx-wY-F0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -653,6 +699,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-767" y="-190"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="5fa-ls-u33">
+            <objects>
+                <tableViewController id="JG2-HF-nMa" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aSO-fE-8Vf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Cpi-fh-S7f">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cpi-fh-S7f" id="QNX-MZ-n0R">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JG2-HF-nMa" id="Eg0-yp-N7N"/>
+                            <outlet property="delegate" destination="JG2-HF-nMa" id="JYe-6Q-wUH"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BpL-0d-3SQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-767" y="779"/>
         </scene>
     </scenes>
     <resources>

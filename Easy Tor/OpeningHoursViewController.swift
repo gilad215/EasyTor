@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class OpeningHoursViewController: UIViewController {
 
+    var ref: DatabaseReference! = nil
     @IBOutlet weak var sunday_open: UIButton!
     @IBOutlet weak var sunday_closed: UIButton!
     @IBOutlet weak var monday_open: UIButton!
@@ -27,19 +30,93 @@ class OpeningHoursViewController: UIViewController {
     
     @IBOutlet weak var timePicker: UIDatePicker!
     
+    @IBOutlet weak var sunday_switch: UISwitch!
     
+    @IBOutlet weak var monday_switch: UISwitch!
     
+    @IBOutlet weak var tuesday_switch: UISwitch!
+    
+    @IBOutlet weak var wednesday_switch: UISwitch!
+    
+    @IBOutlet weak var thursday_switch: UISwitch!
+    
+    @IBOutlet weak var friday_switch: UISwitch!
+    
+    @IBOutlet weak var saturday_switch: UISwitch!
     
     @IBAction func daySwitched(_ sender: UISwitch) {
         if sender.isOn
         {
-        if sender.tag==1
-        {
-            sunday_open.isHidden=false
-            sunday_closed.isHidden=false
-        }
-        }
+            switch (sender.tag)
+            {
+            case (1):
+                
+                sunday_open.isHidden=false
+                sunday_closed.isHidden=false
+            
+            case (2):
+                monday_closed.isHidden=false
+                monday_open.isHidden=false
+                
+            case (3):
+                tuesday_open.isHidden=false
+                tuesday_closed.isHidden=false
+                
+            case (4):
+                wednesday_open.isHidden=false
+                wednesday_closed.isHidden=false
+            
+            case(5):
+                thursday_open.isHidden=false
+                thursday_closed.isHidden=false
+                
+            case(6):
+                friday_open.isHidden=false
+                friday_closed.isHidden=false
+            case(7):
+                saturday_open.isHidden=false
+                saturday_closed.isHidden=false
+            default:
+                print("hi")
+            }
         
+        }
+        else
+        {
+            switch (sender.tag)
+            {
+            case (1):
+                
+                sunday_open.isHidden=true
+                sunday_closed.isHidden=true
+                
+            case (2):
+                monday_closed.isHidden=true
+                monday_open.isHidden=true
+                
+            case (3):
+                tuesday_open.isHidden=true
+                tuesday_closed.isHidden=true
+                
+            case (4):
+                wednesday_open.isHidden=true
+                wednesday_closed.isHidden=true
+                
+                
+            case (5):
+                thursday_open.isHidden=true
+                thursday_closed.isHidden=true
+                
+            case (6):
+                friday_open.isHidden=true
+                friday_closed.isHidden=true
+            case (7):
+                saturday_open.isHidden=true
+                saturday_closed.isHidden=true
+            default:
+                print("hi")
+            }
+    }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +135,8 @@ class OpeningHoursViewController: UIViewController {
         saturday_open.isHidden=true
         saturday_closed.isHidden=true
         timePicker.isHidden=true
+        timePicker.datePickerMode = .time
+        ref = Database.database().reference()
 
         // Do any additional setup after loading the view.
     }
@@ -69,11 +148,65 @@ class OpeningHoursViewController: UIViewController {
     
     
     @IBAction func pressedTime(_ sender: UIButton) {
-        timePicker.datePickerMode = .time
-        timePicker.isHidden=false
-        sender.setTitle(timePicker.date.description, for: .normal)
+        if timePicker.isHidden==true { timePicker.isHidden=false}
+        else if timePicker.isHidden==false { timePicker.isHidden=true}
+
+        let date = timePicker.date
+        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+        let hour=components.hour!
+        let minute=components.minute!
+        let timedate=hour.description+":"+minute.description
         
+        sender.setTitle(timedate, for: .normal)
+
         
+    }
+    
+    
+    @IBAction func pressedFinish(_ sender: Any) {
+        //to put dates inside the business node
+        let currentuser=Auth.auth().currentUser
+        let dateRef=ref.child("users").child("business").child((currentuser?.uid)!).child("openhours")
+        
+        if sunday_switch.isOn
+        {
+            dateRef.child("sunday").child("open").setValue(sunday_open.title(for: .normal))
+            dateRef.child("sunday").child("closed").setValue(sunday_closed.title(for: .normal))
+        }
+        if monday_switch.isOn
+        {
+            dateRef.child("monday").child("open").setValue(monday_open.title(for: .normal))
+            dateRef.child("monday").child("closed").setValue(monday_closed.title(for: .normal))
+        }
+        if tuesday_switch.isOn
+        {
+            dateRef.child("tuesday").child("open").setValue(tuesday_open.title(for: .normal))
+            dateRef.child("tuesday").child("closed").setValue(tuesday_closed.title(for: .normal))
+        }
+        if wednesday_switch.isOn
+        {
+            dateRef.child("wednesday").child("open").setValue(wednesday_open.title(for: .normal))
+            dateRef.child("wednesday").child("closed").setValue(wednesday_closed.title(for: .normal))
+        }
+        if thursday_switch.isOn
+        {
+            dateRef.child("thursday").child("open").setValue(thursday_open.title(for: .normal))
+            dateRef.child("thursday").child("closed").setValue(thursday_closed.title(for: .normal))
+        }
+        if friday_switch.isOn
+        {
+            dateRef.child("friday").child("open").setValue(friday_open.title(for: .normal))
+            dateRef.child("friday").child("closed").setValue(friday_closed.title(for: .normal))
+        }
+        if saturday_switch.isOn
+        {
+            dateRef.child("saturday").child("open").setValue(saturday_open.title(for: .normal))
+            dateRef.child("saturday").child("closed").setValue(saturday_closed.title(for: .normal))
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController=tabVC
     }
     
     /*
