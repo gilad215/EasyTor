@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0ED24EDE03D258C1BAFE0B9F /* Pods_Easy_Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */; };
+		955ED8431FFA23180099D62C /* businessRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED8421FFA23180099D62C /* businessRegViewController.swift */; };
+		955ED8451FFA23ED0099D62C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED8441FFA23ED0099D62C /* Service.swift */; };
 		956DE9E21FF52F1500D11C89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956DE9E11FF52F1500D11C89 /* LoginViewController.swift */; };
 		95ABC5211FEA966900B70325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABC5201FEA966900B70325 /* AppDelegate.swift */; };
 		95ABC5231FEA966900B70325 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABC5221FEA966900B70325 /* FirstViewController.swift */; };
@@ -23,6 +25,8 @@
 		0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easy_Tor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		296757946CD71CDD92BFE0C1 /* Pods-Easy Tor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy Tor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor.release.xcconfig"; sourceTree = "<group>"; };
 		7B2ACEA33D5598C05FC3AC31 /* Pods-Easy Tor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy Tor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor.debug.xcconfig"; sourceTree = "<group>"; };
+		955ED8421FFA23180099D62C /* businessRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = businessRegViewController.swift; sourceTree = "<group>"; };
+		955ED8441FFA23ED0099D62C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		956DE9E11FF52F1500D11C89 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95ABC51D1FEA966900B70325 /* Easy Tor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Tor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95ABC5201FEA966900B70325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,10 +91,12 @@
 			isa = PBXGroup;
 			children = (
 				95E3B3E21FF7CFB6008B7CB9 /* Event.swift */,
+				955ED8441FFA23ED0099D62C /* Service.swift */,
 				95ABC5201FEA966900B70325 /* AppDelegate.swift */,
 				95ABC5221FEA966900B70325 /* FirstViewController.swift */,
 				956DE9E11FF52F1500D11C89 /* LoginViewController.swift */,
 				95E3B3E01FF7B7F8008B7CB9 /* RegisterViewController.swift */,
+				955ED8421FFA23180099D62C /* businessRegViewController.swift */,
 				95ABC5261FEA966A00B70325 /* Main.storyboard */,
 				95ABC5291FEA966A00B70325 /* Assets.xcassets */,
 				95ABC52B1FEA966A00B70325 /* LaunchScreen.storyboard */,
@@ -237,8 +243,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				956DE9E21FF52F1500D11C89 /* LoginViewController.swift in Sources */,
+				955ED8451FFA23ED0099D62C /* Service.swift in Sources */,
 				95E3B3E11FF7B7F8008B7CB9 /* RegisterViewController.swift in Sources */,
 				95ABC5211FEA966900B70325 /* AppDelegate.swift in Sources */,
+				955ED8431FFA23180099D62C /* businessRegViewController.swift in Sources */,
 				95ABC5231FEA966900B70325 /* FirstViewController.swift in Sources */,
 				95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */,
 			);

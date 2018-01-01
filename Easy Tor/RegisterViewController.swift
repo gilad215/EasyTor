@@ -71,9 +71,9 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
             self.ref.child("users").child("business").child((user?.uid)!).setValue(["businessName":self.fullName.text,"phone":self.phoneTxt.text,"address":self.address.text,"city":self.city.text,"category":self.category])
             print("Created Business!")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UITabBarController
+            let serviceVC = storyboard.instantiateViewController(withIdentifier: "serviceVC")
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController=tabVC
+            appDelegate.window?.rootViewController=serviceVC
             
             
         }
