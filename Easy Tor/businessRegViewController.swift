@@ -71,6 +71,15 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
         }
     }
     
+    
+    @IBAction func finishPressed(_ sender:
+        Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let openhoursVC = storyboard.instantiateViewController(withIdentifier: "openhoursVC") as! UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController=openhoursVC
+    }
+    
     /*
     // MARK: - Navigation
 
