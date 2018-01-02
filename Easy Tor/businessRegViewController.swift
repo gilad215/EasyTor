@@ -66,7 +66,6 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
                 self.listOfServices.append(serviceObject)
             }
             self.tableView.reloadData()
-            //self.listOfServices.removeAll()
 
         }
     }

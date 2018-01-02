@@ -136,6 +136,7 @@ class OpeningHoursViewController: UIViewController {
         saturday_closed.isHidden=true
         timePicker.isHidden=true
         timePicker.datePickerMode = .time
+        timePicker.minuteInterval=30
         ref = Database.database().reference()
 
         // Do any additional setup after loading the view.
@@ -150,13 +151,19 @@ class OpeningHoursViewController: UIViewController {
     @IBAction func pressedTime(_ sender: UIButton) {
         if timePicker.isHidden==true { timePicker.isHidden=false}
         else if timePicker.isHidden==false { timePicker.isHidden=true}
-
+        var timedate:String!
+        var minute:String!
         let date = timePicker.date
         let components = Calendar.current.dateComponents([.hour, .minute], from: date)
         let hour=components.hour!
-        let minute=components.minute!
-        let timedate=hour.description+":"+minute.description
-        
+        if components.minute!<10
+        {
+            minute="0"+(components.minute?.description)!
+        }
+        else{
+            minute=components.minute!.description
+        }
+        timedate=hour.description+":"+minute
         sender.setTitle(timedate, for: .normal)
 
         
