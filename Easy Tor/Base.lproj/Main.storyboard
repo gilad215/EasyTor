@@ -50,19 +50,25 @@
                                 <color key="textColor" red="0.26108368320000003" green="0.26759005629999999" blue="0.28017729920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Label1" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="63" y="50" width="249" height="36"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shg-au-G13">
+                                <rect key="frame" x="126" y="31" width="123" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.92482034909729816" green="0.9022637552168763" blue="0.94737694297772013" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.92482034909729816" green="0.9022637552168763" blue="0.94737694297772013" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="imageClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="tBT-Ld-vXT"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpic" translatesAutoresizingMaskIntoConstraints="NO" id="c8v-5K-dNl">
+                                <rect key="frame" x="126" y="29" width="123" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                        </constraints>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
@@ -70,12 +76,13 @@
                         <outlet property="event1" destination="nPv-X6-a9e" id="Dtc-Rk-G2N"/>
                         <outlet property="event2" destination="exp-b6-uUt" id="TVl-rY-WnK"/>
                         <outlet property="event3" destination="Jq7-ZM-m4P" id="HfG-vj-4sG"/>
-                        <outlet property="label1" destination="KQZ-1w-vlD" id="TZN-5T-VLz"/>
+                        <outlet property="image" destination="c8v-5K-dNl" id="IEc-oc-WVg"/>
+                        <outlet property="picBtn" destination="Shg-au-G13" id="qav-xT-r2P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2" y="-190"/>
+            <point key="canvasLocation" x="-2.3999999999999999" y="-190.25487256371815"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="okr-GJ-GgH">
@@ -576,9 +583,9 @@
                                 </date>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dqg-gb-bkC">
-                                <rect key="frame" x="167" y="62" width="41" height="30"/>
+                                <rect key="frame" x="302" y="29" width="41" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="41" id="IG9-xS-pQY"/>
+                                    <constraint firstAttribute="width" constant="40" id="IG9-xS-pQY"/>
                                 </constraints>
                                 <state key="normal" title="Finish"/>
                                 <connections>
@@ -656,9 +663,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyV-xo-LGJ">
-                                <rect key="frame" x="72" y="455" width="57" height="30"/>
+                                <rect key="frame" x="72" y="455" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Register">
+                                <state key="normal" title="REGISTER">
                                     <color key="titleColor" red="0.39070496087511375" green="0.14323757259119393" blue="0.39637305699481862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -681,7 +688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRZ-Yr-t8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1490" y="-190"/>
+            <point key="canvasLocation" x="-1490.4000000000001" y="-190.25487256371815"/>
         </scene>
         <!--Search-->
         <scene sceneID="nuF-Oo-sLB">
@@ -788,5 +795,6 @@
         <image name="bgLogin" width="402" height="777"/>
         <image name="first" width="30" height="30"/>
         <image name="loginBGCard" width="367" height="477"/>
+        <image name="userpic" width="256" height="205"/>
     </resources>
 </document>

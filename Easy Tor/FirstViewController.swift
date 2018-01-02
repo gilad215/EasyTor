@@ -10,28 +10,34 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     var ref: DatabaseReference! = nil
     var events=[Event]()
     var user_name:String!
+    let imagePicker = UIImagePickerController()
 
-    @IBOutlet weak var label1: UILabel!
-    
+    @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var event1: UILabel!
     @IBOutlet weak var event2: UILabel!
     @IBOutlet weak var event3: UILabel!
+    @IBOutlet weak var picBtn: UIButton!
+    
     
     override func viewDidLoad() {
         ref = Database.database().reference()
         super.viewDidLoad()
         let clientuid=Auth.auth().currentUser?.uid
+        imagePicker.delegate = self
 
-        
+        image.layer.borderWidth = 1
+        image.layer.masksToBounds = false
+        image.layer.borderColor = UIColor.black.cgColor
+        image.layer.cornerRadius = image.frame.height/2
+        image.clipsToBounds = true
         ref.child("users").child(clientuid!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             let fname = value?["firstName"] as? String ?? ""
             let lname = value?["lastName"] as? String ?? ""
-            self.label1.text="Hello "+fname
             self.user_name=fname+" "+lname
         })
         startObserving()
@@ -83,6 +89,35 @@ class FirstViewController: UIViewController {
         }
     }
     
+    @IBAction func imageClicked(_ sender: Any) {
+        print("Image clicked!")
+        let camera = DSCameraHandler(delegate_: self)
+        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        optionMenu.popoverPresentationController?.sourceView = self.view
+        
+        let takePhoto = UIAlertAction(title: "Take Photo", style: .default) { (alert : UIAlertAction!) in
+            camera.getCameraOn(self, canEdit: true)
+        }
+        let sharePhoto = UIAlertAction(title: "Photo Library", style: .default) { (alert : UIAlertAction!) in
+            camera.getPhotoLibraryOn(self, canEdit: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert : UIAlertAction!) in
+        }
+        optionMenu.addAction(takePhoto)
+        optionMenu.addAction(sharePhoto)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    
+}
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let chosenimage = info[UIImagePickerControllerEditedImage] as! UIImage
+        image.image=chosenimage
+        // image is our desired image
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
     
 
