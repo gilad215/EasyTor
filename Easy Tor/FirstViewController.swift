@@ -9,9 +9,11 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     var ref: DatabaseReference! = nil
+    var storageRef: StorageReference!=nil
     var events=[Event]()
     var user_name:String!
     let imagePicker = UIImagePickerController()
@@ -25,6 +27,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     
     override func viewDidLoad() {
         ref = Database.database().reference()
+        storageRef=Storage.storage().reference()
         super.viewDidLoad()
         let clientuid=Auth.auth().currentUser?.uid
         imagePicker.delegate = self
@@ -117,6 +120,29 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         // image is our desired image
         
         picker.dismiss(animated: true, completion: nil)
+        
+        //uploading to Firebase
+        var data=Data()
+        data = UIImageJPEGRepresentation(image.image!, 0.8)! as Data
+        let filePath = "\(Auth.auth().currentUser?.uid)/\("userPhoto")"
+        let metaData = StorageMetadata()
+        metaData.contentType="image/jpg"
+        self.storageRef.child(filePath).putData(data,metadata:metaData){
+            (metaData,error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }else{
+                //store downloadURL
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+                //store downloadURL at database
+                self.ref.child("users").child(Auth.auth().currentUser!.uid).updateChildValues(["userPhoto": downloadURL])
+            }
+        }
+        
+       
+        
+
     }
 }
     
