@@ -15,6 +15,7 @@
 		955ED8431FFA23180099D62C /* businessRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED8421FFA23180099D62C /* businessRegViewController.swift */; };
 		955ED8451FFA23ED0099D62C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED8441FFA23ED0099D62C /* Service.swift */; };
 		955ED8471FFA539D0099D62C /* OpeningHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED8461FFA539D0099D62C /* OpeningHoursViewController.swift */; };
+		955ED84B1FFCFDEF0099D62C /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED84A1FFCFDEF0099D62C /* AddViewController.swift */; };
 		956DE9E21FF52F1500D11C89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956DE9E11FF52F1500D11C89 /* LoginViewController.swift */; };
 		95ABC5211FEA966900B70325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABC5201FEA966900B70325 /* AppDelegate.swift */; };
 		95ABC5231FEA966900B70325 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABC5221FEA966900B70325 /* FirstViewController.swift */; };
@@ -37,6 +38,7 @@
 		955ED8421FFA23180099D62C /* businessRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = businessRegViewController.swift; sourceTree = "<group>"; };
 		955ED8441FFA23ED0099D62C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		955ED8461FFA539D0099D62C /* OpeningHoursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningHoursViewController.swift; sourceTree = "<group>"; };
+		955ED84A1FFCFDEF0099D62C /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		956DE9E11FF52F1500D11C89 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95ABC51D1FEA966900B70325 /* Easy Tor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Tor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95ABC5201FEA966900B70325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				955ED8421FFA23180099D62C /* businessRegViewController.swift */,
 				955ED8461FFA539D0099D62C /* OpeningHoursViewController.swift */,
 				9537A3C11FFB7E0700161656 /* SearchViewController.swift */,
+				955ED84A1FFCFDEF0099D62C /* AddViewController.swift */,
 				95ABC5261FEA966A00B70325 /* Main.storyboard */,
 				95ABC5291FEA966A00B70325 /* Assets.xcassets */,
 				95ABC52B1FEA966A00B70325 /* LaunchScreen.storyboard */,
@@ -276,6 +279,7 @@
 				95ABC5231FEA966900B70325 /* FirstViewController.swift in Sources */,
 				9537A3CB1FFBB9F600161656 /* CameraHandler.swift in Sources */,
 				955ED8471FFA539D0099D62C /* OpeningHoursViewController.swift in Sources */,
+				955ED84B1FFCFDEF0099D62C /* AddViewController.swift in Sources */,
 				95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
