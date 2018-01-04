@@ -20,6 +20,7 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var tableVIew: UITableView!
     @IBOutlet weak var tableViewServices: UITableView!
     
+    @IBOutlet weak var navbarHead: UINavigationItem!
     
     var pickerData: [String] = [String]()
     var ref: DatabaseReference! = nil
@@ -28,8 +29,9 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
 
     @IBOutlet weak var searchBusinessView: UIView!
     @IBOutlet weak var servicesView: UIView!
-    var selectedBusiness:String!
-    @IBOutlet weak var selectedBusinessName: UILabel!
+    var selectedBusiness:String?
+    var selectedBusinessName:String?
+    var selectedService:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +74,7 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
         if tableView==tableViewServices
         {
             cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-            cell.textLabel?.text = servicesData[indexPath.row].nameOfService+" "+servicesData[indexPath.row].duration
+            cell.textLabel?.text = servicesData[indexPath.row].nameOfService
             return cell
         }
         return cell
@@ -83,7 +85,12 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
         {
             let currentCell = tableView.cellForRow(at: indexPath) as! TableCell
             selectedBusiness=currentCell.key
-            selectedBusinessName.text=currentCell.nameLbl.text
+            selectedBusinessName=currentCell.nameLbl.text
+        }
+        if tableView==tableViewServices
+        {
+            let currentCell = tableView.cellForRow(at: indexPath) as! UITableViewCell
+            selectedService=currentCell.textLabel?.text
         }
     }
     
@@ -126,12 +133,14 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     
     
     @IBAction func nextPressed(_ sender: Any) {
-        if selectedBusiness.isEmpty==false
+        if selectedBusiness?.isEmpty==false && selectedService==nil
         {
+            print("BUSINESS SELECTED")
             searchBusinessView.isHidden=true
             servicesView.isHidden=false
+            navbarHead.title=selectedBusinessName
             let qref=ref.child("services")
-            qref.child(selectedBusiness).observe(DataEventType.value, with: { (snapshot) in
+            qref.child(selectedBusiness!).observe(DataEventType.value, with: { (snapshot) in
                 print("SERVICES SNAPSHOT")
                 print(snapshot)
                 for service in snapshot.children
@@ -142,6 +151,11 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
                 self.tableViewServices.reloadData()
             })
         }
+        if selectedBusiness?.isEmpty==false && selectedService?.isEmpty==false
+        {
+            print("SERVICE SELECTED!")
+        }
+        
     }
     
     /*
