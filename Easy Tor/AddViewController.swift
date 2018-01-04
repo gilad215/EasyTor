@@ -16,15 +16,23 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var categoryBtn: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     var category:String!
+    
     @IBOutlet weak var tableVIew: UITableView!
+    @IBOutlet weak var tableViewServices: UITableView!
+    
+    
     var pickerData: [String] = [String]()
     var ref: DatabaseReference! = nil
     var businessData: [Business] = [Business]()
-    
-    
-    
+    var servicesData: [Service] = [Service]()
+
+    @IBOutlet weak var searchBusinessView: UIView!
+    @IBOutlet weak var servicesView: UIView!
+    var selectedBusiness:String!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        servicesView.isHidden=true
         ref = Database.database().reference()
         self.pickerView.isHidden=true;
         self.pickerView.dataSource = self;
@@ -40,15 +48,41 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return businessData.count
-    }
+        if tableView==tableVIew {
+            return businessData.count}
+        if tableView==tableViewServices
+        {
+            return servicesData.count
+        }
+        return 1    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell=tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableCell else{return UITableViewCell()}
-        cell.nameLbl.text=businessData[indexPath.row].name
-        cell.addressLbl.text=businessData[indexPath.row].address
-        cell.categoryLbl.text=businessData[indexPath.row].category
+        var cell:UITableViewCell!
+        
+        if tableView==tableVIew
+        {
+            guard let tablecell=tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableCell else{return UITableViewCell()}
+            tablecell.nameLbl.text=businessData[indexPath.row].name
+            tablecell.addressLbl.text=businessData[indexPath.row].address
+            tablecell.categoryLbl.text=businessData[indexPath.row].category
+            tablecell.key=businessData[indexPath.row].key
+            return tablecell
+        }
+        if tableView==tableViewServices
+        {
+            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+            cell.textLabel?.text = servicesData[indexPath.row].nameOfService+" "+servicesData[indexPath.row].duration
+            return cell
+        }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView==tableVIew
+        {
+            let currentCell = tableView.cellForRow(at: indexPath) as! TableCell
+            selectedBusiness=currentCell.key
+        }
     }
     
 
@@ -88,8 +122,30 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
         return 1
     }
     
+    
+    @IBAction func nextPressed(_ sender: Any) {
+        if selectedBusiness.isEmpty==false
+        {
+            searchBusinessView.isHidden=true
+            servicesView.isHidden=false
+            let qref=ref.child("services")
+            qref.child(selectedBusiness).observe(DataEventType.value, with: { (snapshot) in
+                print("SERVICES SNAPSHOT")
+                print(snapshot)
+                for service in snapshot.children
+                {
+                    let serviceObject=Service(snapshot: service as! DataSnapshot)
+                    self.servicesData.append(serviceObject)
+                }
+                self.tableViewServices.reloadData()
+            })
+        }
+    }
+    
     /*
      
+     @IBAction func nextPressed(_ sender: Any) {
+     }
      
     // MARK: - Navigation
 

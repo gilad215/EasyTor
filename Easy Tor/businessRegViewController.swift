@@ -50,14 +50,14 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
         let currentUser=Auth.auth().currentUser
         if (nameOfService != nil) && (duration != nil){
             let service = Service(nameOfService: nameOfService.text!, duration: duration.text!)
-            let serviceRef=self.ref.child("users").child("business").child((currentUser?.uid)!).child("services").child((nameOfService.text?.lowercased())!)
+            let serviceRef=self.ref.child("services").child((currentUser?.uid)!).child((nameOfService.text?.lowercased())!)
             serviceRef.setValue(service.toAnyObject())
         }
     }
     
     func startObserving(){
         let currentUser=Auth.auth().currentUser
-        let serviceRef=ref.child("users").child("business").child((currentUser?.uid)!).child("services").observe(DataEventType.value) { (snapshot) in
+        let serviceRef=ref.child("services").child((currentUser?.uid)!).observe(DataEventType.value) { (snapshot) in
             self.listOfServices.removeAll()
             for service in snapshot.children
             {

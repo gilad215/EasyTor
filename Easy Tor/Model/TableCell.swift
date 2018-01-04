@@ -13,6 +13,7 @@ class TableCell: UITableViewCell {
     @IBOutlet var addressLbl: UILabel!
     @IBOutlet var nameLbl: UILabel!
     @IBOutlet var categoryLbl: UILabel!
+    var key:String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
