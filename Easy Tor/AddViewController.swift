@@ -29,7 +29,8 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var searchBusinessView: UIView!
     @IBOutlet weak var servicesView: UIView!
     var selectedBusiness:String!
-
+    @IBOutlet weak var selectedBusinessName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         servicesView.isHidden=true
@@ -82,6 +83,7 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
         {
             let currentCell = tableView.cellForRow(at: indexPath) as! TableCell
             selectedBusiness=currentCell.key
+            selectedBusinessName.text=currentCell.nameLbl.text
         }
     }
     

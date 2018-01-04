@@ -49,9 +49,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func RegisterPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let RegVC = storyboard.instantiateViewController(withIdentifier: "RegVC") as! UIViewController
+        let navVC = storyboard.instantiateViewController(withIdentifier: "navVC") as! UINavigationController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController=RegVC
+        appDelegate.window?.rootViewController=navVC
         
     }
     /*
