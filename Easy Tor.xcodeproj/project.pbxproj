@@ -8,21 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0ED24EDE03D258C1BAFE0B9F /* Pods_Easy_Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */; };
-		9537A3C21FFB7E0700161656 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537A3C11FFB7E0700161656 /* SearchViewController.swift */; };
 		9537A3C51FFB7FFB00161656 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537A3C41FFB7FFB00161656 /* Business.swift */; };
 		9537A3C71FFB85DB00161656 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537A3C61FFB85DB00161656 /* TableCell.swift */; };
 		9537A3CB1FFBB9F600161656 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537A3CA1FFBB9F600161656 /* CameraHandler.swift */; };
-		955ED8431FFA23180099D62C /* businessRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED8421FFA23180099D62C /* businessRegViewController.swift */; };
 		955ED8451FFA23ED0099D62C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED8441FFA23ED0099D62C /* Service.swift */; };
-		955ED8471FFA539D0099D62C /* OpeningHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED8461FFA539D0099D62C /* OpeningHoursViewController.swift */; };
-		955ED84B1FFCFDEF0099D62C /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955ED84A1FFCFDEF0099D62C /* AddViewController.swift */; };
-		956DE9E21FF52F1500D11C89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956DE9E11FF52F1500D11C89 /* LoginViewController.swift */; };
-		95ABC5211FEA966900B70325 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABC5201FEA966900B70325 /* AppDelegate.swift */; };
-		95ABC5231FEA966900B70325 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ABC5221FEA966900B70325 /* FirstViewController.swift */; };
-		95ABC5281FEA966A00B70325 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC5261FEA966A00B70325 /* Main.storyboard */; };
+		95980DDD1FFFAB5100B23810 /* ChooseServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DD41FFFAB5100B23810 /* ChooseServicesViewController.swift */; };
+		95980DDE1FFFAB5100B23810 /* businessRegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DD51FFFAB5100B23810 /* businessRegViewController.swift */; };
+		95980DDF1FFFAB5100B23810 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DD61FFFAB5100B23810 /* FirstViewController.swift */; };
+		95980DE01FFFAB5100B23810 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DD71FFFAB5100B23810 /* SearchViewController.swift */; };
+		95980DE11FFFAB5100B23810 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DD81FFFAB5100B23810 /* AddViewController.swift */; };
+		95980DE21FFFAB5100B23810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DD91FFFAB5100B23810 /* AppDelegate.swift */; };
+		95980DE31FFFAB5100B23810 /* OpeningHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */; };
+		95980DE41FFFAB5100B23810 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */; };
+		95980DE51FFFAB5100B23810 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DDC1FFFAB5100B23810 /* LoginViewController.swift */; };
+		95980DEB1FFFAB7200B23810 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95980DE71FFFAB7200B23810 /* Main.storyboard */; };
+		95980DEC1FFFAB7200B23810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95980DE91FFFAB7200B23810 /* LaunchScreen.storyboard */; };
 		95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC5291FEA966A00B70325 /* Assets.xcassets */; };
-		95ABC52D1FEA966A00B70325 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC52B1FEA966A00B70325 /* LaunchScreen.storyboard */; };
-		95E3B3E11FF7B7F8008B7CB9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3B3E01FF7B7F8008B7CB9 /* RegisterViewController.swift */; };
 		95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3B3E21FF7CFB6008B7CB9 /* Event.swift */; };
 		95EFD7751FEBB2E100555ADC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -31,23 +32,24 @@
 		0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easy_Tor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		296757946CD71CDD92BFE0C1 /* Pods-Easy Tor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy Tor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor.release.xcconfig"; sourceTree = "<group>"; };
 		7B2ACEA33D5598C05FC3AC31 /* Pods-Easy Tor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy Tor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor.debug.xcconfig"; sourceTree = "<group>"; };
-		9537A3C11FFB7E0700161656 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9537A3C41FFB7FFB00161656 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		9537A3C61FFB85DB00161656 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		9537A3CA1FFBB9F600161656 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
-		955ED8421FFA23180099D62C /* businessRegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = businessRegViewController.swift; sourceTree = "<group>"; };
 		955ED8441FFA23ED0099D62C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		955ED8461FFA539D0099D62C /* OpeningHoursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningHoursViewController.swift; sourceTree = "<group>"; };
-		955ED84A1FFCFDEF0099D62C /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		956DE9E11FF52F1500D11C89 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		95980DD41FFFAB5100B23810 /* ChooseServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseServicesViewController.swift; path = "Easy Tor/Controller/ChooseServicesViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DD51FFFAB5100B23810 /* businessRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = businessRegViewController.swift; path = "Easy Tor/Controller/businessRegViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DD61FFFAB5100B23810 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = "Easy Tor/Controller/FirstViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DD71FFFAB5100B23810 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Easy Tor/Controller/SearchViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DD81FFFAB5100B23810 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = "Easy Tor/Controller/AddViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DD91FFFAB5100B23810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Easy Tor/Controller/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpeningHoursViewController.swift; path = "Easy Tor/Controller/OpeningHoursViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Easy Tor/Controller/RegisterViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DDC1FFFAB5100B23810 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Easy Tor/Controller/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DE81FFFAB7200B23810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Easy Tor/View/Base.lproj/Main.storyboard"; sourceTree = SOURCE_ROOT; };
+		95980DEA1FFFAB7200B23810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Easy Tor/View/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		95ABC51D1FEA966900B70325 /* Easy Tor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Tor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		95ABC5201FEA966900B70325 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95ABC5221FEA966900B70325 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		95ABC5271FEA966A00B70325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95ABC5291FEA966A00B70325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		95ABC52C1FEA966A00B70325 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95ABC52E1FEA966A00B70325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95E3B3E01FF7B7F8008B7CB9 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		95E3B3E21FF7CFB6008B7CB9 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +95,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		95980DD31FFFAB4700B23810 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				95980DD81FFFAB5100B23810 /* AddViewController.swift */,
+				95980DD91FFFAB5100B23810 /* AppDelegate.swift */,
+				95980DD51FFFAB5100B23810 /* businessRegViewController.swift */,
+				95980DD41FFFAB5100B23810 /* ChooseServicesViewController.swift */,
+				95980DD61FFFAB5100B23810 /* FirstViewController.swift */,
+				95980DDC1FFFAB5100B23810 /* LoginViewController.swift */,
+				95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */,
+				95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */,
+				95980DD71FFFAB5100B23810 /* SearchViewController.swift */,
+			);
+			name = Controller;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		95980DE61FFFAB6300B23810 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95980DE91FFFAB7200B23810 /* LaunchScreen.storyboard */,
+				95980DE71FFFAB7200B23810 /* Main.storyboard */,
+			);
+			name = View;
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
 		95ABC5141FEA966900B70325 = {
 			isa = PBXGroup;
 			children = (
@@ -115,19 +144,11 @@
 			isa = PBXGroup;
 			children = (
 				9537A3C31FFB7FBD00161656 /* Model */,
-				95ABC5201FEA966900B70325 /* AppDelegate.swift */,
-				95ABC5221FEA966900B70325 /* FirstViewController.swift */,
-				956DE9E11FF52F1500D11C89 /* LoginViewController.swift */,
-				95E3B3E01FF7B7F8008B7CB9 /* RegisterViewController.swift */,
-				955ED8421FFA23180099D62C /* businessRegViewController.swift */,
-				955ED8461FFA539D0099D62C /* OpeningHoursViewController.swift */,
-				9537A3C11FFB7E0700161656 /* SearchViewController.swift */,
-				955ED84A1FFCFDEF0099D62C /* AddViewController.swift */,
-				95ABC5261FEA966A00B70325 /* Main.storyboard */,
+				95980DD31FFFAB4700B23810 /* Controller */,
 				95ABC5291FEA966A00B70325 /* Assets.xcassets */,
-				95ABC52B1FEA966A00B70325 /* LaunchScreen.storyboard */,
 				95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */,
 				95ABC52E1FEA966A00B70325 /* Info.plist */,
+				95980DE61FFFAB6300B23810 /* View */,
 			);
 			path = "Easy Tor";
 			sourceTree = "<group>";
@@ -194,10 +215,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95ABC52D1FEA966A00B70325 /* LaunchScreen.storyboard in Resources */,
+				95980DEB1FFFAB7200B23810 /* Main.storyboard in Resources */,
+				95980DEC1FFFAB7200B23810 /* LaunchScreen.storyboard in Resources */,
 				95EFD7751FEBB2E100555ADC /* GoogleService-Info.plist in Resources */,
 				95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */,
-				95ABC5281FEA966A00B70325 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,18 +289,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				956DE9E21FF52F1500D11C89 /* LoginViewController.swift in Sources */,
+				95980DDE1FFFAB5100B23810 /* businessRegViewController.swift in Sources */,
+				95980DE01FFFAB5100B23810 /* SearchViewController.swift in Sources */,
+				95980DE11FFFAB5100B23810 /* AddViewController.swift in Sources */,
 				955ED8451FFA23ED0099D62C /* Service.swift in Sources */,
-				95E3B3E11FF7B7F8008B7CB9 /* RegisterViewController.swift in Sources */,
 				9537A3C51FFB7FFB00161656 /* Business.swift in Sources */,
-				9537A3C21FFB7E0700161656 /* SearchViewController.swift in Sources */,
-				95ABC5211FEA966900B70325 /* AppDelegate.swift in Sources */,
-				955ED8431FFA23180099D62C /* businessRegViewController.swift in Sources */,
+				95980DE41FFFAB5100B23810 /* RegisterViewController.swift in Sources */,
 				9537A3C71FFB85DB00161656 /* TableCell.swift in Sources */,
-				95ABC5231FEA966900B70325 /* FirstViewController.swift in Sources */,
+				95980DDF1FFFAB5100B23810 /* FirstViewController.swift in Sources */,
+				95980DE31FFFAB5100B23810 /* OpeningHoursViewController.swift in Sources */,
+				95980DE21FFFAB5100B23810 /* AppDelegate.swift in Sources */,
+				95980DE51FFFAB5100B23810 /* LoginViewController.swift in Sources */,
+				95980DDD1FFFAB5100B23810 /* ChooseServicesViewController.swift in Sources */,
 				9537A3CB1FFBB9F600161656 /* CameraHandler.swift in Sources */,
-				955ED8471FFA539D0099D62C /* OpeningHoursViewController.swift in Sources */,
-				955ED84B1FFCFDEF0099D62C /* AddViewController.swift in Sources */,
 				95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,18 +309,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		95ABC5261FEA966A00B70325 /* Main.storyboard */ = {
+		95980DE71FFFAB7200B23810 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				95ABC5271FEA966A00B70325 /* Base */,
+				95980DE81FFFAB7200B23810 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		95ABC52B1FEA966A00B70325 /* LaunchScreen.storyboard */ = {
+		95980DE91FFFAB7200B23810 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				95ABC52C1FEA966A00B70325 /* Base */,
+				95980DEA1FFFAB7200B23810 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
