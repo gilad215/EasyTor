@@ -108,8 +108,7 @@
 				95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */,
 				95980DD71FFFAB5100B23810 /* SearchViewController.swift */,
 			);
-			name = Controller;
-			path = "New Group";
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		95980DE61FFFAB6300B23810 /* View */ = {
@@ -118,8 +117,7 @@
 				95980DE91FFFAB7200B23810 /* LaunchScreen.storyboard */,
 				95980DE71FFFAB7200B23810 /* Main.storyboard */,
 			);
-			name = View;
-			path = "New Group1";
+			path = View;
 			sourceTree = "<group>";
 		};
 		95ABC5141FEA966900B70325 = {

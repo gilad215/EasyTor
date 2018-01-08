@@ -52,6 +52,10 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
         self.picker.dataSource = self;
         self.picker.delegate = self;
         pickerData = ["Category","Clinic", "Personal Trainer", "Beauty Salon", "Barbershop", "Teacher", "Counselor"]
+        categoryBtn.backgroundColor = .clear
+        categoryBtn.layer.cornerRadius = 5
+        categoryBtn.layer.borderWidth = 1
+        categoryBtn.layer.borderColor = UIColor.gray.cgColor
         
         // Do any additional setup after loading the view.
     }

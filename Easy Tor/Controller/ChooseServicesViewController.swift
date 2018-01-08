@@ -46,6 +46,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let currentCell = tableView.cellForRow(at: indexPath) as! UITableViewCell
             serviceLabel.text="Schedule the Service: "+(currentCell.textLabel?.text)!
+            selectedService=currentCell.textLabel?.text
     }
 
     
@@ -70,17 +71,15 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     func getOpenDays()
     {
         let qref=ref.child("openhours").child(businessUid!).observe(DataEventType.value) { (snapshot) in
-            print(snapshot)
             for var i in (0..<self.openDays.count)
             {
-                print("checking to see:")
-                print(self.openDays[i])
                 if snapshot.hasChild(self.openDays[i])
                 {
+                    print("found day",self.openDays[i])
                     self.openDays[i]="1"
                 }
             }
+            print(self.openDays)
         }
-        print(self.openDays)
     }
 }
