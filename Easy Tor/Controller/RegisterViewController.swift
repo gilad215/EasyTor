@@ -37,6 +37,7 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var clientMAil: UITextField!
     @IBOutlet weak var clientPwd: UITextField!
     
+
     
     
     var ref: DatabaseReference!
