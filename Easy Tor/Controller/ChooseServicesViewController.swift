@@ -13,12 +13,12 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
 
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var selectDateBtn: UIButton!
     @IBOutlet weak var navbarItem: UINavigationItem!
     @IBOutlet weak var serviceLabel: UILabel!
     @IBOutlet weak var selectTimeBtn: UIButton!
     @IBOutlet weak var dateTimePicker: UIPickerView!
+    @IBOutlet weak var timePicker: UIPickerView!
     //date
     let date=Date()
     var calendar = Calendar.current
@@ -30,6 +30,10 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     var openDays=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
     var filteredOpenDays:[Int] = [Int]()
     var filteredDaysString:[String] = [String]()
+    var openDaysFinal:[String] = [String]()
+    
+    var availableHours:[String] = [String]()
+    
     var selectedService:String?
 
     
@@ -38,8 +42,11 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         ref = Database.database().reference()
         getOpenDays()
         dateTimePicker.isHidden=true
+        timePicker.isHidden=true
         self.dateTimePicker.dataSource = self;
         self.dateTimePicker.delegate = self;
+        self.timePicker.delegate = self;
+        self.timePicker.dataSource = self;
         let compontents = Calendar.current.dateComponents([.month,.day], from: date)
         navbarItem.title="Choose a Service"
         selectTimeBtn.isHidden=true
@@ -82,6 +89,58 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
 
+    func setSchedule()
+    {
+        var open:String?
+        var close:String?
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let startdate = dateFormatter.date(from: open as! String)
+        var finalDate = dateFormatter.date(from: close as! String)
+        let date = calendar.date(byAdding: .minute, value: 30, to: startdate!)
+        let comp = calendar.dateComponents([.hour, .minute], from: date!)
+        let hour = comp.hour
+        let minute = comp.minute
+
+        let qref=ref.child("services").child(businessUid!)
+        for day in openDaysFinal
+            {
+                
+                open=ref.child("openhours").child(businessUid!).child(day.lowercased()).value(forKey: "open") as? String
+                close=ref.child("openhours").child(businessUid!).child(day.lowercased()).value(forKey: "close") as? String
+                
+                for service in servicesData
+                {
+                    for dayDate in filteredDaysString
+                    {
+                        let dref=qref.child(service.nameOfService).child(dayDate)
+                        let finalHour = calendar.dateComponents([.hour, .minute], from: finalDate!)
+                        let fhour=finalHour.hour?.description
+                        var fminute=finalHour.minute?.description
+                        if finalHour.minute!<10
+                        {
+                            fminute="0"+(finalHour.minute?.description)!
+                        }
+                        var finaltime = fhour!+":"+fminute!
+                        
+                        
+                        
+                        var advanceDate=startdate
+                        
+                        while finalDate!==advanceDate!
+                        {
+                            
+                            advanceDate = calendar.date(byAdding: .minute, value: Int(service.duration)!, to: startdate!)
+                        }
+                    }
+                }
+                
+                
+
+            }
+    }
+    
     func getOpenDays()
     {
         let qref=ref.child("openhours").child(businessUid!).observe(DataEventType.value) { (snapshot) in
@@ -107,9 +166,10 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                 print(openday)
                 let newdate=self.calendar.nextDate(after: self.date, matching: DateComponents(weekday:openday), matchingPolicy: .nextTime)
                 nextWeek=newdate
-                var dayInWeek=weekdayFormatter.string(from: newdate!)
-                var month = String(self.calendar.component(.month, from: newdate!))
-                var day = String(self.calendar.component(.day, from: newdate!))
+                let dayInWeek=weekdayFormatter.string(from: newdate!)
+                let month = String(self.calendar.component(.month, from: newdate!))
+                let day = String(self.calendar.component(.day, from: newdate!))
+                self.openDaysFinal.append(day)
                 let finalDate=dayInWeek+" "+day+"/"+month
                 week1.append(finalDate)
 
@@ -119,18 +179,15 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                 print(openday)
                 let newdate=self.calendar.nextDate(after: nextWeek!, matching: DateComponents(weekday:openday), matchingPolicy: .nextTime)
                 
-                var dayInWeek=weekdayFormatter.string(from: newdate!)
-                var month = String(self.calendar.component(.month, from: newdate!))
-                var day = String(self.calendar.component(.day, from: newdate!))
+                let dayInWeek=weekdayFormatter.string(from: newdate!)
+                let month = String(self.calendar.component(.month, from: newdate!))
+                let day = String(self.calendar.component(.day, from: newdate!))
                 let finalDate=dayInWeek+" "+day+"/"+month
                 week2.append(finalDate)
             }
             self.filteredDaysString.append(contentsOf: week1)
             self.filteredDaysString.append(contentsOf: week2)
             print(self.filteredDaysString)
-//            let weekafter=self.calendar.nextDate(after: newdate!, matching: DateComponents(weekday:openday), matchingPolicy: .nextTime)
-//            dayInWeek=weekdayFormatter.string(from: weekafter!)
-//            self.filteredDaysString.append(dayInWeek)
         }
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -138,26 +195,48 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return filteredDaysString.count
+        if pickerView==dateTimePicker
+        {return filteredDaysString.count}
+        else {return availableHours.count}
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView==dateTimePicker{
         selectDateBtn.setTitle(filteredDaysString[row], for:.normal)
         //category=pickerData[row]
         return filteredDaysString[row]
+        }
+        else{
+            selectTimeBtn.setTitle(availableHours[row], for: .normal)
+            return availableHours[row]
+        }
     }
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//
-//
-//        self.view.endEditing(false)
-//        dateTimePicker.selectRow(0, inComponent: 0, animated: true)
-//        dateTimePicker.reloadAllComponents();
-//
-//    }
 
+    
+    
     @IBAction func datePressed(_ sender: Any) {
-        dateTimePicker.isHidden=false
+        if dateTimePicker.isHidden==false
+        {
+            dateTimePicker.isHidden=true
+            selectTimeBtn.isHidden=false
+            
+        }
+        else
+        {
+            dateTimePicker.isHidden=false
+            selectTimeBtn.isHidden=true
+        }
+        
+        
         dateTimePicker.reloadAllComponents();
-
+        
+    }
+    
+    @IBAction func timePressed(_ sender: Any) {
+        if timePicker.isHidden==false{
+            timePicker.isHidden=true
+        }
+        else {timePicker.isHidden=false}
+        timePicker.reloadAllComponents()
         
     }
     

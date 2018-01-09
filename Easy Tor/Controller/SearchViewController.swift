@@ -45,6 +45,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentCell = tableView.cellForRow(at: indexPath) as! TableCell
+        
+    }
+    
     func searchBar(_ searchBar:UISearchBar,textDidChange searchText:String)
     {
         print("Searching for:"+searchText)

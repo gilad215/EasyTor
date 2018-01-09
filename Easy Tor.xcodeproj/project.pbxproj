@@ -21,9 +21,9 @@
 		95980DE31FFFAB5100B23810 /* OpeningHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */; };
 		95980DE41FFFAB5100B23810 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */; };
 		95980DE51FFFAB5100B23810 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DDC1FFFAB5100B23810 /* LoginViewController.swift */; };
-		95980DEB1FFFAB7200B23810 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95980DE71FFFAB7200B23810 /* Main.storyboard */; };
 		95980DEC1FFFAB7200B23810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95980DE91FFFAB7200B23810 /* LaunchScreen.storyboard */; };
 		95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC5291FEA966A00B70325 /* Assets.xcassets */; };
+		95CF35822004DEC300CFE4B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CF35802004DEC300CFE4B2 /* Main.storyboard */; };
 		95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3B3E21FF7CFB6008B7CB9 /* Event.swift */; };
 		95EFD7751FEBB2E100555ADC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -45,11 +45,11 @@
 		95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpeningHoursViewController.swift; path = "Easy Tor/Controller/OpeningHoursViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Easy Tor/Controller/RegisterViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DDC1FFFAB5100B23810 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Easy Tor/Controller/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
-		95980DE81FFFAB7200B23810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Easy Tor/View/Base.lproj/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		95980DEA1FFFAB7200B23810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Easy Tor/View/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		95ABC51D1FEA966900B70325 /* Easy Tor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Tor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95ABC5291FEA966A00B70325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95ABC52E1FEA966A00B70325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95CF35812004DEC300CFE4B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95E3B3E21FF7CFB6008B7CB9 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,8 +114,8 @@
 		95980DE61FFFAB6300B23810 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				95CF35802004DEC300CFE4B2 /* Main.storyboard */,
 				95980DE91FFFAB7200B23810 /* LaunchScreen.storyboard */,
-				95980DE71FFFAB7200B23810 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,10 +213,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95980DEB1FFFAB7200B23810 /* Main.storyboard in Resources */,
 				95980DEC1FFFAB7200B23810 /* LaunchScreen.storyboard in Resources */,
 				95EFD7751FEBB2E100555ADC /* GoogleService-Info.plist in Resources */,
 				95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */,
+				95CF35822004DEC300CFE4B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,20 +307,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		95980DE71FFFAB7200B23810 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				95980DE81FFFAB7200B23810 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		95980DE91FFFAB7200B23810 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				95980DEA1FFFAB7200B23810 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		95CF35802004DEC300CFE4B2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95CF35812004DEC300CFE4B2 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
