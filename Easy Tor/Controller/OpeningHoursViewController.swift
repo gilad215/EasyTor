@@ -177,38 +177,37 @@ class OpeningHoursViewController: UIViewController {
         
         if sunday_switch.isOn
         {
-            dateRef.child("sunday").child("open").setValue(sunday_open.title(for: .normal))
-            dateRef.child("sunday").child("closed").setValue(sunday_closed.title(for: .normal))
+            dateRef.child("sunday").setValue(["open":sunday_open.title(for:.normal),"closed":sunday_closed.title(for: .normal)])
         }
         if monday_switch.isOn
         {
-            dateRef.child("monday").child("open").setValue(monday_open.title(for: .normal))
-            dateRef.child("monday").child("closed").setValue(monday_closed.title(for: .normal))
+            dateRef.child("monday").setValue(["open":monday_open.title(for:.normal),"closed":monday_closed.title(for: .normal)])
+
         }
         if tuesday_switch.isOn
         {
-            dateRef.child("tuesday").child("open").setValue(tuesday_open.title(for: .normal))
-            dateRef.child("tuesday").child("closed").setValue(tuesday_closed.title(for: .normal))
+            dateRef.child("tuesday").setValue(["open":tuesday_open.title(for:.normal),"closed":tuesday_closed.title(for: .normal)])
+
         }
         if wednesday_switch.isOn
         {
-            dateRef.child("wednesday").child("open").setValue(wednesday_open.title(for: .normal))
-            dateRef.child("wednesday").child("closed").setValue(wednesday_closed.title(for: .normal))
+            dateRef.child("wednesday").setValue(["open":wednesday_open.title(for:.normal),"closed":wednesday_closed.title(for: .normal)])
+
         }
         if thursday_switch.isOn
         {
-            dateRef.child("thursday").child("open").setValue(thursday_open.title(for: .normal))
-            dateRef.child("thursday").child("closed").setValue(thursday_closed.title(for: .normal))
+            dateRef.child("thursday").setValue(["open":thursday_open.title(for:.normal),"closed":thursday_closed.title(for: .normal)])
+
         }
         if friday_switch.isOn
         {
-            dateRef.child("friday").child("open").setValue(friday_open.title(for: .normal))
-            dateRef.child("friday").child("closed").setValue(friday_closed.title(for: .normal))
+            dateRef.child("friday").setValue(["open":friday_open.title(for:.normal),"closed":friday_closed.title(for: .normal)])
+
         }
         if saturday_switch.isOn
         {
-            dateRef.child("saturday").child("open").setValue(saturday_open.title(for: .normal))
-            dateRef.child("saturday").child("closed").setValue(saturday_closed.title(for: .normal))
+            dateRef.child("saturday").setValue(["open":saturday_open.title(for:.normal),"closed":saturday_closed.title(for: .normal)])
+
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UIViewController

@@ -51,7 +51,6 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         navbarItem.title="Choose a Service"
         selectTimeBtn.isHidden=true
         formatter.dateFormat = "MM-dd"
-        loadTable()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,65 +78,88 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     func loadTable()
     {
         ref.child("services").child(businessUid!).observe(DataEventType.value) { (snapshot) in
-            self.servicesData.removeAll()
             for service in snapshot.children
             {
                 let serviceObject=Service(snapshot:service as! DataSnapshot)
                 self.servicesData.append(serviceObject)
             }
             self.tableView.reloadData()
+            self.setSchedule()
         }
     }
 
     func setSchedule()
     {
+
         var open:String?
         var close:String?
-        
+        var startdate:Date?
+        var finalDate:Date?
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let startdate = dateFormatter.date(from: open as! String)
-        var finalDate = dateFormatter.date(from: close as! String)
-        let date = calendar.date(byAdding: .minute, value: 30, to: startdate!)
-        let comp = calendar.dateComponents([.hour, .minute], from: date!)
-        let hour = comp.hour
-        let minute = comp.minute
-
+        
+        let weekdayFormatter=DateFormatter()
+        weekdayFormatter.dateFormat="EEEE"
+        for openday in self.filteredOpenDays
+        {
+            let newdate=self.calendar.nextDate(after: self.date, matching: DateComponents(weekday:openday), matchingPolicy: .nextTime)
+            let dayInWeek=weekdayFormatter.string(from: newdate!)
+            self.openDaysFinal.append(dayInWeek)
+        }
+            
         let qref=ref.child("services").child(businessUid!)
+        print("DAYS COUNT")
+        print(openDaysFinal.count)
         for day in openDaysFinal
             {
-                
-                open=ref.child("openhours").child(businessUid!).child(day.lowercased()).value(forKey: "open") as? String
-                close=ref.child("openhours").child(businessUid!).child(day.lowercased()).value(forKey: "close") as? String
-                
-                for service in servicesData
-                {
-                    for dayDate in filteredDaysString
+                let lowercasedDay=day.lowercased()
+                print("DAY:")
+                print(day.lowercased())
+                print("~~~~~~~~~")
+                //print(ref.child("openhours").child(businessUid!).child(day.lowercased()).description())
+                let openref=ref.child("openhours").child(businessUid!).child(lowercasedDay).observeSingleEvent(of: .value, with: { (snapshot) in
+                    print("HELLLO")
+                    print(snapshot)
+                    let value = snapshot.value as? NSDictionary
+                    open = value?["open"] as? String ?? ""
+                    close = value?["closed"] as? String ?? ""
+                    startdate = dateFormatter.date(from: open as! String)
+                    finalDate = dateFormatter.date(from: close as! String)
+                    print("DATES")
+                    print(startdate?.description)
+                    print(finalDate?.description)
+                    for service in self.servicesData
                     {
-                        let dref=qref.child(service.nameOfService).child(dayDate)
-                        let finalHour = calendar.dateComponents([.hour, .minute], from: finalDate!)
-                        let fhour=finalHour.hour?.description
-                        var fminute=finalHour.minute?.description
-                        if finalHour.minute!<10
+                        for dayDate in self.filteredDaysString
                         {
-                            fminute="0"+(finalHour.minute?.description)!
-                        }
-                        var finaltime = fhour!+":"+fminute!
-                        
-                        
-                        
-                        var advanceDate=startdate
-                        
-                        while finalDate!==advanceDate!
-                        {
+                            print(dayDate)
+                            let dref=qref.child(service.nameOfService).child(dayDate)
                             
-                            advanceDate = calendar.date(byAdding: .minute, value: Int(service.duration)!, to: startdate!)
+                            var advanceDate=startdate;
+                            while advanceDate != finalDate!
+                            {
+                                print("INSIDE WHILE BOY")
+                                let start = self.calendar.dateComponents([.hour, .minute], from: advanceDate!)
+                                let shour = start.hour?.description
+                                let sminute = start.minute?.description
+                                let now=shour!+":"+sminute!
+                                print(now)
+                                advanceDate = self.calendar.date(byAdding: .minute, value: Int(service.duration)!, to: advanceDate!)
+                                
+                                let end = self.calendar.dateComponents([.hour, .minute], from: advanceDate!)
+                                let hour = end.hour?.description
+                                let minute = end.minute?.description
+                                
+                                let time = shour!+":"+sminute!+"-"+hour!
+                                let finaltime=time+":"+minute!
+                                print("INSERTING NODE")
+                                print(finaltime)
+                                dref.child(finaltime)
+                            }
                         }
                     }
-                }
+                })
                 
-                
-
             }
     }
     
@@ -169,7 +191,6 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                 let dayInWeek=weekdayFormatter.string(from: newdate!)
                 let month = String(self.calendar.component(.month, from: newdate!))
                 let day = String(self.calendar.component(.day, from: newdate!))
-                self.openDaysFinal.append(day)
                 let finalDate=dayInWeek+" "+day+"/"+month
                 week1.append(finalDate)
 
@@ -187,7 +208,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
             }
             self.filteredDaysString.append(contentsOf: week1)
             self.filteredDaysString.append(contentsOf: week2)
-            print(self.filteredDaysString)
+            self.loadTable()
         }
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
