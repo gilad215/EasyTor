@@ -233,8 +233,16 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView==dateTimePicker
-        {return filteredDaysString.count}
-        else {return availableHours.count}
+        {
+            return filteredDaysString.count
+            
+        }
+        if pickerView==timePicker
+        {
+            return availableHours.count
+            
+        }
+        return 0
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView==dateTimePicker{
@@ -242,10 +250,11 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         //category=pickerData[row]
         return filteredDaysString[row]
         }
-        else{
+        if pickerView==timePicker{
             selectTimeBtn.setTitle(availableHours[row], for: .normal)
             return availableHours[row]
         }
+        return nil
     }
 
     
@@ -260,7 +269,6 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         else
         {
             dateTimePicker.isHidden=false
-            selectTimeBtn.isHidden=true
         }
         
         
@@ -273,7 +281,22 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
             timePicker.isHidden=true
         }
         else {timePicker.isHidden=false}
-        timePicker.reloadAllComponents()
+        let houRef=ref.child("availablehours").child(businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).observe(.value) { (snapshot) in
+            self.availableHours.removeAll()
+            for time in snapshot.children
+            {
+                
+                let valuer = time as! DataSnapshot
+                let dictionary=valuer.value as? NSDictionary
+                let timer = dictionary?["time"] as? String ?? ""
+                self.availableHours.append(timer)
+                
+            }
+            print("~~~~~~~~~")
+            print(self.availableHours.count)
+            self.timePicker.reloadAllComponents()
+        }
+        self.timePicker.reloadAllComponents()
         
     }
     
