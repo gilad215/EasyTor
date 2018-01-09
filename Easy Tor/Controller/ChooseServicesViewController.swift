@@ -132,6 +132,8 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                     {
                         for dayDate in self.filteredDaysString
                         {
+                            if (dayDate.range(of: day) != nil)
+                            {
                             print(dayDate)
                             
                             var advanceDate=startdate;
@@ -170,6 +172,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                             self.ref.child("availablehours").child(self.businessUid!).child("services").child(service.nameOfService).child(dayDate).child(finaltime).setValue(["time":finaltime])
                             }
                         }
+                    }
                     }
                 })
                 
