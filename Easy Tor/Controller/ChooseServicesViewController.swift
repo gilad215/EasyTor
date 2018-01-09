@@ -133,7 +133,6 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                         for dayDate in self.filteredDaysString
                         {
                             print(dayDate)
-                            let dref=qref.child(service.nameOfService).child(dayDate)
                             
                             var advanceDate=startdate;
                             while advanceDate != finalDate!
@@ -141,20 +140,34 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                                 print("INSIDE WHILE BOY")
                                 let start = self.calendar.dateComponents([.hour, .minute], from: advanceDate!)
                                 let shour = start.hour?.description
-                                let sminute = start.minute?.description
-                                let now=shour!+":"+sminute!
+                                let sminute = start.minute
+                                var sminutestring:String?
+                                if sminute!<10
+                                {
+                                    sminutestring="0"+(sminute?.description)!
+                                }
+                                else {sminutestring=sminute?.description}
+                                
+                                let now=shour!+":"+sminutestring!
                                 print(now)
                                 advanceDate = self.calendar.date(byAdding: .minute, value: Int(service.duration)!, to: advanceDate!)
                                 
                                 let end = self.calendar.dateComponents([.hour, .minute], from: advanceDate!)
                                 let hour = end.hour?.description
-                                let minute = end.minute?.description
+                                let minute = end.minute
+                                var minutestring:String?
+                                if minute!<10
+                                {
+                                    minutestring="0"+(minute?.description)!
+                                }
+                                else {minutestring=minute?.description}
                                 
-                                let time = shour!+":"+sminute!+"-"+hour!
-                                let finaltime=time+":"+minute!
+                                let time = shour!+":"+sminutestring!+"-"+hour!
+                                let finaltime=time+":"+minutestring!
                                 print("INSERTING NODE")
                                 print(finaltime)
-                                dref.child(finaltime)
+                                print(dayDate)
+                            self.ref.child("availablehours").child(self.businessUid!).child("services").child(service.nameOfService).child(dayDate).child(finaltime).setValue(["time":finaltime])
                             }
                         }
                     }
@@ -191,7 +204,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                 let dayInWeek=weekdayFormatter.string(from: newdate!)
                 let month = String(self.calendar.component(.month, from: newdate!))
                 let day = String(self.calendar.component(.day, from: newdate!))
-                let finalDate=dayInWeek+" "+day+"/"+month
+                let finalDate=dayInWeek+" "+day+"-"+month
                 week1.append(finalDate)
 
             }
@@ -203,7 +216,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                 let dayInWeek=weekdayFormatter.string(from: newdate!)
                 let month = String(self.calendar.component(.month, from: newdate!))
                 let day = String(self.calendar.component(.day, from: newdate!))
-                let finalDate=dayInWeek+" "+day+"/"+month
+                let finalDate=dayInWeek+" "+day+"-"+month
                 week2.append(finalDate)
             }
             self.filteredDaysString.append(contentsOf: week1)
