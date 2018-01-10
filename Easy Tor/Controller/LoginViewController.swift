@@ -8,17 +8,19 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var EmailTxt: UITextField!
     @IBOutlet weak var PwdTxt: UITextField!
-    
+    var ref: DatabaseReference! = nil
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
 
@@ -35,10 +37,25 @@ class LoginViewController: UIViewController {
                 print("Login success!")
                 if Auth.auth().currentUser != nil {
                     print((Auth.auth().currentUser?.email)!+" is logged in!\nMoving to the tab view..")
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UITabBarController
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.window?.rootViewController=tabVC
+                    
+                    self.ref.child("users").child("business").observeSingleEvent(of: .value, with: { (snapshot) in
+                        if snapshot.hasChild((Auth.auth().currentUser?.uid)!)
+                        {
+                            print("BUSINESS LOGGED")
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let tabVC = storyboard.instantiateViewController(withIdentifier: "businessTabVC") as! UITabBarController
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.window?.rootViewController=tabVC
+                        }
+                        else{
+                            print("CLIENT LOGGED")
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UITabBarController
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.window?.rootViewController=tabVC
+                        }
+                    })
+                    
                 } else {
                     print("No user")
                 }
