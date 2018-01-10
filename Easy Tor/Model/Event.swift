@@ -24,7 +24,8 @@ struct Event {
         self.service = service
         self.bid = bid
         self.cid = cid
-        self.date=date
+        self.date = date
+        self.time = time
         self.ref = Database.database().reference()
     }
     
@@ -34,20 +35,21 @@ struct Event {
         ref = snapshot.ref
         let value = snapshot.value as? NSDictionary
         
-        let event = value?["content"] as? String ?? ""
+        let service = value?["service"] as? String ?? ""
         let date = value?["date"] as? String ?? ""
-        let addedby = value?["addedByUser"] as? String ?? ""
-        
-        self.service=event
-        print("Content of event:"+self.service)
-        self.date=date
-        self.addedByUser=addedby
-        
-        
+        let bid = value?["bid"] as? String ?? ""
+        let cid = value?["cid"] as? String ?? ""
+        let time = value?["time"] as? String ?? ""
+
+        self.service=service
+        self.bid = bid
+        self.cid = cid
+        self.date = date
+        self.time = time
     }
     
     func toAnyObject() -> Any {
-        return ["content":service, "addedByUser":addedByUser]
+        return ["service":service, "bid":bid,"cid":cid,"date":date,"time":time]
 }
 }
 
