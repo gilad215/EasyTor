@@ -52,6 +52,7 @@ class BusinessServicesViewController: UIViewController,UITableViewDelegate, UITa
         ref.child("services").child((Auth.auth().currentUser?.uid)!).observe(.value) { (snapshot) in
             for service in snapshot.children
             {
+                self.servicesData.removeAll()
                 print(snapshot)
                 for service in snapshot.children
                 {
