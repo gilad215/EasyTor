@@ -88,8 +88,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             
             self.events=newEvents
             print("events size:",self.events.count);
-            self.event1.text=self.events[0].service+" "+self.events[0].date
-            self.event2.text=self.events[1].service+" "+self.events[1].date
+//            self.event1.text=self.events[0].service+" "+self.events[0].date
+//            self.event2.text=self.events[1].service+" "+self.events[1].date
 
 
 
@@ -147,20 +147,20 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         
     func downloadPic()
     {
-        ref.child("users").child("clients").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-            // check if user has photo
-            if snapshot.hasChild("userPhoto"){
-                // set image locatin
-                print("found pic!")
-                let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
-                // Assuming a < 10MB file, though you can change that
-                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
-                    print(data)
-                    let userPhoto = UIImage(data: data!)
-                    self.image.image = userPhoto
-                })
-            }
-        })
+//        ref.child("users").child("clients").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+//            // check if user has photo
+//            if snapshot.hasChild("userPhoto"){
+//                // set image locatin
+//                print("found pic!")
+//                let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
+//                // Assuming a < 10MB file, though you can change that
+//                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
+//                    print(data)
+//                    let userPhoto = UIImage(data: data!)
+//                    self.image.image = userPhoto
+//                })
+//            }
+//        })
         }
         
     

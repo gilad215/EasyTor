@@ -136,49 +136,56 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                         {
                             if (dayDate.range(of: day) != nil)
                             {
-                            print(dayDate)
-                            
-                            var advanceDate=startdate;
-                            while advanceDate != finalDate!
-                            {
-                                print("INSIDE WHILE BOY")
-                                let start = self.calendar.dateComponents([.hour, .minute], from: advanceDate!)
-                                let shour = start.hour?.description
-                                let sminute = start.minute
-                                var sminutestring:String?
-                                if sminute!<10
-                                {
-                                    sminutestring="0"+(sminute?.description)!
-                                }
-                                else {sminutestring=sminute?.description}
+                                self.ref.child("availablehours").child(self.businessUid!).child("services").child(service.nameOfService).observeSingleEvent(of: .value, with: { (snapshot) in
+                                    if !(snapshot.hasChild(dayDate))
+                                    {
                                 
-                                let now=shour!+":"+sminutestring!
-                                print(now)
-                                advanceDate = self.calendar.date(byAdding: .minute, value: Int(service.duration)!, to: advanceDate!)
-                                
-                                let end = self.calendar.dateComponents([.hour, .minute], from: advanceDate!)
-                                let hour = end.hour?.description
-                                let minute = end.minute
-                                var minutestring:String?
-                                if minute!<10
-                                {
-                                    minutestring="0"+(minute?.description)!
-                                }
-                                else {minutestring=minute?.description}
-                                
-                                let time = shour!+":"+sminutestring!+"-"+hour!
-                                let finaltime=time+":"+minutestring!
-                                print("INSERTING NODE")
-                                print(finaltime)
-                                print(dayDate)
-                            self.ref.child("availablehours").child(self.businessUid!).child("services").child(service.nameOfService).child(dayDate).child(finaltime).setValue(["time":finaltime])
-                            }
+                                        print(dayDate)
+                                        
+                                        var advanceDate=startdate;
+                                        while advanceDate != finalDate!
+                                        {
+                                            print("INSIDE WHILE BOY")
+                                            let start = self.calendar.dateComponents([.hour, .minute], from: advanceDate!)
+                                            let shour = start.hour?.description
+                                            let sminute = start.minute
+                                            var sminutestring:String?
+                                            if sminute!<10
+                                            {
+                                                sminutestring="0"+(sminute?.description)!
+                                            }
+                                            else {sminutestring=sminute?.description}
+                                            
+                                            let now=shour!+":"+sminutestring!
+                                            print(now)
+                                            advanceDate = self.calendar.date(byAdding: .minute, value: Int(service.duration)!, to: advanceDate!)
+                                            
+                                            let end = self.calendar.dateComponents([.hour, .minute], from: advanceDate!)
+                                            let hour = end.hour?.description
+                                            let minute = end.minute
+                                            var minutestring:String?
+                                            if minute!<10
+                                            {
+                                                minutestring="0"+(minute?.description)!
+                                            }
+                                            else {minutestring=minute?.description}
+                                            
+                                            let time = shour!+":"+sminutestring!+"-"+hour!
+                                            let finaltime=time+":"+minutestring!
+                                            print("INSERTING NODE")
+                                            print(finaltime)
+                                            print(dayDate)
+                                        self.ref.child("availablehours").child(self.businessUid!).child("services").child(service.nameOfService).child(dayDate).child(finaltime).setValue(["time":finaltime])
+                                        }
+                                        
+                                    }
+                            })
                         }
                     }
-                    }
-                })
-                
-            }
+                }
+            })
+            
+        }
     }
     
     func getOpenDays()
@@ -307,6 +314,16 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         let eref=ref.child("events").childByAutoId()
 
         eref.setValue(["service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"bid":businessUid!,"cid":Auth.auth().currentUser?.uid])
+        
+        self.ref.child("availablehours").child(self.businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).child((selectTimeBtn.titleLabel?.text)!).removeValue { (error, refer) in
+            if error != nil {
+                print(error)
+            } else {
+                print(refer)
+                print("Child Removed Correctly")
+        }
+        }
+    
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UIViewController
