@@ -15,15 +15,18 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
     
     @IBOutlet weak var nameOfService: UITextField!
     
-    @IBOutlet weak var duration: UITextField!
+    @IBOutlet weak var stepper: UIStepper!
     
+    @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
+    var duration=30
     var listOfServices = [Service] ()
     var ref: DatabaseReference! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        stepper.minimumValue=30
+        stepper.stepValue=30
         ref = Database.database().reference()
         startObserving()
         // Do any additional setup after loading the view.
@@ -48,8 +51,8 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
     
     @IBAction func onButtonPressed(_ sender: UIButton) {
         let currentUser=Auth.auth().currentUser
-        if (nameOfService != nil) && (duration != nil){
-            let service = Service(nameOfService: nameOfService.text!, duration: duration.text!)
+        if (nameOfService != nil){
+            let service = Service(nameOfService: nameOfService.text!, duration: durationLbl.text!)
             let serviceRef=self.ref.child("services").child((currentUser?.uid)!).child((nameOfService.text?.lowercased())!)
             serviceRef.setValue(service.toAnyObject())
         }
@@ -68,6 +71,11 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
             self.tableView.reloadData()
 
         }
+    }
+    
+
+    @IBAction func stepperChanged(_ sender: Any) {
+        durationLbl.text = Int(stepper.value).description
     }
     
     
