@@ -312,7 +312,6 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func pressedFinish(_ sender: Any)
     {
         let eref=ref.child("events").childByAutoId()
-
         eref.setValue(["service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"bid":businessUid!,"cid":Auth.auth().currentUser?.uid])
         
         self.ref.child("availablehours").child(self.businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).child((selectTimeBtn.titleLabel?.text)!).removeValue { (error, refer) in
@@ -323,8 +322,6 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                 print("Child Removed Correctly")
         }
         }
-    
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UIViewController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
