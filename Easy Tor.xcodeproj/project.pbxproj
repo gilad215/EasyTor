@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0ED24EDE03D258C1BAFE0B9F /* Pods_Easy_Tor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */; };
+		9536F29420064C9A00851E04 /* BusinessProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536F29320064C9A00851E04 /* BusinessProfileView.swift */; };
+		9536F2962006562F00851E04 /* BusinessServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536F2952006562F00851E04 /* BusinessServicesViewController.swift */; };
+		9536F2982006590B00851E04 /* ServiceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9536F2972006590B00851E04 /* ServiceTableCell.swift */; };
 		9537A3C51FFB7FFB00161656 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537A3C41FFB7FFB00161656 /* Business.swift */; };
 		9537A3C71FFB85DB00161656 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537A3C61FFB85DB00161656 /* TableCell.swift */; };
 		9537A3CB1FFBB9F600161656 /* CameraHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9537A3CA1FFBB9F600161656 /* CameraHandler.swift */; };
@@ -32,6 +35,9 @@
 		0DC772B4BDA8E03AB510F510 /* Pods_Easy_Tor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Easy_Tor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		296757946CD71CDD92BFE0C1 /* Pods-Easy Tor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy Tor.release.xcconfig"; path = "Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor.release.xcconfig"; sourceTree = "<group>"; };
 		7B2ACEA33D5598C05FC3AC31 /* Pods-Easy Tor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Easy Tor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor.debug.xcconfig"; sourceTree = "<group>"; };
+		9536F29320064C9A00851E04 /* BusinessProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessProfileView.swift; sourceTree = "<group>"; };
+		9536F2952006562F00851E04 /* BusinessServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessServicesViewController.swift; sourceTree = "<group>"; };
+		9536F2972006590B00851E04 /* ServiceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTableCell.swift; sourceTree = "<group>"; };
 		9537A3C41FFB7FFB00161656 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		9537A3C61FFB85DB00161656 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		9537A3CA1FFBB9F600161656 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
@@ -95,6 +101,15 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		9536F29220064C7D00851E04 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				9536F29320064C9A00851E04 /* BusinessProfileView.swift */,
+				9536F2952006562F00851E04 /* BusinessServicesViewController.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
 		9537A3C31FFB7FBD00161656 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +117,7 @@
 				955ED8441FFA23ED0099D62C /* Service.swift */,
 				9537A3C41FFB7FFB00161656 /* Business.swift */,
 				9537A3C61FFB85DB00161656 /* TableCell.swift */,
+				9536F2972006590B00851E04 /* ServiceTableCell.swift */,
 				9537A3CA1FFBB9F600161656 /* CameraHandler.swift */,
 			);
 			path = Model;
@@ -110,6 +126,7 @@
 		95980DD31FFFAB4700B23810 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9536F29220064C7D00851E04 /* Business */,
 				9536F2912006442500851E04 /* Client */,
 				95980DD91FFFAB5100B23810 /* AppDelegate.swift */,
 				95980DD51FFFAB5100B23810 /* businessRegViewController.swift */,
@@ -307,8 +324,11 @@
 				95980DE21FFFAB5100B23810 /* AppDelegate.swift in Sources */,
 				95980DE51FFFAB5100B23810 /* LoginViewController.swift in Sources */,
 				95980DDD1FFFAB5100B23810 /* ChooseServicesViewController.swift in Sources */,
+				9536F29420064C9A00851E04 /* BusinessProfileView.swift in Sources */,
 				9537A3CB1FFBB9F600161656 /* CameraHandler.swift in Sources */,
+				9536F2962006562F00851E04 /* BusinessServicesViewController.swift in Sources */,
 				95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */,
+				9536F2982006590B00851E04 /* ServiceTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
