@@ -12,15 +12,18 @@ import FirebaseDatabase
 struct Event {
     
     let key:String!
-    let content:String!
+    let service:String!
     let date:String!
-    let addedByUser:String!
+    let time:String!
+    let bid:String!
+    let cid:String!
     let ref: DatabaseReference!
     
-    init (content:String, addedByUser:String, key:String = "",date:String="") {
+    init (service:String, bid:String, key:String = "",cid:String,time:String,date:String="") {
         self.key = key
-        self.content = content
-        self.addedByUser = addedByUser
+        self.service = service
+        self.bid = bid
+        self.cid = cid
         self.date=date
         self.ref = Database.database().reference()
     }
@@ -35,8 +38,8 @@ struct Event {
         let date = value?["date"] as? String ?? ""
         let addedby = value?["addedByUser"] as? String ?? ""
         
-        self.content=event
-        print("Content of event:"+self.content)
+        self.service=event
+        print("Content of event:"+self.service)
         self.date=date
         self.addedByUser=addedby
         
@@ -44,7 +47,7 @@ struct Event {
     }
     
     func toAnyObject() -> Any {
-        return ["content":content, "addedByUser":addedByUser]
+        return ["content":service, "addedByUser":addedByUser]
 }
 }
 

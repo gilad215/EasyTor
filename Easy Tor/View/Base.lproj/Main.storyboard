@@ -826,7 +826,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2bE-lr-2Dl"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="qx4-Tx-L7Z"/>
+                    <navigationItem key="navigationItem" title="Title" id="qx4-Tx-L7Z">
+                        <barButtonItem key="rightBarButtonItem" title="Finish" id="xEE-aA-fmk">
+                            <connections>
+                                <action selector="pressedFinish:" destination="xZF-0Y-zWO" id="eNB-1v-u0S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateTimePicker" destination="1uW-mJ-b64" id="Vkk-gq-Sog"/>
                         <outlet property="navbarItem" destination="qx4-Tx-L7Z" id="bgQ-UK-EK6"/>

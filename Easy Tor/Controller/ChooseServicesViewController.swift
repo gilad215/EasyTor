@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UIPickerViewDataSource,UIPickerViewDelegate {
 
@@ -19,6 +20,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var selectTimeBtn: UIButton!
     @IBOutlet weak var dateTimePicker: UIPickerView!
     @IBOutlet weak var timePicker: UIPickerView!
+    
     //date
     let date=Date()
     var calendar = Calendar.current
@@ -300,5 +302,16 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    @IBAction func pressedFinish(_ sender: Any)
+    {
+        let eref=ref.child("events").childByAutoId()
+
+        eref.setValue(["service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"bid":businessUid!,"cid":Auth.auth().currentUser?.uid])
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController=tabVC
+    }
     
 }
