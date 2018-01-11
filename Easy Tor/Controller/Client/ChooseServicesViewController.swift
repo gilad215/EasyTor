@@ -27,6 +27,9 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     let formatter = DateFormatter()
     
     var businessUid:String?
+    var addedbyBusiness=false
+    var clientPhone:String?
+    var clientName:String?
     var ref: DatabaseReference! = nil
     var servicesData: [Service] = [Service]()
     var openDays=["sunday","monday","tuesday","wednesday","thursday","friday","saturday"]
@@ -311,6 +314,8 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func pressedFinish(_ sender: Any)
     {
+        if !(addedbyBusiness)
+        {
         let eref=ref.child("events").childByAutoId()
         eref.setValue(["service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"bid":businessUid!,"cid":Auth.auth().currentUser?.uid])
         
@@ -321,6 +326,20 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                 print(refer)
                 print("Child Removed Correctly")
         }
+        }
+        }
+        else
+        {
+            let eref=ref.child("eventsByBusiness").childByAutoId()
+            eref.setValue(["bid":businessUid!,"service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"cName":clientName!,"cPhone":clientPhone])
+            self.ref.child("availablehours").child(self.businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).child((selectTimeBtn.titleLabel?.text)!).removeValue { (error, refer) in
+                if error != nil {
+                    print(error)
+                } else {
+                    print(refer)
+                    print("Child Removed Correctly")
+                }
+            }
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UIViewController
