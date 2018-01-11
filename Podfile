@@ -7,6 +7,8 @@ target 'Easy Tor' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod 'JSQMessagesViewController'
+  
   use_frameworks!
 
   # Pods for Easy Tor

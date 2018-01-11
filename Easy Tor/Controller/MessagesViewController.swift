@@ -1,5 +1,5 @@
 //
-//  MapViewController.swift
+//  MessagesViewController.swift
 //  Easy Tor
 //
 //  Created by Gilad Lekner on 11/01/2018.
@@ -7,36 +7,41 @@
 //
 
 import UIKit
-import MapKit
+import FirebaseAuth
+import FirebaseDatabase
 
-class MapViewController: UIViewController {
+class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
 
-    let span:MKCoordinateSpan=MKCoordinateSpanMake(0.1, 0.1)
-    let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(31.970169, 34.773900)
-    var region:MKCoordinateRegion!
-    var annotation:MKPointAnnotation!
-    
-    @IBOutlet weak var mapView: MKMapView!
+
+    var ref: DatabaseReference! = nil
+    var isClient=true
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        region=MKCoordinateRegionMake(self.location, self.span)
-        mapView.setRegion(region, animated: true)
-        annotation=MKPointAnnotation()
-        annotation.title="My School!"
-        annotation.subtitle="Come visit!"
-        mapView.addAnnotation(annotation)
+        ref = Database.database().reference()
 
         // Do any additional setup after loading the view.
     }
 
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let currentCell = tableView.cellForRow(at: indexPath) as! TableCell
+        return currentCell
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    
     /*
     // MARK: - Navigation
 

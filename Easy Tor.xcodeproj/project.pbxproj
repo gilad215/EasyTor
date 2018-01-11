@@ -30,6 +30,9 @@
 		95D5D460200788090066B7FB /* BusinessAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D45F200788090066B7FB /* BusinessAddViewController.swift */; };
 		95D5D464200790150066B7FB /* ClientEventTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D463200790150066B7FB /* ClientEventTableCell.swift */; };
 		95D5D4662007B9000066B7FB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D4652007B9000066B7FB /* MapViewController.swift */; };
+		95D5D4692007C12D0066B7FB /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D4682007C12D0066B7FB /* MessagesViewController.swift */; };
+		95D5D46B2007C67E0066B7FB /* MessagesTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D46A2007C67E0066B7FB /* MessagesTableCell.swift */; };
+		95D5D46D2007CA1B0066B7FB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D46C2007CA1B0066B7FB /* ChatViewController.swift */; };
 		95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3B3E21FF7CFB6008B7CB9 /* Event.swift */; };
 		95EFD7751FEBB2E100555ADC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -62,6 +65,10 @@
 		95D5D45F200788090066B7FB /* BusinessAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessAddViewController.swift; sourceTree = "<group>"; };
 		95D5D463200790150066B7FB /* ClientEventTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientEventTableCell.swift; sourceTree = "<group>"; };
 		95D5D4652007B9000066B7FB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		95D5D4672007BE0B0066B7FB /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		95D5D4682007C12D0066B7FB /* MessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		95D5D46A2007C67E0066B7FB /* MessagesTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableCell.swift; sourceTree = "<group>"; };
+		95D5D46C2007CA1B0066B7FB /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		95E3B3E21FF7CFB6008B7CB9 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,10 +131,12 @@
 				95E3B3E21FF7CFB6008B7CB9 /* Event.swift */,
 				955ED8441FFA23ED0099D62C /* Service.swift */,
 				9537A3C41FFB7FFB00161656 /* Business.swift */,
+				9537A3CA1FFBB9F600161656 /* CameraHandler.swift */,
 				9537A3C61FFB85DB00161656 /* TableCell.swift */,
 				9536F2972006590B00851E04 /* ServiceTableCell.swift */,
-				9537A3CA1FFBB9F600161656 /* CameraHandler.swift */,
 				95D5D463200790150066B7FB /* ClientEventTableCell.swift */,
+				95D5D46A2007C67E0066B7FB /* MessagesTableCell.swift */,
+				95D5D4672007BE0B0066B7FB /* Bridging-Header.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +147,8 @@
 				9536F29220064C7D00851E04 /* Business */,
 				9536F2912006442500851E04 /* Client */,
 				95980DD91FFFAB5100B23810 /* AppDelegate.swift */,
+				95D5D4682007C12D0066B7FB /* MessagesViewController.swift */,
+				95D5D46C2007CA1B0066B7FB /* ChatViewController.swift */,
 				95980DD51FFFAB5100B23810 /* businessRegViewController.swift */,
 				95980DDC1FFFAB5100B23810 /* LoginViewController.swift */,
 				95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */,
@@ -266,6 +277,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Easy Tor/Pods-Easy Tor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -273,6 +286,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -336,10 +351,13 @@
 				95980DE51FFFAB5100B23810 /* LoginViewController.swift in Sources */,
 				95980DDD1FFFAB5100B23810 /* ChooseServicesViewController.swift in Sources */,
 				9536F29420064C9A00851E04 /* BusinessProfileView.swift in Sources */,
+				95D5D4692007C12D0066B7FB /* MessagesViewController.swift in Sources */,
+				95D5D46D2007CA1B0066B7FB /* ChatViewController.swift in Sources */,
 				9537A3CB1FFBB9F600161656 /* CameraHandler.swift in Sources */,
 				95D5D460200788090066B7FB /* BusinessAddViewController.swift in Sources */,
 				9536F2962006562F00851E04 /* BusinessServicesViewController.swift in Sources */,
 				95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */,
+				95D5D46B2007C67E0066B7FB /* MessagesTableCell.swift in Sources */,
 				9536F2982006590B00851E04 /* ServiceTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +501,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Colman.ezTor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Easy Tor/Model/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -498,6 +517,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Colman.ezTor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Easy Tor/Model/Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
