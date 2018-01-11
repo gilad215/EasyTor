@@ -322,15 +322,18 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         if !(addedbyBusiness)
         {
             let bref=ref.child("users").child("business").child(businessUid!).observeSingleEvent(of: .value, with: { (snapshot2) in
-                    let value = snapshot2.value as? NSDictionary
+                print(snapshot2)
+                let value = snapshot2.value as? NSDictionary
                     self.businessName = value?["businessName"] as? String ?? ""
                     self.businessPhone = value?["phone"] as? String ?? ""
                     self.businessAddr = value?["address"] as? String ?? ""
-
+                    print("got name!!!!!")
+                    print(self.businessName)
+                let eref=self.ref.child("events").childByAutoId()
+                eref.setValue(["service":self.selectedService,"date":self.selectDateBtn.titleLabel?.text,"time":self.selectTimeBtn.titleLabel?.text,"bid":self.businessUid!,"cid":Auth.auth().currentUser?.uid,"businessName":self.businessName,"address":self.businessAddr,"businessPhone":self.businessPhone])
+                
             })
-        let eref=ref.child("events").childByAutoId()
-            eref.setValue(["service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"bid":businessUid!,"cid":Auth.auth().currentUser?.uid,"businessName":self.businessName,"address":businessAddr,"businessPhone":businessPhone])
-        
+
         self.ref.child("availablehours").child(self.businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).child((selectTimeBtn.titleLabel?.text)!).removeValue { (error, refer) in
             if error != nil {
                 print(error)

@@ -107,6 +107,8 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let chooseServiceVC=segue.destination as? ChooseServicesViewController {
+            print("sending business...")
+            print(selectedBusiness)
             chooseServiceVC.businessUid=selectedBusiness
         }
     }
