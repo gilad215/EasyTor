@@ -20,12 +20,13 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var duration=30
-    var listOfServices = [Service] ()
+    var servicesData = [Service] ()
     var ref: DatabaseReference! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         stepper.minimumValue=30
+        stepper.maximumValue=120
         stepper.stepValue=30
         ref = Database.database().reference()
         startObserving()
@@ -38,16 +39,16 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (listOfServices.count)
+        return (servicesData.count)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = listOfServices[indexPath.row].nameOfService+" "+listOfServices[indexPath.row].duration
-        
-        return (cell)
+        guard let cell=tableView.dequeueReusableCell(withIdentifier: "Cell") as? ServiceTableCell else {return UITableViewCell()}
+        cell.serviceLbl.text=servicesData[indexPath.row].nameOfService
+        cell.durationLbl.text=servicesData[indexPath.row].duration
+        cell.service=servicesData[indexPath.row]
+        return cell
     }
-
     
     @IBAction func onButtonPressed(_ sender: UIButton) {
         let currentUser=Auth.auth().currentUser
@@ -61,12 +62,11 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
     func startObserving(){
         let currentUser=Auth.auth().currentUser
         let serviceRef=ref.child("services").child((currentUser?.uid)!).observe(DataEventType.value) { (snapshot) in
-            self.listOfServices.removeAll()
+            self.servicesData.removeAll()
             for service in snapshot.children
             {
-                print(service)
                 let serviceObject=Service(snapshot: service as! DataSnapshot)
-                self.listOfServices.append(serviceObject)
+                self.servicesData.append(serviceObject)
             }
             self.tableView.reloadData()
 

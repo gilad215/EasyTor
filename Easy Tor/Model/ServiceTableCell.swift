@@ -7,14 +7,15 @@
 //
 
 import UIKit
-
+import FirebaseAuth
+import FirebaseDatabase
 
 class ServiceTableCell: UITableViewCell {
     
     @IBOutlet var serviceLbl: UILabel!
     @IBOutlet var durationLbl: UILabel!
-    @IBOutlet var editBtn: UIButton!
     @IBOutlet var deleteBtn: UIButton!
+    var ref: DatabaseReference! = nil
 
     var service:Service?
     
@@ -29,12 +30,16 @@ class ServiceTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    @IBAction func editPressed(_ sender: Any)
-    {
-        print("EDIT PRESSED")
-    }
     @IBAction func deletePressed(_ sender: Any)
     {
-        print("DELETE PRESSED")
+        ref = Database.database().reference()
+        print("DELETE PRESSED"); self.ref.child("services").child((Auth.auth().currentUser?.uid)!).child((service?.nameOfService)!).removeValue { (error, refer) in
+            if error != nil {
+                print(error)
+            } else {
+                print(refer)
+                print("Child Removed Correctly")
+            }
+        }
     }
 }

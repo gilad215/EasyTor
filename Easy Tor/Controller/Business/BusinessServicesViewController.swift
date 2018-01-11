@@ -42,36 +42,19 @@ class BusinessServicesViewController: UIViewController,UITableViewDelegate, UITa
         cell.service=servicesData[indexPath.row]
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let currentCell = tableView.cellForRow(at: indexPath) as! ServiceTableCell
-    }
+
     
     func getServices()
     {
         ref.child("services").child((Auth.auth().currentUser?.uid)!).observe(.value) { (snapshot) in
+            self.servicesData.removeAll()
             for service in snapshot.children
             {
-                self.servicesData.removeAll()
-                print(snapshot)
-                for service in snapshot.children
-                {
-                    let serviceObject=Service(snapshot:service as! DataSnapshot)
-                    self.servicesData.append(serviceObject)
-                }
-                self.tableView.reloadData()
+                let serviceObject=Service(snapshot: service as! DataSnapshot)
+                self.servicesData.append(serviceObject)
+            }
+            self.tableView.reloadData()
             }
         }
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
