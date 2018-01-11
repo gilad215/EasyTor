@@ -210,7 +210,7 @@ class OpeningHoursViewController: UIViewController {
 
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UIViewController
+        let tabVC = storyboard.instantiateViewController(withIdentifier: "businessTabVC") as! UIViewController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController=tabVC
     }

@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
                         else{
                             print("CLIENT LOGGED")
                             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UITabBarController
+                            let tabVC = storyboard.instantiateViewController(withIdentifier: "ClientTabVC") as! UITabBarController
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             appDelegate.window?.rootViewController=tabVC
                         }

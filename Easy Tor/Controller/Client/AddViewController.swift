@@ -17,8 +17,7 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var pickerView: UIPickerView!
     var category:String!
     
-    @IBOutlet weak var tableVIew: UITableView!
-    @IBOutlet weak var tableViewServices: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var navbarHead: UINavigationItem!
     
@@ -54,7 +53,7 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-            guard let tablecell=tableView.dequeueReusableCell(withIdentifier: "Cell") as? TableCell else{return UITableViewCell()}
+            guard let tablecell=tableView.dequeueReusableCell(withIdentifier: "BusinessCell") as? TableCell else{return UITableViewCell()}
             tablecell.nameLbl.text=businessData[indexPath.row].name
             tablecell.addressLbl.text=businessData[indexPath.row].address
             tablecell.categoryLbl.text=businessData[indexPath.row].category
@@ -64,17 +63,9 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView==tableVIew
-        {
             let currentCell = tableView.cellForRow(at: indexPath) as! TableCell
             selectedBusiness=currentCell.key
             selectedBusinessName=currentCell.nameLbl.text
-        }
-        if tableView==tableViewServices
-        {
-            let currentCell = tableView.cellForRow(at: indexPath) as! UITableViewCell
-            selectedService=currentCell.textLabel?.text
-        }
     }
     
 
@@ -89,7 +80,7 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
                     let businessObject=Business(snapshot:business as! DataSnapshot)
                     self.businessData.append(businessObject)
                 }
-                self.tableVIew.reloadData()
+                self.tableView.reloadData()
             }
             
         }

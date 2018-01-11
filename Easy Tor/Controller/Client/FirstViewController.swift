@@ -11,17 +11,17 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITableViewDelegate,UITableViewDataSource {
+
+    
     var ref: DatabaseReference! = nil
     var storageRef: StorageReference!=nil
     var events=[Event]()
     var user_name:String!
     let imagePicker = UIImagePickerController()
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var event1: UILabel!
-    @IBOutlet weak var event2: UILabel!
-    @IBOutlet weak var event3: UILabel!
     @IBOutlet weak var picBtn: UIButton!
     
     
@@ -48,6 +48,22 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         
         
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell") as? ClientEventTableCell else {return UITableViewCell()}
+        cell.businessName.text=events[indexPath.row].bname
+        cell.businessAddress.text=events[indexPath.row].baddress
+        cell.dateLbl.text=events[indexPath.row].date
+        cell.serviceName.text=events[indexPath.row].service
+        cell.timeLbl.text=events[indexPath.row].time
+        cell.eventKey=events[indexPath.row].key
+        return cell
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -55,43 +71,16 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     }
     
     
-    
-    
-    @IBAction func addEvent(_ sender: Any) {
 
-        print("hi")
-        //        let eventAlert = UIAlertController(title: "Add Event", message: "Enter your event", preferredStyle: .alert)
-//        eventAlert.addTextField { (textfield:UITextField) in
-//            textfield.placeholder="Your event"
-//        }
-//
-//        eventAlert.addAction(UIAlertAction(title:"Send",style:.default,handler:{(action:UIAlertAction) in
-//            if let eventContent=eventAlert.textFields?.first?.text{
-//                let event=Event(content: eventContent, addedByUser: self.user_name)
-//
-//            let eventRef=self.ref.child("events").child(eventContent.lowercased())
-//                eventRef.setValue(event.toAnyObject())
-//            }
-//
-//        }))
-//        self.present(eventAlert,animated: true,completion: nil)
-    }
-    
     func startObserving(){
         ref.child("events").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
-            var newEvents=[Event]()
+            self.events.removeAll()
             for event in snapshot.children
             {
                 let eventObject=Event(snapshot: event as! DataSnapshot)
-                newEvents.append(eventObject)
+                self.events.append(eventObject)
             }
-            
-            self.events=newEvents
-            print("events size:",self.events.count);
-//            self.event1.text=self.events[0].service+" "+self.events[0].date
-//            self.event2.text=self.events[1].service+" "+self.events[1].date
-
-
+            self.tableView.reloadData()
 
         }
     }

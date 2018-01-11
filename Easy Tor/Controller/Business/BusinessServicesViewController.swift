@@ -40,6 +40,7 @@ class BusinessServicesViewController: UIViewController,UITableViewDelegate, UITa
         cell.serviceLbl.text=servicesData[indexPath.row].nameOfService
         cell.durationLbl.text=servicesData[indexPath.row].duration
         cell.service=servicesData[indexPath.row]
+        
         return cell
     }
 

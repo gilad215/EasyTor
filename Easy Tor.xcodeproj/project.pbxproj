@@ -28,6 +28,7 @@
 		95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC5291FEA966A00B70325 /* Assets.xcassets */; };
 		95CF35822004DEC300CFE4B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CF35802004DEC300CFE4B2 /* Main.storyboard */; };
 		95D5D460200788090066B7FB /* BusinessAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D45F200788090066B7FB /* BusinessAddViewController.swift */; };
+		95D5D464200790150066B7FB /* ClientEventTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D463200790150066B7FB /* ClientEventTableCell.swift */; };
 		95E3B3E31FF7CFB6008B7CB9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E3B3E21FF7CFB6008B7CB9 /* Event.swift */; };
 		95EFD7751FEBB2E100555ADC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		95ABC52E1FEA966A00B70325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95CF35812004DEC300CFE4B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95D5D45F200788090066B7FB /* BusinessAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessAddViewController.swift; sourceTree = "<group>"; };
+		95D5D463200790150066B7FB /* ClientEventTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientEventTableCell.swift; sourceTree = "<group>"; };
 		95E3B3E21FF7CFB6008B7CB9 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		95EFD7741FEBB2E100555ADC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				9537A3C61FFB85DB00161656 /* TableCell.swift */,
 				9536F2972006590B00851E04 /* ServiceTableCell.swift */,
 				9537A3CA1FFBB9F600161656 /* CameraHandler.swift */,
+				95D5D463200790150066B7FB /* ClientEventTableCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				95980DE11FFFAB5100B23810 /* AddViewController.swift in Sources */,
 				955ED8451FFA23ED0099D62C /* Service.swift in Sources */,
 				9537A3C51FFB7FFB00161656 /* Business.swift in Sources */,
+				95D5D464200790150066B7FB /* ClientEventTableCell.swift in Sources */,
 				95980DE41FFFAB5100B23810 /* RegisterViewController.swift in Sources */,
 				9537A3C71FFB85DB00161656 /* TableCell.swift in Sources */,
 				95980DDF1FFFAB5100B23810 /* FirstViewController.swift in Sources */,

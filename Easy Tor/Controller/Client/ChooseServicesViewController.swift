@@ -27,6 +27,10 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     let formatter = DateFormatter()
     
     var businessUid:String?
+    var businessName:String?
+    var businessPhone:String?
+    var businessAddr:String?
+    
     var addedbyBusiness=false
     var clientPhone:String?
     var clientName:String?
@@ -293,6 +297,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
             timePicker.isHidden=true
         }
         else {timePicker.isHidden=false}
+        
         let houRef=ref.child("availablehours").child(businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).observe(.value) { (snapshot) in
             self.availableHours.removeAll()
             for time in snapshot.children
@@ -316,8 +321,15 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     {
         if !(addedbyBusiness)
         {
+            let bref=ref.child("users").child("business").child(businessUid!).observeSingleEvent(of: .value, with: { (snapshot2) in
+                    let value = snapshot2.value as? NSDictionary
+                    self.businessName = value?["businessName"] as? String ?? ""
+                    self.businessPhone = value?["phone"] as? String ?? ""
+                    self.businessAddr = value?["address"] as? String ?? ""
+
+            })
         let eref=ref.child("events").childByAutoId()
-        eref.setValue(["service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"bid":businessUid!,"cid":Auth.auth().currentUser?.uid])
+            eref.setValue(["service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"bid":businessUid!,"cid":Auth.auth().currentUser?.uid,"businessName":self.businessName,"address":businessAddr,"businessPhone":businessPhone])
         
         self.ref.child("availablehours").child(self.businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).child((selectTimeBtn.titleLabel?.text)!).removeValue { (error, refer) in
             if error != nil {
@@ -328,7 +340,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         }
         }
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UIViewController
+            let tabVC = storyboard.instantiateViewController(withIdentifier: "ClientTabVC") as! UIViewController
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController=tabVC
         }
@@ -344,12 +356,13 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                     print("Child Removed Correctly")
                 }
             }
-        }
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabVC = storyboard.instantiateViewController(withIdentifier: "businessTabVC") as! UIViewController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController=tabVC
 
+        }
     }
     
 }
