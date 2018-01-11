@@ -1029,6 +1029,36 @@
             </objects>
             <point key="canvasLocation" x="-2146" y="-183"/>
         </scene>
+        <!--Map-->
+        <scene sceneID="UsW-No-TjC">
+            <objects>
+                <viewController id="83I-ha-qeS" customClass="MapViewController" customModule="Easy_Tor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dcd-iy-otP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ccP-tv-evp">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ccP-tv-evp" firstAttribute="top" secondItem="E0F-kl-1ce" secondAttribute="top" id="5FK-B2-Mgh"/>
+                            <constraint firstItem="ccP-tv-evp" firstAttribute="trailing" secondItem="E0F-kl-1ce" secondAttribute="trailing" id="IKu-eb-EXR"/>
+                            <constraint firstItem="ccP-tv-evp" firstAttribute="leading" secondItem="E0F-kl-1ce" secondAttribute="leading" id="Z4K-Kb-mpK"/>
+                            <constraint firstItem="ccP-tv-evp" firstAttribute="bottom" secondItem="E0F-kl-1ce" secondAttribute="bottom" id="jyp-qZ-hVM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="E0F-kl-1ce"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="15V-07-CuM"/>
+                    <connections>
+                        <outlet property="mapView" destination="ccP-tv-evp" id="4Az-1C-Gfd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oMk-ra-1dM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3597.5999999999999" y="-183.05847076461771"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
@@ -1042,6 +1072,7 @@
                         <segue destination="e5M-UB-1Rz" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="ZKX-82-Xyf" kind="relationship" relationship="viewControllers" id="J2R-Pf-cJC"/>
                         <segue destination="Ocp-li-kEw" kind="relationship" relationship="viewControllers" id="0Tc-Gj-KUe"/>
+                        <segue destination="83I-ha-qeS" kind="relationship" relationship="viewControllers" id="mwy-dq-3TK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
