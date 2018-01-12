@@ -42,7 +42,7 @@ struct Chat {
         self.cid=cid
         self.bname=bname
         self.bid=bid
-        
+        print("CHAT ADDED")
         
     }
     

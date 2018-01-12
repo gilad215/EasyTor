@@ -38,7 +38,6 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
             let cref=ref.child("events").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(.value, with: { (snapshot) in
                 for event in snapshot.children
                 {
-                    print(snapshot)
                     let valuer = event as! DataSnapshot
                     let dictionary=valuer.value as? NSDictionary
                     

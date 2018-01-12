@@ -22,6 +22,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        observeChats()
 
         // Do any additional setup after loading the view.
     }
@@ -33,16 +34,18 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell=tableView.dequeueReusableCell(withIdentifier: "Cell") as? MessagesTableCell else {return UITableViewCell()}
+        guard let cell=tableView.dequeueReusableCell(withIdentifier: "MessageCell") as? MessagesTableCell else {return UITableViewCell()}
         if isClient
         {
             cell.nameLbl.text=chats[indexPath.row].bname
+            return cell
+
         }
         else
         {
             cell.nameLbl.text=chats[indexPath.row].cname
+            return cell
         }
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -59,20 +62,23 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
     {
         if isClient
         {
-            let cref=ref.child("chats").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser).observe(.value, with: { (snapshot) in
-                self.chats.removeAll()
+            let cref=ref.child("chats").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(.value, with: { (snapshot) in
+                print(snapshot)
+                //self.chats.removeAll()
                 for chat in snapshot.children
                 {
                     let chatObject=Chat(snapshot: chat as! DataSnapshot)
                     self.chats.append(chatObject)
                 }
+                print("CHAT COUNT")
+                print(self.chats.count)
                 self.tableView.reloadData()
 
             })
         }
         else
         {
-            let cref=ref.child("chats").queryOrdered(byChild: "bid").queryEqual(toValue: Auth.auth().currentUser).observe(.value, with: { (snapshot) in
+            let cref=ref.child("chats").queryOrdered(byChild: "bid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(.value, with: { (snapshot) in
                 self.chats.removeAll()
                 for chat in snapshot.children
             {

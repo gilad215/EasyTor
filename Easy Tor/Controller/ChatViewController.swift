@@ -37,6 +37,10 @@ class ChatViewController: JSQMessagesViewController {
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
+        print("chatview loaded!")
+        print(self.senderId)
+        print(self.senderDisplayName)
     }
 
     func observeMessages()
