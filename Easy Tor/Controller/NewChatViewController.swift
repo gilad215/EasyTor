@@ -67,22 +67,41 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cref=ref.child("chats").childByAutoId()
         
-        let chatItem = [
-            "cname":self.cname,
-            "cid":Auth.auth().currentUser?.uid,
-            "bname":self.businessData[indexPath.row].name,
-            "bid":self.businessData[indexPath.row].key
-            ]
-        
-        // 3
-        
-        cref.setValue(chatItem)
+        let checkref=ref.child("chats").observeSingleEvent(of: .value) { (snapshot) in
+            var chatExists=false
+            for chat in snapshot.children
+            {
+                let valuer = chat as! DataSnapshot
+                let dictionary=valuer.value as? NSDictionary
+                
+                let bid = dictionary?["bid"] as? String ?? ""
+                let cid = dictionary?["cid"] as? String ?? ""
+                if cid==Auth.auth().currentUser?.uid && bid==self.businessData[indexPath.row].key {chatExists=true}
+                
+            }
+            
+            if !(chatExists)
+            {
+            let cref=self.ref.child("chats").childByAutoId()
+                
+                        let chatItem = [
+                            "cname":self.cname,
+                            "cid":Auth.auth().currentUser?.uid,
+                            "bname":self.businessData[indexPath.row].name,
+                            "bid":self.businessData[indexPath.row].key
+                            ]
+                
+                        // 3
+                
+                        cref.setValue(chatItem)
+            }
+        }
         
         let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessData[indexPath.row].key, cname: self.cname, bname: self.businessData[indexPath.row].name)
         self.performSegue(withIdentifier: "NewChatSegue", sender: selectedChat)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
