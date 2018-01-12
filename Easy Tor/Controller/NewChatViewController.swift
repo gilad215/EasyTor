@@ -67,7 +67,7 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var chatExists:String!
-
+        var chat_key:String!
         let checkref=ref.child("chats").observeSingleEvent(of: .value) { (snapshot) in
             for chat in snapshot.children
             {
@@ -79,10 +79,10 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 if cid==Auth.auth().currentUser?.uid && bid==self.businessData[indexPath.row].key {
                     print("CHAT EXISTS!")
                     chatExists=valuer.key}
-                
+                    chat_key=valuer.key
             }
             
-            if chatExists.isEmpty
+            if chatExists==nil
             {
                 print("chat doesn't exist")
             let cref=self.ref.child("chats").childByAutoId()
@@ -95,9 +95,9 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
                             ]
                 
                         // 3
-                
+                        chat_key=cref.key
                         cref.setValue(chatItem)
-                let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessData[indexPath.row].key, cname: self.cname, bname: self.businessData[indexPath.row].name,key:chatExists)
+                let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessData[indexPath.row].key, cname: self.cname, bname: self.businessData[indexPath.row].name,key:chat_key)
                 self.performSegue(withIdentifier: "NewChatSegue", sender: selectedChat)
             }
             else{
