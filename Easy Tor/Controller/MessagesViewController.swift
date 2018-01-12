@@ -21,6 +21,10 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !(isClient)
+        {
+            self.navigationItem.rightBarButtonItem=nil
+        }
         ref = Database.database().reference()
         observeChats()
 
@@ -101,13 +105,14 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
             chatVc.chatkey=chat.key
             if !(isClient)
             {
-                chatVc.isClient=false
                 chatVc.displayName=chat.bname
                 chatVc.ID=chat.bid
+                chatVc.partner=chat.cname
             }
             else{
                 chatVc.displayName=chat.cname
                 chatVc.ID=chat.cid
+                chatVc.partner=chat.bname
             }
         }
     }

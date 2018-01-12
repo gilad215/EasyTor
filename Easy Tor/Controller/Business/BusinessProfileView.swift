@@ -144,7 +144,8 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
             }
         }
     }
-        
+    
+
     func downloadPic()
     {
 //        ref.child("users").child("clients").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -162,7 +163,13 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
 //            }
 //        })
         }
-        
+    
+    //segue - busMessagesSegue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let messageVC=segue.destination as? MessagesViewController {
+            messageVC.isClient=false
+        }
+    }
     
     
 }

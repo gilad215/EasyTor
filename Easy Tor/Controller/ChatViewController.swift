@@ -14,6 +14,7 @@ import JSQMessagesViewController
 class ChatViewController: JSQMessagesViewController {
     var ID: String!
     var displayName:String!
+    var partner:String!
     var chatkey:String!
     var isClient=true
     var messages = [JSQMessage]()
@@ -25,6 +26,7 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.edgesForExtendedLayout = []
+        self.title=partner
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
         ref = Database.database().reference()
@@ -40,6 +42,8 @@ class ChatViewController: JSQMessagesViewController {
         print(self.senderDisplayName)
         print("chatkey:")
         print(chatkey)
+        
+
     }
 
 
@@ -116,4 +120,5 @@ class ChatViewController: JSQMessagesViewController {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
         return bubbleImageFactory!.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
     }
+
 }
