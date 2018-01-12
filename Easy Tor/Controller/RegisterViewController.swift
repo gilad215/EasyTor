@@ -81,14 +81,11 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
         }
         }
         else {
-        let name=clientName.text?.split(separator: " ")
-        let fname=name![0]
-        let lname=name![1]
             Auth.auth().createUser(withEmail: clientMAil.text!, password: clientPwd.text!) { (user, error) in
-                self.ref.child("users").child("clients").child((user?.uid)!).setValue(["fname":fname,"lname":lname,"phone":self.clientPhone.text,"address":self.clientAddress.text,"city":self.clientCity.text])
+                self.ref.child("users").child("clients").child((user?.uid)!).setValue(["name":self.clientName.text,"phone":self.clientPhone.text,"address":self.clientAddress.text,"city":self.clientCity.text])
                 print("Created Client!")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabVC = storyboard.instantiateViewController(withIdentifier: "tabVC") as! UITabBarController
+                let tabVC = storyboard.instantiateViewController(withIdentifier: "ClientTabVC") as! UITabBarController
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.window?.rootViewController=tabVC
         }

@@ -28,6 +28,7 @@
 		959E56C42008B0AD004CBEC8 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959E56C32008B0AD004CBEC8 /* Chat.swift */; };
 		959E56C62008B2E7004CBEC8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959E56C52008B2E7004CBEC8 /* Message.swift */; };
 		959E56C82008C407004CBEC8 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959E56C72008C407004CBEC8 /* NewChatViewController.swift */; };
+		959E56CA2008CA1D004CBEC8 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959E56C92008CA1D004CBEC8 /* Client.swift */; };
 		95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC5291FEA966A00B70325 /* Assets.xcassets */; };
 		95CF35822004DEC300CFE4B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95CF35802004DEC300CFE4B2 /* Main.storyboard */; };
 		95D5D460200788090066B7FB /* BusinessAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D5D45F200788090066B7FB /* BusinessAddViewController.swift */; };
@@ -52,7 +53,7 @@
 		9537A3CA1FFBB9F600161656 /* CameraHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHandler.swift; sourceTree = "<group>"; };
 		955ED8441FFA23ED0099D62C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		95980DD41FFFAB5100B23810 /* ChooseServicesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChooseServicesViewController.swift; path = "Easy Tor/Controller/Client/ChooseServicesViewController.swift"; sourceTree = SOURCE_ROOT; };
-		95980DD51FFFAB5100B23810 /* businessRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = businessRegViewController.swift; path = "Easy Tor/Controller/businessRegViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DD51FFFAB5100B23810 /* businessRegViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = businessRegViewController.swift; path = "Easy Tor/Controller/Business/businessRegViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DD61FFFAB5100B23810 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = "Easy Tor/Controller/Client/FirstViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DD71FFFAB5100B23810 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Easy Tor/Controller/Client/SearchViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DD81FFFAB5100B23810 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = "Easy Tor/Controller/Client/AddViewController.swift"; sourceTree = SOURCE_ROOT; };
@@ -64,6 +65,7 @@
 		959E56C32008B0AD004CBEC8 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		959E56C52008B2E7004CBEC8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		959E56C72008C407004CBEC8 /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
+		959E56C92008CA1D004CBEC8 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		95ABC51D1FEA966900B70325 /* Easy Tor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Tor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95ABC5291FEA966A00B70325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95ABC52E1FEA966A00B70325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		9536F29220064C7D00851E04 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				95980DD51FFFAB5100B23810 /* businessRegViewController.swift */,
 				9536F29320064C9A00851E04 /* BusinessProfileView.swift */,
 				9536F2952006562F00851E04 /* BusinessServicesViewController.swift */,
 				95D5D45F200788090066B7FB /* BusinessAddViewController.swift */,
@@ -136,14 +139,15 @@
 			children = (
 				95E3B3E21FF7CFB6008B7CB9 /* Event.swift */,
 				955ED8441FFA23ED0099D62C /* Service.swift */,
+				959E56C92008CA1D004CBEC8 /* Client.swift */,
 				9537A3C41FFB7FFB00161656 /* Business.swift */,
+				959E56C32008B0AD004CBEC8 /* Chat.swift */,
 				9537A3CA1FFBB9F600161656 /* CameraHandler.swift */,
 				9537A3C61FFB85DB00161656 /* TableCell.swift */,
 				9536F2972006590B00851E04 /* ServiceTableCell.swift */,
 				95D5D463200790150066B7FB /* ClientEventTableCell.swift */,
 				95D5D46A2007C67E0066B7FB /* MessagesTableCell.swift */,
 				95D5D4672007BE0B0066B7FB /* Bridging-Header.h */,
-				959E56C32008B0AD004CBEC8 /* Chat.swift */,
 				959E56C52008B2E7004CBEC8 /* Message.swift */,
 			);
 			path = Model;
@@ -157,7 +161,6 @@
 				95980DD91FFFAB5100B23810 /* AppDelegate.swift */,
 				95D5D4682007C12D0066B7FB /* MessagesViewController.swift */,
 				95D5D46C2007CA1B0066B7FB /* ChatViewController.swift */,
-				95980DD51FFFAB5100B23810 /* businessRegViewController.swift */,
 				95980DDC1FFFAB5100B23810 /* LoginViewController.swift */,
 				95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */,
 				959E56C72008C407004CBEC8 /* NewChatViewController.swift */,
@@ -362,6 +365,7 @@
 				959E56C42008B0AD004CBEC8 /* Chat.swift in Sources */,
 				95980DDD1FFFAB5100B23810 /* ChooseServicesViewController.swift in Sources */,
 				9536F29420064C9A00851E04 /* BusinessProfileView.swift in Sources */,
+				959E56CA2008CA1D004CBEC8 /* Client.swift in Sources */,
 				95D5D4692007C12D0066B7FB /* MessagesViewController.swift in Sources */,
 				95D5D46D2007CA1B0066B7FB /* ChatViewController.swift in Sources */,
 				9537A3CB1FFBB9F600161656 /* CameraHandler.swift in Sources */,

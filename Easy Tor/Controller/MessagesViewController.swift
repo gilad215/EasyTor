@@ -48,7 +48,6 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedChat=chats[indexPath.row]
         self.performSegue(withIdentifier: "ChatSegue", sender: selectedChat)
-        
     }
     
     override func didReceiveMemoryWarning() {

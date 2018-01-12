@@ -1150,10 +1150,10 @@
             </objects>
             <point key="canvasLocation" x="1442" y="517"/>
         </scene>
-        <!--View Controller-->
+        <!--New Chat View Controller-->
         <scene sceneID="7BX-7d-amY">
             <objects>
-                <viewController id="7uA-jc-sIe" sceneMemberID="viewController">
+                <viewController id="7uA-jc-sIe" customClass="NewChatViewController" customModule="Easy_Tor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NTl-bT-dcU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1201,11 +1201,19 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7uA-jc-sIe" id="pa4-9d-2fj"/>
+                                    <outlet property="delegate" destination="7uA-jc-sIe" id="II0-Zj-ens"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3FN-8O-KYX"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="sZF-7L-e5d" id="q39-II-V5s"/>
+                        <segue destination="RCe-1E-Ema" kind="show" identifier="NewChatSegue" id="9Zx-Tt-Mn3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fu8-JA-0uI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1574,6 +1582,7 @@
         <image name="userpic" width="256" height="205"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Nrl-uL-ums"/>
         <segue reference="dtF-Dj-Ub3"/>
         <segue reference="ymt-Ly-FOx"/>
     </inferredMetricsTieBreakers>
