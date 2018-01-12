@@ -15,6 +15,9 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     var ref: DatabaseReference! = nil
     var isClient=true
+    var chats=[Chat]()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,30 +29,86 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return chats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentCell = tableView.cellForRow(at: indexPath) as! TableCell
-        return currentCell
+        guard let cell=tableView.dequeueReusableCell(withIdentifier: "Cell") as? MessagesTableCell else {return UITableViewCell()}
+        if isClient
+        {
+            cell.nameLbl.text=chats[indexPath.row].bname
+        }
+        else
+        {
+            cell.nameLbl.text=chats[indexPath.row].cname
+        }
+        return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedChat=chats[indexPath.row]
+        self.performSegue(withIdentifier: "ChatSegue", sender: selectedChat)
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func observeChats()
+    {
+        if isClient
+        {
+            let cref=ref.child("chats").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser).observe(.value, with: { (snapshot) in
+                self.chats.removeAll()
+                for chat in snapshot.children
+                {
+                    let chatObject=Chat(snapshot: chat as! DataSnapshot)
+                    self.chats.append(chatObject)
+                }
+                self.tableView.reloadData()
 
-    /*
-    // MARK: - Navigation
+            })
+        }
+        else
+        {
+            let cref=ref.child("chats").queryOrdered(byChild: "bid").queryEqual(toValue: Auth.auth().currentUser).observe(.value, with: { (snapshot) in
+                self.chats.removeAll()
+                for chat in snapshot.children
+            {
+                let chatObject=Chat(snapshot: chat as! DataSnapshot)
+                self.chats.append(chatObject)
+            }
+                self.tableView.reloadData()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+          })
+        }
+        
     }
-    */
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let chat = sender as? Chat {
+            let chatVc = segue.destination as! ChatViewController
+            
+            chatVc.chatkey=chat.key
+            if !(isClient)
+            {
+                chatVc.isClient=false
+                chatVc.displayName=chat.bname
+                chatVc.ID=chat.bid
+            }
+            else{
+                chatVc.displayName=chat.cname
+                chatVc.ID=chat.cid
+            }
+        }
+    }
+    
+    
+
 
 }
