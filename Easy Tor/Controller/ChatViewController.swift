@@ -12,7 +12,8 @@ import FirebaseAuth
 import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
-
+    
+    var displayName:String!
     var messages = [JSQMessage]()
     var ref: DatabaseReference! = nil
 
@@ -26,6 +27,8 @@ class ChatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.senderId=Auth.auth().currentUser?.uid
+        self.senderDisplayName=displayName
         ref = Database.database().reference()
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -38,7 +41,7 @@ class ChatViewController: JSQMessagesViewController {
         
         let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
         
-        ref.setValue(message)
+        //ref.setValue(message)
         
         finishSendingMessage()
     }
