@@ -64,13 +64,12 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
         {
             let cref=ref.child("chats").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(.value, with: { (snapshot) in
                 print(snapshot)
-                //self.chats.removeAll()
+                self.chats.removeAll()
                 for chat in snapshot.children
                 {
                     let chatObject=Chat(snapshot: chat as! DataSnapshot)
                     self.chats.append(chatObject)
                 }
-                print("CHAT COUNT")
                 print(self.chats.count)
                 self.tableView.reloadData()
 

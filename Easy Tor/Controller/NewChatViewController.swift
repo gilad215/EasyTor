@@ -66,9 +66,9 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        var chatExists:String!
+
         let checkref=ref.child("chats").observeSingleEvent(of: .value) { (snapshot) in
-            var chatExists=false
             for chat in snapshot.children
             {
                 let valuer = chat as! DataSnapshot
@@ -76,12 +76,15 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
                 
                 let bid = dictionary?["bid"] as? String ?? ""
                 let cid = dictionary?["cid"] as? String ?? ""
-                if cid==Auth.auth().currentUser?.uid && bid==self.businessData[indexPath.row].key {chatExists=true}
+                if cid==Auth.auth().currentUser?.uid && bid==self.businessData[indexPath.row].key {
+                    print("CHAT EXISTS!")
+                    chatExists=valuer.key}
                 
             }
             
-            if !(chatExists)
+            if chatExists.isEmpty
             {
+                print("chat doesn't exist")
             let cref=self.ref.child("chats").childByAutoId()
                 
                         let chatItem = [
@@ -94,11 +97,16 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
                         // 3
                 
                         cref.setValue(chatItem)
+                let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessData[indexPath.row].key, cname: self.cname, bname: self.businessData[indexPath.row].name,key:chatExists)
+                self.performSegue(withIdentifier: "NewChatSegue", sender: selectedChat)
+            }
+            else{
+                let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessData[indexPath.row].key, cname: self.cname, bname: self.businessData[indexPath.row].name,key:chatExists)
+                self.performSegue(withIdentifier: "NewChatSegue", sender: selectedChat)
             }
         }
         
-        let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessData[indexPath.row].key, cname: self.cname, bname: self.businessData[indexPath.row].name)
-        self.performSegue(withIdentifier: "NewChatSegue", sender: selectedChat)
+
     }
     
     
