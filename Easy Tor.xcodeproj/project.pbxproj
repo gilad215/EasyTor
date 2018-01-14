@@ -57,10 +57,10 @@
 		95980DD61FFFAB5100B23810 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstViewController.swift; path = "Easy Tor/Controller/Client/FirstViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DD71FFFAB5100B23810 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Easy Tor/Controller/Client/SearchViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DD81FFFAB5100B23810 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = "Easy Tor/Controller/Client/AddViewController.swift"; sourceTree = SOURCE_ROOT; };
-		95980DD91FFFAB5100B23810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Easy Tor/Controller/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		95980DD91FFFAB5100B23810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Easy Tor/Controller/Global/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpeningHoursViewController.swift; path = "Easy Tor/Controller/Business/OpeningHoursViewController.swift"; sourceTree = SOURCE_ROOT; };
-		95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Easy Tor/Controller/RegisterViewController.swift"; sourceTree = SOURCE_ROOT; };
-		95980DDC1FFFAB5100B23810 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Easy Tor/Controller/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Easy Tor/Controller/Global/RegisterViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DDC1FFFAB5100B23810 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Easy Tor/Controller/Global/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DEA1FFFAB7200B23810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Easy Tor/View/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		959E56C32008B0AD004CBEC8 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		959E56C72008C407004CBEC8 /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
@@ -156,14 +156,9 @@
 		95980DD31FFFAB4700B23810 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				95C18DCE200BCAD5004E99B5 /* Global */,
 				9536F29220064C7D00851E04 /* Business */,
 				9536F2912006442500851E04 /* Client */,
-				95980DD91FFFAB5100B23810 /* AppDelegate.swift */,
-				95D5D4682007C12D0066B7FB /* MessagesViewController.swift */,
-				95D5D46C2007CA1B0066B7FB /* ChatViewController.swift */,
-				95980DDC1FFFAB5100B23810 /* LoginViewController.swift */,
-				95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */,
-				959E56C72008C407004CBEC8 /* NewChatViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +201,19 @@
 				95980DE61FFFAB6300B23810 /* View */,
 			);
 			path = "Easy Tor";
+			sourceTree = "<group>";
+		};
+		95C18DCE200BCAD5004E99B5 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				95980DD91FFFAB5100B23810 /* AppDelegate.swift */,
+				95D5D4682007C12D0066B7FB /* MessagesViewController.swift */,
+				95D5D46C2007CA1B0066B7FB /* ChatViewController.swift */,
+				95980DDC1FFFAB5100B23810 /* LoginViewController.swift */,
+				95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */,
+				959E56C72008C407004CBEC8 /* NewChatViewController.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
