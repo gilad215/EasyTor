@@ -557,127 +557,169 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zG1-rE-Web">
-                                <rect key="frame" x="234" y="103" width="38" height="30"/>
+                                <rect key="frame" x="224" y="103" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Open"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="G9i-vd-ZgT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hZ-NI-zk8">
-                                <rect key="frame" x="295" y="103" width="48" height="30"/>
+                                <rect key="frame" x="303" y="103" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="Closed"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Closed">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="IZ6-8V-aGb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yN6-yl-yUO">
-                                <rect key="frame" x="234" y="154" width="38" height="30"/>
+                                <rect key="frame" x="224" y="154" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Open"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="2v0-UA-xTe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrO-gx-x1J">
-                                <rect key="frame" x="295" y="154" width="48" height="30"/>
+                                <rect key="frame" x="303" y="154" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Closed"/>
+                                <state key="normal" title="Closed">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="Xlx-N7-i67"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEw-RR-zut">
-                                <rect key="frame" x="234" y="203" width="38" height="30"/>
+                                <rect key="frame" x="224" y="203" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Open"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="azM-Fg-vhu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pG-rr-5MG">
-                                <rect key="frame" x="295" y="203" width="48" height="30"/>
+                                <rect key="frame" x="303" y="203" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Closed"/>
+                                <state key="normal" title="Closed">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="1pN-63-qCq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avl-uS-r9c">
-                                <rect key="frame" x="234" y="255" width="38" height="30"/>
+                                <rect key="frame" x="224" y="255" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Open"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="ZjS-BL-AJu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VC7-tB-Szc">
-                                <rect key="frame" x="295" y="255" width="48" height="30"/>
+                                <rect key="frame" x="303" y="255" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Closed"/>
+                                <state key="normal" title="Closed">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="ota-17-Xlu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMy-M7-ZJp">
-                                <rect key="frame" x="234" y="306" width="38" height="30"/>
+                                <rect key="frame" x="224" y="306" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <state key="normal" title="Open"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="x8Z-eB-VDp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qiz-Ga-Gcw">
-                                <rect key="frame" x="295" y="306" width="48" height="30"/>
+                                <rect key="frame" x="303" y="306" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Closed"/>
+                                <state key="normal" title="Closed">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="lRH-2u-87X"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIG-RY-9av">
-                                <rect key="frame" x="234" y="348" width="38" height="30"/>
+                                <rect key="frame" x="224" y="348" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Open"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="gi6-2d-Gk3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-lW-6BY">
-                                <rect key="frame" x="295" y="348" width="48" height="30"/>
+                                <rect key="frame" x="303" y="348" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Closed"/>
+                                <state key="normal" title="Closed">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="Bz2-1v-hoO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcb-4p-1hC">
-                                <rect key="frame" x="234" y="393" width="38" height="30"/>
+                                <rect key="frame" x="224" y="393" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Open"/>
+                                <state key="normal" title="Open">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="T9r-QM-9mr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s49-f8-qxs">
-                                <rect key="frame" x="295" y="393" width="48" height="30"/>
+                                <rect key="frame" x="303" y="393" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1099613623" green="0.1123985807" blue="0.1134795368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Closed"/>
+                                <state key="normal" title="Closed">
+                                    <color key="titleColor" red="0.8467005679457642" green="0.86546710719683639" blue="0.87379045050761417" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="pressedTime:" destination="scE-DS-3Bd" eventType="touchUpInside" id="Zbe-hm-2X1"/>
                                 </connections>
@@ -727,7 +769,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHx-wY-F0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-55" y="-887"/>
+            <point key="canvasLocation" x="-55.200000000000003" y="-887.40629685157433"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="9Th-Jq-nre">

@@ -120,6 +120,8 @@ class OpeningHoursViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
         sunday_open.isHidden=true
         sunday_closed.isHidden=true
         monday_open.isHidden=true
@@ -137,6 +139,7 @@ class OpeningHoursViewController: UIViewController {
         timePicker.isHidden=true
         timePicker.datePickerMode = .time
         timePicker.minuteInterval=30
+        designButtons()
         ref = Database.database().reference()
 
         // Do any additional setup after loading the view.
@@ -271,4 +274,43 @@ class OpeningHoursViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func designButtons()
+    {
+        self.sunday_open.layer.cornerRadius = 10
+        self.sunday_open.clipsToBounds = true
+        self.sunday_closed.layer.cornerRadius = 10
+        self.sunday_closed.clipsToBounds = true
+        
+        self.monday_open.layer.cornerRadius = 10
+        self.monday_open.clipsToBounds = true
+        self.monday_closed.layer.cornerRadius = 10
+        self.monday_closed.clipsToBounds = true
+    
+        self.tuesday_open.layer.cornerRadius = 10
+        self.tuesday_open.clipsToBounds = true
+        self.tuesday_closed.layer.cornerRadius = 10
+        self.tuesday_closed.clipsToBounds = true
+        
+        self.wednesday_open.layer.cornerRadius = 10
+        self.wednesday_open.clipsToBounds = true
+        self.wednesday_closed.layer.cornerRadius = 10
+        self.wednesday_closed.clipsToBounds = true
+        
+        self.thursday_open.layer.cornerRadius = 10
+        self.thursday_open.clipsToBounds = true
+        self.thursday_closed.layer.cornerRadius = 10
+        self.thursday_closed.clipsToBounds = true
+        
+        self.friday_open.layer.cornerRadius = 10
+        self.friday_open.clipsToBounds = true
+        self.friday_closed.layer.cornerRadius = 10
+        self.friday_closed.clipsToBounds = true
+        
+        self.saturday_open.layer.cornerRadius = 10
+        self.saturday_open.clipsToBounds = true
+        self.saturday_closed.layer.cornerRadius = 10
+        self.saturday_closed.clipsToBounds = true
+
+        
+    }
 }
