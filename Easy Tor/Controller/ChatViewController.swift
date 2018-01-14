@@ -17,6 +17,7 @@ class ChatViewController: JSQMessagesViewController {
     var partner:String!
     var chatkey:String!
     var isClient=true
+    let calendar=Calendar.current
     var messages = [JSQMessage]()
     var ref: DatabaseReference! = nil
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
@@ -77,7 +78,11 @@ class ChatViewController: JSQMessagesViewController {
         
         // 3
         itemRef.setValue(messageItem)
-        
+        let date=Date()
+        let month = String(self.calendar.component(.month, from: date))
+        let day = String(self.calendar.component(.day, from: date))
+        let strDate=day+"/"+month
+        ref.child("chats").child(chatkey).setValue(["date":strDate,"text":text!])
         // 4
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         

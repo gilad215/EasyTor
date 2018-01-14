@@ -726,7 +726,7 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qjo-kg-Juj" colorLabel="IBBuiltInLabel-Red">
                                 <rect key="frame" x="77" y="329" width="217" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.925775113078392" green="0.94142460336867506" blue="0.94899611398963735" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92473071813583374" green="0.9413037896156311" blue="0.94962495565414429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -740,8 +740,9 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyQ-tL-daP">
-                                <rect key="frame" x="118" y="377" width="130" height="60"/>
+                                <rect key="frame" x="149" y="377" width="72" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92577511310000005" green="0.9414246034" blue="0.94899611399999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
                                 <state key="normal" title="LOGIN">
                                     <color key="titleColor" red="0.4276635362694301" green="0.4276635362694301" blue="0.4276635362694301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -758,10 +759,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyV-xo-LGJ">
-                                <rect key="frame" x="118" y="454" width="130" height="30"/>
+                                <rect key="frame" x="142" y="448" width="87" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92577511310000005" green="0.9414246034" blue="0.94899611399999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
-                                <state key="normal" title="REGISTER">
+                                <state key="normal" title="SIGN UP">
                                     <color key="titleColor" red="0.0039843112564927037" green="0.0014634462054711414" blue="0.0040479274611399108" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -780,6 +782,7 @@
                         <outlet property="EmailTxt" destination="hCS-oC-k81" id="0iz-dJ-D0I"/>
                         <outlet property="PwdTxt" destination="Qjo-kg-Juj" id="7hD-cO-i1r"/>
                         <outlet property="loginBtn" destination="LyQ-tL-daP" id="wtf-hl-eo8"/>
+                        <outlet property="regBtn" destination="fyV-xo-LGJ" id="Oam-Op-vcm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRZ-Yr-t8g" userLabel="First Responder" sceneMemberID="firstResponder"/>

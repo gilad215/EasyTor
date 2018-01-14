@@ -16,10 +16,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var EmailTxt: UITextField!
     @IBOutlet weak var PwdTxt: UITextField!
     var ref: DatabaseReference! = nil
-
-
+    @IBOutlet weak var regBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginBtn.layer.cornerRadius = 10
+        loginBtn.clipsToBounds = true
+        regBtn.layer.cornerRadius = 10
+        regBtn.clipsToBounds = true
         ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }

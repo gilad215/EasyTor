@@ -42,12 +42,16 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
         if isClient
         {
             cell.nameLbl.text=chats[indexPath.row].bname
+            cell.chatLbl.text=chats[indexPath.row].lastTxt
+            cell.dateLbl.text=chats[indexPath.row].date
             return cell
 
         }
         else
         {
             cell.nameLbl.text=chats[indexPath.row].cname
+            cell.chatLbl.text=chats[indexPath.row].lastTxt
+            cell.dateLbl.text=chats[indexPath.row].date
             return cell
         }
     }
