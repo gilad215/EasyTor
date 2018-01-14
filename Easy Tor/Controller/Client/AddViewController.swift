@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
@@ -110,6 +111,7 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
             print("sending business...")
             print(selectedBusiness)
             chooseServiceVC.businessUid=selectedBusiness
+            chooseServiceVC.clientUid=Auth.auth().currentUser?.uid
         }
     }
 

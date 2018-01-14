@@ -75,6 +75,9 @@ class LoginViewController: UIViewController {
         appDelegate.window?.rootViewController=navVC
         
     }
+    
+    
+    
     /*
     // MARK: - Navigation
 

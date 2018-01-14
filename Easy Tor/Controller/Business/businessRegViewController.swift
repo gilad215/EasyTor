@@ -19,12 +19,16 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
     
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addBtn: UIButton!
+
     var duration=30
     var servicesData = [Service] ()
     var ref: DatabaseReference! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBtn.layer.cornerRadius = 10
+        addBtn.clipsToBounds = true
         stepper.minimumValue=30
         stepper.maximumValue=120
         stepper.stepValue=30

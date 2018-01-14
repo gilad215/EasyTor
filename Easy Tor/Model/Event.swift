@@ -20,9 +20,11 @@ struct Event {
     let bname:String!
     let bphone:String!
     let baddress:String!
+    let cname:String!
+    let cphone:String!
     let ref: DatabaseReference!
     
-    init (service:String, bid:String, key:String = "",cid:String,time:String,date:String="",bname:String,bphone:String,baddress:String) {
+    init (service:String, bid:String, key:String = "",cid:String,time:String,date:String="",bname:String,bphone:String,baddress:String,cname:String,cphone:String) {
         self.key = key
         self.service = service
         self.bid = bid
@@ -32,6 +34,8 @@ struct Event {
         self.bname=bname
         self.bphone=bphone
         self.baddress=baddress
+        self.cphone=cphone
+        self.cname=cname
         self.ref = Database.database().reference()
     }
     
@@ -48,6 +52,8 @@ struct Event {
         let time = value?["time"] as? String ?? ""
         let bname = value?["businessName"] as? String ?? ""
         let bphone = value?["businessPhone"] as? String ?? ""
+        let cname = value?["clientName"] as? String ?? ""
+        let cphone = value?["clientPhone"] as? String ?? ""
         let baddress = value?["address"] as? String ?? ""
 
 
@@ -59,10 +65,12 @@ struct Event {
         self.bname=bname
         self.baddress=baddress
         self.bphone=bphone
+        self.cphone=cphone
+        self.cname=cname
     }
     
     func toAnyObject() -> Any {
-        return ["service":service, "bid":bid,"cid":cid,"date":date,"time":time,"businessName":bname,"businessPhone":bphone,"address":baddress]
+        return ["service":service, "bid":bid,"cid":cid,"date":date,"time":time,"businessName":bname,"businessPhone":bphone,"address":baddress,"clientName":cname,"clientPhone":cphone]
 }
 }
 

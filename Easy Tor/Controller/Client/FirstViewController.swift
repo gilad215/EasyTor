@@ -152,7 +152,14 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
 //        })
         }
         
-    
+    @IBAction func logOut(_ sender: Any) {
+        print("LOGGING OUT")
+        try! Auth.auth().signOut()
+        if let storyboard = self.storyboard {
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! UIViewController
+            self.present(vc, animated: false, completion: nil)
+        }
+    }
     
 }
     

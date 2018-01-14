@@ -31,6 +31,8 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     var businessPhone:String?
     var businessAddr:String?
     
+    var clientUid:String?
+    
     var addedbyBusiness=false
     var clientPhone:String?
     var clientName:String?
@@ -319,8 +321,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func pressedFinish(_ sender: Any)
     {
-        if !(addedbyBusiness)
-        {
+            print(self.clientUid)
             let bref=ref.child("users").child("business").child(businessUid!).observeSingleEvent(of: .value, with: { (snapshot2) in
                 print(snapshot2)
                 let value = snapshot2.value as? NSDictionary
@@ -329,9 +330,15 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                     self.businessAddr = value?["address"] as? String ?? ""
                     print("got name!!!!!")
                     print(self.businessName)
-                let eref=self.ref.child("events").childByAutoId()
-                eref.setValue(["service":self.selectedService,"date":self.selectDateBtn.titleLabel?.text,"time":self.selectTimeBtn.titleLabel?.text,"bid":self.businessUid!,"cid":Auth.auth().currentUser?.uid,"businessName":self.businessName,"address":self.businessAddr,"businessPhone":self.businessPhone])
                 
+                let cref=self.ref.child("users").child("clients").child(self.clientUid!).observeSingleEvent(of: DataEventType.value, with: { (snapshot3) in
+                    let cvalue = snapshot3.value as? NSDictionary
+                    self.clientName = cvalue?["name"] as? String ?? ""
+                    self.clientPhone = cvalue?["phone"] as? String ?? ""
+                
+                    let eref=self.ref.child("events").childByAutoId()
+                    eref.setValue(["service":self.selectedService,"date":self.selectDateBtn.titleLabel?.text,"time":self.selectTimeBtn.titleLabel?.text,"bid":self.businessUid!,"cid":self.clientUid,"businessName":self.businessName,"address":self.businessAddr,"businessPhone":self.businessPhone,"clientName":self.clientName,"clientPhone":self.clientPhone])
+                })
             })
 
         self.ref.child("availablehours").child(self.businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).child((selectTimeBtn.titleLabel?.text)!).removeValue { (error, refer) in
@@ -341,7 +348,10 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
                 print(refer)
                 print("Child Removed Correctly")
         }
+        
         }
+        if !(addedbyBusiness)
+        {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let tabVC = storyboard.instantiateViewController(withIdentifier: "ClientTabVC") as! UIViewController
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -349,23 +359,13 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         }
         else
         {
-            let eref=ref.child("eventsByBusiness").childByAutoId()
-            eref.setValue(["bid":businessUid!,"service":selectedService,"date":selectDateBtn.titleLabel?.text,"time":selectTimeBtn.titleLabel?.text,"cName":clientName!,"cPhone":clientPhone])
-            self.ref.child("availablehours").child(self.businessUid!).child("services").child(selectedService!).child((selectDateBtn.titleLabel?.text)!).child((selectTimeBtn.titleLabel?.text)!).removeValue { (error, refer) in
-                if error != nil {
-                    print(error)
-                } else {
-                    print(refer)
-                    print("Child Removed Correctly")
-                }
-            }
-        
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let tabVC = storyboard.instantiateViewController(withIdentifier: "businessTabVC") as! UIViewController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController=tabVC
-
         }
     }
+    
     
 }

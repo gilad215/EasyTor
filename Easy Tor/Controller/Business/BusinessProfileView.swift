@@ -11,21 +11,21 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITableViewDelegate,UITableViewDataSource {
     var ref: DatabaseReference! = nil
     var storageRef: StorageReference!=nil
     var events=[Event]()
-    var user_name:String!
     let imagePicker = UIImagePickerController()
 
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var event1: UILabel!
-    @IBOutlet weak var event2: UILabel!
-    @IBOutlet weak var event3: UILabel!
     @IBOutlet weak var picBtn: UIButton!
+    @IBOutlet weak var chkMsgsBtn: UIButton!
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        chkMsgsBtn.layer.cornerRadius = 10
+        chkMsgsBtn.clipsToBounds = true
         ref = Database.database().reference()
         storageRef=Storage.storage().reference()
         super.viewDidLoad()
@@ -38,15 +38,24 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
-        ref.child("users").child(clientuid!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            let fname = value?["firstName"] as? String ?? ""
-            let lname = value?["lastName"] as? String ?? ""
-            self.user_name=fname+" "+lname
-        })
         startObserving()
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return events.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessEventTableCell") as? BusinessEventTableCell else {return UITableViewCell()}
+            cell.dateLbl.text=self.events[indexPath.row].date
+            cell.serviceName.text=self.events[indexPath.row].service
+            cell.timeLbl.text=self.events[indexPath.row].time
+            cell.eventKey=self.events[indexPath.row].key
+        cell.clientPhone.text=self.events[indexPath.row].cphone
+        cell.clientName.text=self.events[indexPath.row].cname
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,45 +63,16 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
-    @IBAction func addEvent(_ sender: Any) {
-
-        print("hi")
-        //        let eventAlert = UIAlertController(title: "Add Event", message: "Enter your event", preferredStyle: .alert)
-//        eventAlert.addTextField { (textfield:UITextField) in
-//            textfield.placeholder="Your event"
-//        }
-//
-//        eventAlert.addAction(UIAlertAction(title:"Send",style:.default,handler:{(action:UIAlertAction) in
-//            if let eventContent=eventAlert.textFields?.first?.text{
-//                let event=Event(content: eventContent, addedByUser: self.user_name)
-//
-//            let eventRef=self.ref.child("events").child(eventContent.lowercased())
-//                eventRef.setValue(event.toAnyObject())
-//            }
-//
-//        }))
-//        self.present(eventAlert,animated: true,completion: nil)
-    }
-    
     func startObserving(){
-        ref.child("events").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
-            var newEvents=[Event]()
+        ref.child("events").queryOrdered(byChild: "bid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
+            print(snapshot)
+            self.events.removeAll()
             for event in snapshot.children
             {
                 let eventObject=Event(snapshot: event as! DataSnapshot)
-                newEvents.append(eventObject)
+                self.events.append(eventObject)
             }
-            
-            self.events=newEvents
-            print("events size:",self.events.count);
-//            self.event1.text=self.events[0].service+" "+self.events[0].date
-//            self.event2.text=self.events[1].service+" "+self.events[1].date
-
-
-
+            self.tableView.reloadData()
         }
     }
     
