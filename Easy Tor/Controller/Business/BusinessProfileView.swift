@@ -125,7 +125,15 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
         }
     }
     
-
+    
+    @IBAction func logoutPressed(_ sender: Any) {
+        try! Auth.auth().signOut()
+        if let storyboard = self.storyboard {
+            let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! UIViewController
+            self.present(vc, animated: false, completion: nil)
+    }
+    }
+    
     func downloadPic()
     {
 //        ref.child("users").child("clients").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in

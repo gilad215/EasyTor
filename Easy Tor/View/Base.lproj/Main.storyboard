@@ -1456,7 +1456,13 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="e5L-Fn-wrM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="dWj-yr-V2p"/>
+                    <navigationItem key="navigationItem" title="Profile" id="dWj-yr-V2p">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="qHl-SU-MpG">
+                            <connections>
+                                <action selector="logoutPressed:" destination="Ddh-Ej-DXr" id="pRu-q4-XVd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chkMsgsBtn" destination="pFI-n8-d9Z" id="kvD-w3-hhf"/>
                         <outlet property="image" destination="1aC-Ic-baI" id="V7T-lp-DS6"/>
@@ -1540,7 +1546,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="ADD"/>
                                 <connections>
-                                    <segue destination="Xq7-vh-a5q" kind="show" id="ymt-Ly-FOx"/>
+                                    <action selector="addPressed:" destination="ffX-dQ-9zr" eventType="touchUpInside" id="rNY-wd-YKm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1550,6 +1556,7 @@
                     <navigationItem key="navigationItem" title="Services" id="fAs-Yn-4iW"/>
                     <connections>
                         <outlet property="tableView" destination="1BK-sB-acU" id="xNC-S0-x2i"/>
+                        <segue destination="Xq7-vh-a5q" kind="show" identifier="businessAddService" id="ZBI-gI-Q1E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esj-1W-5IA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1731,6 +1738,6 @@
         <segue reference="Nrl-uL-ums"/>
         <segue reference="hiY-Y5-K6Z"/>
         <segue reference="lDh-II-RrT"/>
-        <segue reference="ymt-Ly-FOx"/>
+        <segue reference="ZBI-gI-Q1E"/>
     </inferredMetricsTieBreakers>
 </document>

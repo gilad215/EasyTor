@@ -24,9 +24,11 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
     var duration=30
     var servicesData = [Service] ()
     var ref: DatabaseReference! = nil
+    var businessLoggedIn=false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if businessLoggedIn {self.navigationItem.rightBarButtonItem=nil}
         addBtn.layer.cornerRadius = 10
         addBtn.clipsToBounds = true
         stepper.minimumValue=30

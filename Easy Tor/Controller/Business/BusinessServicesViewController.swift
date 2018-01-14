@@ -44,6 +44,10 @@ class BusinessServicesViewController: UIViewController,UITableViewDelegate, UITa
         return cell
     }
 
+    //businessAddService
+    @IBAction func addPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "businessAddService", sender: nil)
+    }
     
     func getServices()
     {
@@ -57,5 +61,11 @@ class BusinessServicesViewController: UIViewController,UITableViewDelegate, UITa
             self.tableView.reloadData()
             }
         }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let chooseServiceVC=segue.destination as? businessRegViewController {
+            chooseServiceVC.businessLoggedIn=true
+        }
+    }
 
 }
