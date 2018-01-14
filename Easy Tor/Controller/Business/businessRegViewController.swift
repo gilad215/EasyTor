@@ -77,21 +77,34 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
         }
     }
     
+    //servicesToOpenHours
+    @IBAction func pressedNext(_ sender: Any) {
+        if self.servicesData.isEmpty{
+            showMessagePrompt(str: "Please enter at least one Service")
+            return
+        }
+        else
+        {
+            self.performSegue(withIdentifier: "servicesToOpenHours", sender: nil)
+        }
+    }
+    
 
     @IBAction func stepperChanged(_ sender: Any) {
         durationLbl.text = Int(stepper.value).description
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showMessagePrompt(str:String)
+    {
+        print("showing message")
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: str, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
-    */
-
+    
 }

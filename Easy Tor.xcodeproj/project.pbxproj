@@ -59,7 +59,7 @@
 		95980DD71FFFAB5100B23810 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = "Easy Tor/Controller/Client/SearchViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DD81FFFAB5100B23810 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddViewController.swift; path = "Easy Tor/Controller/Client/AddViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DD91FFFAB5100B23810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Easy Tor/Controller/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpeningHoursViewController.swift; path = "Easy Tor/Controller/Client/OpeningHoursViewController.swift"; sourceTree = SOURCE_ROOT; };
+		95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpeningHoursViewController.swift; path = "Easy Tor/Controller/Business/OpeningHoursViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DDB1FFFAB5100B23810 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = "Easy Tor/Controller/RegisterViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DDC1FFFAB5100B23810 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Easy Tor/Controller/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DEA1FFFAB7200B23810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Easy Tor/View/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
@@ -117,7 +117,6 @@
 			children = (
 				95980DD81FFFAB5100B23810 /* AddViewController.swift */,
 				95980DD61FFFAB5100B23810 /* FirstViewController.swift */,
-				95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */,
 				95980DD41FFFAB5100B23810 /* ChooseServicesViewController.swift */,
 				95980DD71FFFAB5100B23810 /* SearchViewController.swift */,
 				95D5D4652007B9000066B7FB /* MapViewController.swift */,
@@ -129,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				95980DD51FFFAB5100B23810 /* businessRegViewController.swift */,
+				95980DDA1FFFAB5100B23810 /* OpeningHoursViewController.swift */,
 				9536F29320064C9A00851E04 /* BusinessProfileView.swift */,
 				9536F2952006562F00851E04 /* BusinessServicesViewController.swift */,
 				95D5D45F200788090066B7FB /* BusinessAddViewController.swift */,

@@ -171,41 +171,84 @@ class OpeningHoursViewController: UIViewController {
     
     
     @IBAction func pressedFinish(_ sender: Any) {
+        
+        if sunday_switch.isOn==false && monday_switch.isOn==false && tuesday_switch.isOn==false && wednesday_switch.isOn==false
+        && thursday_switch.isOn==false && friday_switch.isOn==false && saturday_switch.isOn==false
+        {
+            self.showMessagePrompt(str: "Please select at least one Day")
+            return
+        }
+        
         //to put dates inside the business node
         let currentuser=Auth.auth().currentUser
         let dateRef=ref.child("openhours").child((currentuser?.uid)!)
         
         if sunday_switch.isOn
         {
+            if sunday_open.titleLabel?.text=="Open" || sunday_closed.titleLabel?.text=="Closed"
+            {
+                self.showMessagePrompt(str: "Please select valid open hours")
+                return
+            }
             dateRef.child("sunday").setValue(["open":sunday_open.title(for:.normal),"closed":sunday_closed.title(for: .normal)])
         }
         if monday_switch.isOn
         {
+            if monday_open.titleLabel?.text=="Open" || monday_closed.titleLabel?.text=="Closed"
+            {
+                self.showMessagePrompt(str: "Please select valid open hours")
+                return
+            }
             dateRef.child("monday").setValue(["open":monday_open.title(for:.normal),"closed":monday_closed.title(for: .normal)])
 
         }
         if tuesday_switch.isOn
         {
+            if tuesday_open.titleLabel?.text=="Open" || tuesday_closed.titleLabel?.text=="Closed"
+            {
+                self.showMessagePrompt(str: "Please select valid open hours")
+                return
+            }
             dateRef.child("tuesday").setValue(["open":tuesday_open.title(for:.normal),"closed":tuesday_closed.title(for: .normal)])
 
         }
         if wednesday_switch.isOn
         {
+            if wednesday_open.titleLabel?.text=="Open" || wednesday_closed.titleLabel?.text=="Closed"
+            {
+                self.showMessagePrompt(str: "Please select valid open hours")
+                return
+            }
             dateRef.child("wednesday").setValue(["open":wednesday_open.title(for:.normal),"closed":wednesday_closed.title(for: .normal)])
 
         }
         if thursday_switch.isOn
         {
+            if thursday_open.titleLabel?.text=="Open" || thursday_closed.titleLabel?.text=="Closed"
+            {
+                self.showMessagePrompt(str: "Please select valid open hours")
+                return
+            }
             dateRef.child("thursday").setValue(["open":thursday_open.title(for:.normal),"closed":thursday_closed.title(for: .normal)])
 
         }
         if friday_switch.isOn
         {
+            if friday_open.titleLabel?.text=="Open" || friday_closed.titleLabel?.text=="Closed"
+            {
+                self.showMessagePrompt(str: "Please select valid open hours")
+                return
+            }
             dateRef.child("friday").setValue(["open":friday_open.title(for:.normal),"closed":friday_closed.title(for: .normal)])
 
         }
         if saturday_switch.isOn
         {
+            if saturday_open.titleLabel?.text=="Open" || saturday_closed.titleLabel?.text=="Closed"
+            {
+                self.showMessagePrompt(str: "Please select valid open hours")
+                return
+            }
             dateRef.child("saturday").setValue(["open":saturday_open.title(for:.normal),"closed":saturday_closed.title(for: .normal)])
 
         }
@@ -215,14 +258,17 @@ class OpeningHoursViewController: UIViewController {
         appDelegate.window?.rootViewController=tabVC
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func showMessagePrompt(str:String)
+    {
+        print("showing message")
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: str, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
-    */
 
 }

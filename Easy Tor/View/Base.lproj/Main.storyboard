@@ -433,7 +433,7 @@
                     <navigationItem key="navigationItem" title="Add Services" id="X8N-CZ-t1x">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="GjI-UO-N1S">
                             <connections>
-                                <segue destination="scE-DS-3Bd" kind="show" id="P0Z-8w-4uQ"/>
+                                <action selector="pressedNext:" destination="Xq7-vh-a5q" id="r33-hY-Xcx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -443,6 +443,7 @@
                         <outlet property="nameOfService" destination="0yD-LF-wnp" id="Vf6-F2-niQ"/>
                         <outlet property="stepper" destination="doL-cz-x8K" id="lY3-oB-hTR"/>
                         <outlet property="tableView" destination="1i2-67-qke" id="ibY-sL-jPx"/>
+                        <segue destination="scE-DS-3Bd" kind="show" identifier="servicesToOpenHours" id="3Bs-bW-2Yd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOl-KL-fIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
