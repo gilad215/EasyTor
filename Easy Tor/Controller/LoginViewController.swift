@@ -64,7 +64,9 @@ class LoginViewController: UIViewController {
                     print("No user")
                 }
             }
-            else{ print(error)}
+            else{
+                self.showMessagePrompt(str: (error?.localizedDescription)!)
+                }
         }
     }
     
@@ -76,7 +78,18 @@ class LoginViewController: UIViewController {
         
     }
     
-    
+    func showMessagePrompt(str:String)
+    {
+        print("showing message")
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: str, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     /*
     // MARK: - Navigation

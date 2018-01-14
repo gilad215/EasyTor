@@ -37,8 +37,10 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var clientMAil: UITextField!
     @IBOutlet weak var clientPwd: UITextField!
     
-
     
+    //validation
+
+
     
     var ref: DatabaseReference!
 
@@ -68,11 +70,19 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
     
 
     @IBAction func createAcc(_ sender: Any) {
+        
+        
+        
         ref = Database.database().reference()
         if seg.selectedSegmentIndex == 0
         {
         
         Auth.auth().createUser(withEmail: emailTxt.text!, password: pwdTxt.text!) { (user, error) in
+            
+            if let error = error {
+                self.showMessagePrompt(str: error.localizedDescription)
+                return
+            }
             self.ref.child("users").child("business").child((user?.uid)!).setValue(["businessName":self.fullName.text,"phone":self.phoneTxt.text,"address":self.address.text,"city":self.city.text,"category":self.category])
             print("Created Business!")
             self.performSegue(withIdentifier: "createBusiness", sender: self)
@@ -132,5 +142,17 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
         return 1
     }
     
+    func showMessagePrompt(str:String)
+    {
+        print("showing message")
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: str, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
 }
