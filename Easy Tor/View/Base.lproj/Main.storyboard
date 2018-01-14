@@ -897,7 +897,7 @@
                     <navigationItem key="navigationItem" title="Choose Business" id="Vsw-QR-7PU">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="Rjw-mS-cD4">
                             <connections>
-                                <segue destination="xZF-0Y-zWO" kind="show" id="dtF-Dj-Ub3"/>
+                                <action selector="pressedNext:" destination="66X-ca-WfF" id="Rd6-0T-3KI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -908,6 +908,7 @@
                         <outlet property="pickerView" destination="8L6-TH-Yl5" id="jLA-ic-aTe"/>
                         <outlet property="searchBusinessView" destination="a2c-cz-gpe" id="n75-Eb-QPu"/>
                         <outlet property="tableView" destination="un4-IR-IQP" id="eVB-LE-kgH"/>
+                        <segue destination="xZF-0Y-zWO" kind="show" identifier="businesstoServices" id="lDh-II-RrT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1g-QO-6G9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1166,15 +1167,12 @@
                         <viewLayoutGuide key="safeArea" id="C5m-O0-zcR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Messages" id="Ipd-9R-ViI">
-                        <barButtonItem key="rightBarButtonItem" title="New" id="zUE-KL-bcG">
-                            <connections>
-                                <segue destination="7uA-jc-sIe" kind="show" id="AnL-yf-0KV"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="zUE-KL-bcG"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="6U8-TE-Ua3" id="hYT-of-eb3"/>
                         <segue destination="RCe-1E-Ema" kind="show" identifier="ChatSegue" id="Nrl-uL-ums"/>
+                        <segue destination="7uA-jc-sIe" kind="show" identifier="newChat" id="JvL-2K-Uar"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lj8-bN-csx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1732,7 +1730,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Nrl-uL-ums"/>
         <segue reference="hiY-Y5-K6Z"/>
-        <segue reference="h7s-4T-2cA"/>
+        <segue reference="lDh-II-RrT"/>
         <segue reference="ymt-Ly-FOx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -25,6 +25,7 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
         {
             self.navigationItem.rightBarButtonItem=nil
         }
+        self.navigationItem.rightBarButtonItem=UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressedNew))
         ref = Database.database().reference()
         observeChats()
 
@@ -119,6 +120,11 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
                 chatVc.partner=chat.bname
             }
         }
+    }
+    
+    @objc func pressedNew()
+    {
+        self.performSegue(withIdentifier: "newChat", sender: nil)
     }
     
     

@@ -16,7 +16,7 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var addLabel: UILabel!
     @IBOutlet weak var categoryBtn: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
-    var category:String!
+    var category:String?=nil
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,13 +25,11 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     var pickerData: [String] = [String]()
     var ref: DatabaseReference! = nil
     var businessData: [Business] = [Business]()
-    var servicesData: [Service] = [Service]()
 
     @IBOutlet weak var searchBusinessView: UIView!
     @IBOutlet weak var servicesView: UIView!
-    var selectedBusiness:String?
+    var selectedBusiness:String?=nil
     var selectedBusinessName:String?
-    var selectedService:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +104,21 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
         return 1
     }
     
+    @IBAction func pressedNext(_ sender: Any) {
+        if category==nil
+        {
+            self.showMessagePrompt(str: "Please select a Category")
+            return
+        }
+        if selectedBusiness==nil
+        {
+            self.showMessagePrompt(str: "Please select a Business")
+            return
+        }
+        self.performSegue(withIdentifier: "businesstoServices", sender: nil)
+
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let chooseServiceVC=segue.destination as? ChooseServicesViewController {
             print("sending business...")
@@ -113,6 +126,18 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
             chooseServiceVC.businessUid=selectedBusiness
             chooseServiceVC.clientUid=Auth.auth().currentUser?.uid
         }
+    }
+    func showMessagePrompt(str:String)
+    {
+        print("showing message")
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: str, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
 
 }
