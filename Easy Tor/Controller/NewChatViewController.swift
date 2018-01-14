@@ -36,6 +36,7 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
     func getList()
     {
             let cref=ref.child("events").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(.value, with: { (snapshot) in
+                self.businessData.removeAll()
                 for event in snapshot.children
                 {
                     let valuer = event as! DataSnapshot
@@ -46,7 +47,12 @@ class NewChatViewController: UIViewController,UITableViewDelegate,UITableViewDat
                     let bcategory = dictionary?["businessPhone"] as? String ?? ""
                     let bid = dictionary?["bid"] as? String ?? ""
                     
+                    if !(self.businessData.contains(where: { (business) -> Bool in
+                        business.key==bid
+                    }))
+                    {
                     self.businessData.append(Business(name:bname, key:bid,address:baddress,category:bcategory))
+                    }
                 }
                 self.tableView.reloadData()
             })
