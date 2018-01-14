@@ -39,12 +39,15 @@ class ClientEventTableCell: UITableViewCell {
     @IBAction func deletePressed(_ sender: Any)
     {
         ref = Database.database().reference()
-        print("DELETE PRESSED"); self.ref.child("events").child(eventKey!).removeValue { (error, refer) in
+        print("DELETE PRESSED")
+        self.ref.child("events").child(eventKey!).removeValue { (error, refer) in
             if error != nil {
                 print(error)
             } else {
                 print(refer)
                 print("Child Removed Correctly")
+
+                self.ref.child("availablehours").child(self.businessid!).child("services").child(self.serviceName.text!).child(self.dateLbl.text!).child(self.timeLbl.text!).updateChildValues(["time":self.timeLbl.text!])
             }
         }
     }

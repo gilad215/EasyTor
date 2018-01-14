@@ -38,6 +38,7 @@ class BusinessEventTableCell: UITableViewCell {
     
     @IBAction func deletePressed(_ sender: Any)
     {
+        let currentUser=Auth.auth().currentUser?.uid
         ref = Database.database().reference()
         print("DELETE PRESSED"); self.ref.child("events").child(eventKey!).removeValue { (error, refer) in
             if error != nil {
@@ -45,6 +46,7 @@ class BusinessEventTableCell: UITableViewCell {
             } else {
                 print(refer)
                 print("Child Removed Correctly")
+                self.ref.child("availablehours").child(currentUser!).child("services").child(self.serviceName.text!).child(self.dateLbl.text!).child(self.timeLbl.text!).updateChildValues(["time":self.timeLbl.text!])
             }
         }
 }

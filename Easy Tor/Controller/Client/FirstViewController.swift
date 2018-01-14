@@ -60,6 +60,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         cell.dateLbl.text=events[indexPath.row].date
         cell.serviceName.text=events[indexPath.row].service
         cell.timeLbl.text=events[indexPath.row].time
+        cell.businessid=events[indexPath.row].bid
         cell.eventKey=events[indexPath.row].key
         return cell
 

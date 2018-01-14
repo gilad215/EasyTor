@@ -21,11 +21,11 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.rightBarButtonItem=UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressedNew))
         if !(isClient)
         {
             self.navigationItem.rightBarButtonItem=nil
         }
-        self.navigationItem.rightBarButtonItem=UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(pressedNew))
         ref = Database.database().reference()
         observeChats()
 
