@@ -58,7 +58,7 @@ class businessRegViewController: UIViewController, UITableViewDataSource,UITable
     
     @IBAction func onButtonPressed(_ sender: UIButton) {
         let currentUser=Auth.auth().currentUser
-        if (nameOfService != nil){
+        if !((nameOfService.text?.isEmpty)!){
             let service = Service(nameOfService: nameOfService.text!, duration: durationLbl.text!)
             let serviceRef=self.ref.child("services").child((currentUser?.uid)!).child((nameOfService.text?.lowercased())!)
             serviceRef.setValue(service.toAnyObject())
