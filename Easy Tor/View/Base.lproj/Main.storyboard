@@ -1619,6 +1619,7 @@
                     <navigationItem key="navigationItem" title="Add Event" id="FVa-Gu-GJp"/>
                     <connections>
                         <outlet property="tableView" destination="xUF-uE-8e9" id="OnZ-Sf-Z34"/>
+                        <segue destination="xZF-0Y-zWO" kind="show" identifier="eventByBusiness" id="h7s-4T-2cA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZr-M4-tqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1730,6 +1731,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Nrl-uL-ums"/>
         <segue reference="hiY-Y5-K6Z"/>
+        <segue reference="h7s-4T-2cA"/>
         <segue reference="ymt-Ly-FOx"/>
     </inferredMetricsTieBreakers>
 </document>

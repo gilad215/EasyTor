@@ -56,7 +56,13 @@ class BusinessAddViewController: UIViewController, UITableViewDelegate,UITableVi
                 let name = dictionary?["clientName"] as? String ?? ""
                 let phone = dictionary?["clientPhone"] as? String ?? ""
                 let cid = dictionary?["cid"] as? String ?? ""
-                self.clients.append(Client(name:name,key:cid, phone:phone))
+                
+                if !(self.clients.contains(where: { (client) -> Bool in
+                    client.key==cid
+                }))
+                {
+                    self.clients.append(Client(name:name,key:cid, phone:phone))
+                }
 
             }
             self.tableView.reloadData()
