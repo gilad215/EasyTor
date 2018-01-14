@@ -321,7 +321,11 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func pressedFinish(_ sender: Any)
     {
-            print(self.clientUid)
+        if selectTimeBtn.titleLabel?.text=="Time"
+        {
+            self.showMessagePrompt(str: "Please select a valid Date and Time")
+            return
+        }
             let bref=ref.child("users").child("business").child(businessUid!).observeSingleEvent(of: .value, with: { (snapshot2) in
                 print(snapshot2)
                 let value = snapshot2.value as? NSDictionary
@@ -366,6 +370,18 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
         appDelegate.window?.rootViewController=tabVC
         }
     }
-    
+    func showMessagePrompt(str:String)
+    {
+        print("showing message")
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: str, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+
     
 }

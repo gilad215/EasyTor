@@ -8,6 +8,7 @@ target 'Easy Tor' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'JSQMessagesViewController'
+  pod 'SQLite.swift', '~> 0.11.4'
   
   use_frameworks!
 

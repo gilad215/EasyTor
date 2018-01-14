@@ -26,7 +26,6 @@
 		95980DE51FFFAB5100B23810 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95980DDC1FFFAB5100B23810 /* LoginViewController.swift */; };
 		95980DEC1FFFAB7200B23810 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95980DE91FFFAB7200B23810 /* LaunchScreen.storyboard */; };
 		959E56C42008B0AD004CBEC8 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959E56C32008B0AD004CBEC8 /* Chat.swift */; };
-		959E56C62008B2E7004CBEC8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959E56C52008B2E7004CBEC8 /* Message.swift */; };
 		959E56C82008C407004CBEC8 /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959E56C72008C407004CBEC8 /* NewChatViewController.swift */; };
 		959E56CA2008CA1D004CBEC8 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959E56C92008CA1D004CBEC8 /* Client.swift */; };
 		95ABC52A1FEA966A00B70325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95ABC5291FEA966A00B70325 /* Assets.xcassets */; };
@@ -64,7 +63,6 @@
 		95980DDC1FFFAB5100B23810 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = "Easy Tor/Controller/LoginViewController.swift"; sourceTree = SOURCE_ROOT; };
 		95980DEA1FFFAB7200B23810 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Easy Tor/View/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		959E56C32008B0AD004CBEC8 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
-		959E56C52008B2E7004CBEC8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		959E56C72008C407004CBEC8 /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
 		959E56C92008CA1D004CBEC8 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		95ABC51D1FEA966900B70325 /* Easy Tor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Easy Tor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +149,6 @@
 				95C18DC6200B4659004E99B5 /* BusinessEventTableCell.swift */,
 				95D5D46A2007C67E0066B7FB /* MessagesTableCell.swift */,
 				95D5D4672007BE0B0066B7FB /* Bridging-Header.h */,
-				959E56C52008B2E7004CBEC8 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,6 +291,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -303,6 +301,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -358,7 +357,6 @@
 				955ED8451FFA23ED0099D62C /* Service.swift in Sources */,
 				9537A3C51FFB7FFB00161656 /* Business.swift in Sources */,
 				95D5D464200790150066B7FB /* ClientEventTableCell.swift in Sources */,
-				959E56C62008B2E7004CBEC8 /* Message.swift in Sources */,
 				95980DE41FFFAB5100B23810 /* RegisterViewController.swift in Sources */,
 				95C18DC7200B4659004E99B5 /* BusinessEventTableCell.swift in Sources */,
 				9537A3C71FFB85DB00161656 /* TableCell.swift in Sources */,
