@@ -73,10 +73,53 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
         
         
         
+        
         ref = Database.database().reference()
         if seg.selectedSegmentIndex == 0
         {
-        
+            if (self.fullName.text?.isEmpty)!
+        {
+            let error="Please enter a Business Name"
+            self.showMessagePrompt(str: error)
+            return
+            }
+            if (self.phoneTxt.text?.isEmpty)!
+            {
+                let error="Please enter a Phone Number"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            if (self.address.text?.isEmpty)!
+            {
+                let error="Please enter an Address"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            if (self.city.text?.isEmpty)!
+            {
+                let error="Please enter a City"
+                self.showMessagePrompt(str: error)
+                return
+            }
+
+            if (self.emailTxt.text?.isEmpty)!
+            {
+                let error="Please enter an Email"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            if (self.pwdTxt.text?.isEmpty)!
+            {
+                let error="Please enter a Password"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            if (self.category=="Category")
+            {
+                let error="Please select a Category"
+                self.showMessagePrompt(str: error)
+                return
+            }
         Auth.auth().createUser(withEmail: emailTxt.text!, password: pwdTxt.text!) { (user, error) in
             
             if let error = error {
@@ -91,7 +134,48 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
         }
         }
         else {
+            if (self.clientName.text?.isEmpty)!
+            {
+                let error="Please enter a Business Name"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            if (self.clientPhone.text?.isEmpty)!
+            {
+                let error="Please enter a Phone Number"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            if (self.clientAddress.text?.isEmpty)!
+            {
+                let error="Please enter an Address"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            if (self.clientCity.text?.isEmpty)!
+            {
+                let error="Please enter a City"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            
+            if (self.clientMAil.text?.isEmpty)!
+            {
+                let error="Please enter an Email"
+                self.showMessagePrompt(str: error)
+                return
+            }
+            if (self.clientPwd.text?.isEmpty)!
+            {
+                let error="Please enter a Password"
+                self.showMessagePrompt(str: error)
+                return
+            }
             Auth.auth().createUser(withEmail: clientMAil.text!, password: clientPwd.text!) { (user, error) in
+                if let error = error {
+                    self.showMessagePrompt(str: error.localizedDescription)
+                    return
+                }
                 self.ref.child("users").child("clients").child((user?.uid)!).setValue(["name":self.clientName.text,"phone":self.clientPhone.text,"address":self.clientAddress.text,"city":self.clientCity.text])
                 print("Created Client!")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
