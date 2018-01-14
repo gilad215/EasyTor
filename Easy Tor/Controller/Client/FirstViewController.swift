@@ -11,9 +11,12 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITableViewDelegate,UITableViewDataSource {
+protocol MyCustomCellDelegator {
+    func callSegueFromCell(myData dataobject: AnyObject)
+}
+class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITableViewDelegate,UITableViewDataSource,MyCustomCellDelegator {
 
-    
+
     var ref: DatabaseReference! = nil
     var storageRef: StorageReference!=nil
     var events=[Event]()
@@ -62,6 +65,13 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         cell.timeLbl.text=events[indexPath.row].time
         cell.businessid=events[indexPath.row].bid
         cell.eventKey=events[indexPath.row].key
+        cell.deleteBtn.layer.cornerRadius = 10
+        cell.deleteBtn.clipsToBounds = true
+        cell.chatBtn.layer.cornerRadius = 10
+        cell.chatBtn.clipsToBounds = true
+        cell.serviceName.layer.cornerRadius = 10
+        cell.serviceName.clipsToBounds = true
+        cell.delegate = self
         return cell
 
     }
@@ -134,6 +144,11 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             }
         }
     }
+    func callSegueFromCell(myData dataobject: AnyObject) {
+        //try not to send self, just to avoid retain cycles(depends on how you handle the code on the next controller)
+        self.performSegue(withIdentifier: "profiletoChat", sender:dataobject )
+        
+    }
         
     func downloadPic()
     {
@@ -152,7 +167,22 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
 //            }
 //        })
         }
+    
+    //profiletoChat
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         
+        if let chat = sender as? Chat {
+            let chatVc = segue.destination as! ChatViewController
+
+                chatVc.displayName=chat.bname
+                chatVc.ID=chat.bid
+                chatVc.partner=chat.bname
+                chatVc.chatkey=chat.key
+        }
+    }
+    
+    
     @IBAction func logOut(_ sender: Any) {
         print("LOGGING OUT")
         try! Auth.auth().signOut()
@@ -161,6 +191,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             self.present(vc, animated: false, completion: nil)
         }
     }
+
     
 }
     

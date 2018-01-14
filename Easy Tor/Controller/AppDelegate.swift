@@ -8,20 +8,40 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var ref: DatabaseReference! = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        ref = Database.database().reference()
         
+        if Auth.auth().currentUser != nil {
+            ref.child("users").child("business").observe(DataEventType.value, with: { (snapshot) in
+                if snapshot.hasChild((Auth.auth().currentUser?.uid)!)
+                {
+                    let storyboard=UIStoryboard(name: "Main", bundle: nil)
+                    let loginVC=storyboard.instantiateViewController(withIdentifier: "businessTabVC") as! UITabBarController
+                    self.window?.rootViewController=loginVC
+                }
+                else
+                {
+                    let storyboard=UIStoryboard(name: "Main", bundle: nil)
+                    let loginVC=storyboard.instantiateViewController(withIdentifier: "ClientTabVC") as! UITabBarController
+                    self.window?.rootViewController=loginVC
+                }
+            })
+        }
+        else{
         let storyboard=UIStoryboard(name: "Main", bundle: nil)
         let loginVC=storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
         self.window?.rootViewController=loginVC
-        
+        }
         return true
     }
 

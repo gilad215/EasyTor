@@ -12,6 +12,8 @@ import FirebaseDatabase
 
 class ClientEventTableCell: UITableViewCell {
     
+    var delegate:MyCustomCellDelegator!
+    
     @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var businessAddress: UILabel!
     @IBOutlet weak var serviceName: UILabel!
@@ -27,14 +29,66 @@ class ClientEventTableCell: UITableViewCell {
     
     var eventKey:String?
     var businessid:String?
+    var chatExists:String!
+    var chat_key:String!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        ref = Database.database().reference()
+
         // Initialization code
+        
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    //chatBtnSegue
+    @IBAction func chatPressed(_ sender: Any) {
+        let checkref=ref.child("chats").observeSingleEvent(of: .value) { (snapshot) in
+        for chat in snapshot.children
+        {
+            let valuer = chat as! DataSnapshot
+            let dictionary=valuer.value as? NSDictionary
+            
+            let bid = dictionary?["bid"] as? String ?? ""
+            let cid = dictionary?["cid"] as? String ?? ""
+            if cid==Auth.auth().currentUser?.uid && bid==self.businessid {
+                print("CHAT EXISTS!")
+                self.chatExists=valuer.key}
+                self.chat_key=valuer.key
+        }
+        
+        if self.chatExists==nil
+        {
+            print("chat doesn't exist")
+            let cref=self.ref.child("chats").childByAutoId()
+            
+            let chatItem = [
+                //"cname":self.cname,
+                "cid":Auth.auth().currentUser?.uid,
+                "bname":self.businessName.text!,
+                "bid":self.businessid
+            ]
+            
+            // 3
+            self.chat_key=cref.key
+            cref.setValue(chatItem)
+            let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessid!, cname: "john", bname: self.businessName.text!,key:self.chat_key)
+            if(self.delegate != nil){ //Just to be safe.
+                self.delegate.callSegueFromCell(myData:selectedChat as AnyObject)
+            }
+        }
+            else
+        {
+            let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessid!,cname:" ", bname: self.businessName.text!,key:self.chatExists)
+            if(self.delegate != nil){ //Just to be safe.
+                self.delegate.callSegueFromCell(myData:selectedChat as AnyObject)
+            }
+        
+    }
+    }
+    }
+    
     
     @IBAction func deletePressed(_ sender: Any)
     {
@@ -52,3 +106,4 @@ class ClientEventTableCell: UITableViewCell {
         }
     }
 }
+
