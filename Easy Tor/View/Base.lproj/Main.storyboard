@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shg-au-G13">
-                                <rect key="frame" x="126" y="31" width="123" height="104"/>
+                                <rect key="frame" x="137" y="67" width="99" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="0.92482034909729816" green="0.9022637552168763" blue="0.94737694297772013" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,10 +125,17 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpic" translatesAutoresizingMaskIntoConstraints="NO" id="c8v-5K-dNl">
-                                <rect key="frame" x="137" y="74" width="100" height="90"/>
+                                <rect key="frame" x="137" y="69" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Upcoming Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGz-YT-9cJ">
+                                <rect key="frame" x="106" y="183" width="160" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -1444,7 +1451,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userpic" translatesAutoresizingMaskIntoConstraints="NO" id="1aC-Ic-baI">
-                                <rect key="frame" x="126" y="67" width="123" height="106"/>
+                                <rect key="frame" x="126" y="67" width="123" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -1849,8 +1856,8 @@
         <image name="wallet_app" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hmR-0I-Mml"/>
-        <segue reference="8A6-4E-gWV"/>
+        <segue reference="Nrl-uL-ums"/>
+        <segue reference="hiY-Y5-K6Z"/>
         <segue reference="lDh-II-RrT"/>
         <segue reference="wYM-ab-vce"/>
     </inferredMetricsTieBreakers>

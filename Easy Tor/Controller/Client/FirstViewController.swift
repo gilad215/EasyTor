@@ -53,11 +53,12 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         downloadPic()
         imagePicker.delegate = self
 
-        image.layer.borderWidth = 1
-        image.layer.masksToBounds = false
-        image.layer.borderColor = UIColor.black.cgColor
-        image.layer.cornerRadius = image.frame.height/2
+
+        image.layer.cornerRadius = image.frame.size.width / 2
         image.clipsToBounds = true
+        image.layer.borderColor = UIColor.lightGray.cgColor
+        image.layer.borderWidth = 2
+
         do
         {
             let documentDirectory=try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
