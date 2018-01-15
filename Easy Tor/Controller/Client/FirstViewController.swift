@@ -293,7 +293,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         do {
             let events = try self.database.prepare(self.eventsTable)
             for event in events {
-                self.local_events.append(Event(service: event[self.e_service], bid: event[self.e_bid], cid: event[self.e_cid], time: event[self.e_time], bname: event[self.e_bname], bphone: event[self.e_bphone], baddress: event[self.e_address], cname: event[self.e_cname], cphone: event[self.e_cphone]))
+                self.local_events.append(Event(service: event[self.e_service], bid: event[self.e_bid], key:event[self.e_id], cid: event[self.e_cid], time: event[self.e_time], bname: event[self.e_bname], bphone: event[self.e_bphone], baddress: event[self.e_address], cname: event[self.e_cname], cphone: event[self.e_cphone]))
             }
         } catch {
             print(error)
