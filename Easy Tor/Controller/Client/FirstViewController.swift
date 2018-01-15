@@ -69,9 +69,10 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         {
             print(error)
         }
-        deleteTable()
+       // deleteTable()
         createTable()
         getLocalEvents()
+        downloadPic()
         startObserving()
         
 
@@ -205,12 +206,15 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         image.image=chosenimage
         // image is our desired image
         
+        let imageData:NSData = UIImagePNGRepresentation(self.image.image!)! as NSData
+        UserDefaults.standard.set(imageData, forKey: "savedImage")
+        
         picker.dismiss(animated: true, completion: nil)
         
         //uploading to Firebase
         var data=Data()
         data = UIImageJPEGRepresentation(image.image!, 0.8)! as Data
-        let filePath = "\(Auth.auth().currentUser?.uid)/\("userPhoto")"
+        let filePath = "\((Auth.auth().currentUser?.uid)!)/\("userPhoto")"
         let metaData = StorageMetadata()
         metaData.contentType="image/jpg"
         self.storageRef.child(filePath).putData(data,metadata:metaData){
@@ -234,21 +238,51 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         
     func downloadPic()
     {
-//        ref.child("users").child("clients").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-//            // check if user has photo
-//            if snapshot.hasChild("userPhoto"){
-//                // set image locatin
-//                print("found pic!")
-//                let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
-//                // Assuming a < 10MB file, though you can change that
-//                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
-//                    print(data)
-//                    let userPhoto = UIImage(data: data!)
-//                    self.image.image = userPhoto
-//                })
-//            }
-//        })
+        if !(UserDefaults.standard.object(forKey: "savedImage")==nil)
+        {
+        let data = UserDefaults.standard.object(forKey: "savedImage") as! NSData
+        self.image.image = UIImage(data: data as Data)
         }
+        else
+        {
+
+            
+        ref.child("users").child("clients").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChild("userPhoto")
+            {                
+                    //gs://eztor-b332f.appspot.com/EVtvGnZkdzNbKnl7Tlei443CAl33/userPhoto
+                let imageURL = Storage.storage().reference(forURL: "gs://eztor-b332f.appspot.com").child((Auth.auth().currentUser?.uid)!).child("userPhoto")
+                
+                imageURL.downloadURL(completion: { (url, error) in
+                    
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        return
+                    }
+                    
+                    URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                        
+                        if error != nil {
+                            print(error)
+                            return
+                        }
+                        
+                        guard let imageData = UIImage(data: data!) else { return }
+                        
+                        DispatchQueue.main.async {
+                            self.image.image = imageData
+                            let imageData:NSData = UIImagePNGRepresentation(self.image.image!)! as NSData
+                            UserDefaults.standard.set(imageData, forKey: "savedImage")
+                        }
+                        
+                    }).resume()
+                    
+                })
+                
+        }
+        })
+        }
+    }
     
     //profiletoChat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -268,6 +302,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     @IBAction func logOut(_ sender: Any) {
         print("LOGGING OUT")
         try! Auth.auth().signOut()
+        UserDefaults.standard.removeObject(forKey: "savedImage")
         if let storyboard = self.storyboard {
             let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! UIViewController
             self.present(vc, animated: false, completion: nil)
