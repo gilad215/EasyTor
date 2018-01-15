@@ -35,6 +35,7 @@ class ClientEventTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         ref = Database.database().reference()
         do
         {
