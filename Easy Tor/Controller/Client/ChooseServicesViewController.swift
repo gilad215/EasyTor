@@ -45,7 +45,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     
     var availableHours:[String] = [String]()
     
-    var selectedService:String?
+    var selectedService:String?=nil
 
     
     override func viewDidLoad() {
@@ -299,6 +299,11 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func timePressed(_ sender: Any) {
+        if selectedService==nil
+        {
+            self.showMessagePrompt(str: "Please select a service")
+            return
+        }
         if timePicker.isHidden==false{
             timePicker.isHidden=true
         }
