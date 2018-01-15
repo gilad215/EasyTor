@@ -287,7 +287,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             print(error)
         }
     }
-    
+    //
     func getLocalEvents()
     {
         do {
