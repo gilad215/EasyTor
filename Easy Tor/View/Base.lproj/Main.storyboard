@@ -1147,7 +1147,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="E0F-kl-1ce"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="15V-07-CuM"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map_marker" selectedImage="map_marker" id="15V-07-CuM"/>
                     <connections>
                         <outlet property="mapView" destination="ccP-tv-evp" id="4Az-1C-Gfd"/>
                     </connections>
@@ -1325,6 +1325,7 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.46520066624365486" green="0.27732043872391843" blue="0.29476886857714651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="e5M-UB-1Rz" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -1360,7 +1361,7 @@
         <scene sceneID="gyj-bk-lEa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ocp-li-kEw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add" id="yEx-xc-kN1"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="layers" selectedImage="layers" id="yEx-xc-kN1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h7i-Gp-Scy">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1736,7 +1737,7 @@
         <scene sceneID="s0q-s4-fgW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e5M-UB-1Rz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user_male" selectedImage="user_male" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iK7-Gl-Zrx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1755,7 +1756,7 @@
         <scene sceneID="Ce5-6g-3Rv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vhm-B5-MzG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" id="eYv-PG-Awa"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="message" selectedImage="message" id="eYv-PG-Awa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2GX-qU-BKP">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1789,11 +1790,11 @@
             </objects>
             <point key="canvasLocation" x="-3564.8000000000002" y="1903.4482758620691"/>
         </scene>
-        <!--Search-->
+        <!--Navigation Controller-->
         <scene sceneID="Zji-Cp-HDi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x2O-9i-I3G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="HC6-YD-A4y"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="HC6-YD-A4y"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tct-Hk-g3I">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1812,12 +1813,16 @@
     <resources>
         <image name="bgLogin" width="402" height="777"/>
         <image name="first" width="30" height="30"/>
+        <image name="layers" width="30" height="30"/>
         <image name="loginBGCard" width="367" height="477"/>
+        <image name="map_marker" width="30" height="30"/>
+        <image name="message" width="30" height="30"/>
+        <image name="user_male" width="30" height="30"/>
         <image name="userpic" width="256" height="205"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hmR-0I-Mml"/>
-        <segue reference="hiY-Y5-K6Z"/>
+        <segue reference="8A6-4E-gWV"/>
         <segue reference="qGD-yX-6ao"/>
         <segue reference="ZBI-gI-Q1E"/>
     </inferredMetricsTieBreakers>
