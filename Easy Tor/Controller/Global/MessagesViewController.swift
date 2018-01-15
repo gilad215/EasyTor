@@ -45,6 +45,8 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
             cell.nameLbl.text=chats[indexPath.row].bname
             cell.chatLbl.text=chats[indexPath.row].lastTxt
             cell.dateLbl.text=chats[indexPath.row].date
+            cell.partnerID=chats[indexPath.row].bid
+            cell.getPartnerPic()
             return cell
 
         }
@@ -53,6 +55,8 @@ class MessagesViewController: UIViewController, UITableViewDelegate,UITableViewD
             cell.nameLbl.text=chats[indexPath.row].cname
             cell.chatLbl.text=chats[indexPath.row].lastTxt
             cell.dateLbl.text=chats[indexPath.row].date
+            cell.partnerID=chats[indexPath.row].cid
+            cell.getPartnerPic()
             return cell
         }
     }
