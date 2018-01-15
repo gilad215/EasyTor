@@ -69,6 +69,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         {
             print(error)
         }
+        deleteTable()
         createTable()
         getLocalEvents()
         startObserving()
@@ -118,8 +119,9 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             {
                 let eventObject=Event(snapshot: event as! DataSnapshot)
                 self.firebase_events.append(eventObject)
-                self.local_events.append(eventObject)
+                self.insertLocalEvent(event: eventObject)
             }
+                self.getLocalEvents()
             self.tableView.reloadData()
 
             }
@@ -130,29 +132,50 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
                     let eventObject=Event(snapshot: event as! DataSnapshot)
                     self.firebase_events.append(eventObject)
                 }
+                var eventExistsLocally=false
                 for event in self.firebase_events
                 {
-                    if !(self.local_events.contains(where: { (local_event) -> Bool in
-                        local_event.key==event.key
-                    }))
+                    print(event.key)
+                    print("~~~~")
+                    for localevent in self.local_events
                     {
-                        self.local_events.append(event)
+                        print("COMPARING")
+                        print(event.key)
+                        print(localevent.key)
+                        if localevent.key==event.key {eventExistsLocally=true}
+                    }
+                    if eventExistsLocally==false {
                         self.insertLocalEvent(event: event)
                     }
+                    eventExistsLocally=false
                 }
-                for i in 0 ..< self.local_events.count
+                for localevent in self.local_events
                 {
-                    if !(self.firebase_events.contains(where: { (firebase_event) -> Bool in
-                        firebase_event.key==self.local_events[i].key
-                    }))
+                    print("local:")
+                    print(localevent.key)
+                    print("FIRE BASE COUNT")
+                    print(self.firebase_events.count)
+                    for event in self.firebase_events
                     {
-                        self.deleteLocalEvent(event: self.local_events[i])
-                        self.local_events.remove(at:i)
+                        print("CHECKING IF NEED TO DELETE")
+                        print(event.key)
+                        print(localevent.key)
+                        if event.key==localevent.key {eventExistsLocally=true}
+                        break
                     }
+                    if eventExistsLocally==false
+                    {
+                        print("FOUND EVENT FOR DELETION")
+                        self.deleteLocalEvent(event: localevent)
+                    }
+                    eventExistsLocally=false
                 }
-                self.tableView.reloadData()
+                
+            }
+            self.getLocalEvents()
+            self.tableView.reloadData()
         }
-    }
+    
     }
     
     @IBAction func imageClicked(_ sender: Any) {
@@ -290,11 +313,14 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     //
     func getLocalEvents()
     {
+        self.local_events.removeAll()
         do {
             let events = try self.database.prepare(self.eventsTable)
             for event in events {
-                self.local_events.append(Event(service: event[self.e_service], bid: event[self.e_bid], key:event[self.e_id], cid: event[self.e_cid], time: event[self.e_time], bname: event[self.e_bname], bphone: event[self.e_bphone], baddress: event[self.e_address], cname: event[self.e_cname], cphone: event[self.e_cphone]))
+                self.local_events.append(Event(service: event[self.e_service], bid: event[self.e_bid], key:event[self.e_id], cid: event[self.e_cid], time: event[self.e_time], date:event[self.e_date], bname: event[self.e_bname], bphone: event[self.e_bphone], baddress: event[self.e_address], cname: event[self.e_cname], cphone: event[self.e_cphone]))
             }
+            print("local events count!!!!!")
+            print(self.local_events.count)
         } catch {
             print(error)
         }
@@ -312,6 +338,15 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         }
     }
     
+    func deleteTable()
+    {
+        do {
+            try self.database.run(eventsTable.delete())
+        } catch {
+            print(error)
+        }
+        // DELETE FROM "users"
+    }
 }
     
 
