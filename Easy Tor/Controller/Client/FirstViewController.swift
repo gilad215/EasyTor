@@ -58,9 +58,6 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
-        
-        startObserving()
-        
         do
         {
             let documentDirectory=try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -72,11 +69,16 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         {
             print(error)
         }
+        createTable()
+        getLocalEvents()
+        startObserving()
+        
+
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return firebase_events.count
+        return local_events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,10 +109,11 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     
 
     func startObserving(){
-        if local_events.isEmpty
-        {
         ref.child("events").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
             self.firebase_events.removeAll()
+
+            if self.local_events.isEmpty
+            {
             for event in snapshot.children
             {
                 let eventObject=Event(snapshot: event as! DataSnapshot)
@@ -119,8 +122,37 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             }
             self.tableView.reloadData()
 
+            }
+            else
+            {
+                for event in snapshot.children
+                {
+                    let eventObject=Event(snapshot: event as! DataSnapshot)
+                    self.firebase_events.append(eventObject)
+                }
+                for event in self.firebase_events
+                {
+                    if !(self.local_events.contains(where: { (local_event) -> Bool in
+                        local_event.key==event.key
+                    }))
+                    {
+                        self.local_events.append(event)
+                        self.insertLocalEvent(event: event)
+                    }
+                }
+                for i in 0 ..< self.local_events.count
+                {
+                    if !(self.firebase_events.contains(where: { (firebase_event) -> Bool in
+                        firebase_event.key==self.local_events[i].key
+                    }))
+                    {
+                        self.deleteLocalEvent(event: self.local_events[i])
+                        self.local_events.remove(at:i)
+                    }
+                }
+                self.tableView.reloadData()
         }
-        }
+    }
     }
     
     @IBAction func imageClicked(_ sender: Any) {
@@ -267,6 +299,17 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             print(error)
         }
 
+    }
+    
+    func deleteLocalEvent(event:Event)
+    {
+        let delEvent=self.eventsTable.filter(self.e_id == event.key)
+        let delete = delEvent.delete()
+        do {
+            try self.database.run(delete)
+        } catch {
+            print(error)
+        }
     }
     
 }
