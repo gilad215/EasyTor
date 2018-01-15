@@ -37,6 +37,7 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var clientMAil: UITextField!
     @IBOutlet weak var clientPwd: UITextField!
     
+    @IBOutlet weak var createBtn: UIButton!
     
     //validation
 
@@ -46,6 +47,10 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.categoryBtn.layer.cornerRadius = 10
+        self.categoryBtn.clipsToBounds = true
+        self.createBtn.layer.cornerRadius = 10
+        self.createBtn.clipsToBounds = true
         fullName.autocorrectionType = .no
         emailTxt.autocorrectionType = .no
         pwdTxt.autocorrectionType = .no
@@ -55,10 +60,6 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
         self.picker.dataSource = self;
         self.picker.delegate = self;
         pickerData = ["Category","Clinic", "Personal Trainer", "Beauty Salon", "Barbershop", "Teacher", "Counselor"]
-        categoryBtn.backgroundColor = .clear
-        categoryBtn.layer.cornerRadius = 5
-        categoryBtn.layer.borderWidth = 1
-        categoryBtn.layer.borderColor = UIColor.gray.cgColor
         
         // Do any additional setup after loading the view.
     }

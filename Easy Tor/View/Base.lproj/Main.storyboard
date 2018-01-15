@@ -130,7 +130,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -167,6 +167,7 @@
                                     <segment title="Business"/>
                                     <segment title="Client"/>
                                 </segments>
+                                <color key="tintColor" red="0.24180739890615294" green="0.24716689459396338" blue="0.2495439403553299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="valuechanged:" destination="yKz-z1-P9h" eventType="valueChanged" id="NdB-qt-xtf"/>
                                 </connections>
@@ -255,8 +256,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPt-IK-1Tl">
                                         <rect key="frame" x="74" y="227" width="197" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.2418073989" green="0.24716689459999999" blue="0.2495439404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Category"/>
+                                        <state key="normal" title="Category">
+                                            <color key="titleColor" red="0.84670056790000003" green="0.86546710719999997" blue="0.87379045050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="categoryPressed:" destination="yKz-z1-P9h" eventType="touchUpInside" id="6a4-bT-qRy"/>
                                         </connections>
@@ -279,9 +283,12 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afb-LD-DRA">
-                                <rect key="frame" x="134" y="462" width="107" height="30"/>
+                                <rect key="frame" x="118" y="462" width="139" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Create Account"/>
+                                <color key="backgroundColor" red="0.2418073989" green="0.24716689459999999" blue="0.2495439404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" red="0.84670056790000003" green="0.86546710719999997" blue="0.87379045050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="createAcc:" destination="yKz-z1-P9h" eventType="touchUpInside" id="IZy-XB-8ff"/>
                                 </connections>
@@ -312,6 +319,7 @@
                         <outlet property="clientPhone" destination="Izc-kg-gbQ" id="gJW-uY-u1P"/>
                         <outlet property="clientPwd" destination="uHs-7R-fFM" id="Zyo-cP-MFC"/>
                         <outlet property="clientView" destination="K1d-bu-pT2" id="AI8-pb-Byy"/>
+                        <outlet property="createBtn" destination="afb-LD-DRA" id="gFn-aU-epI"/>
                         <outlet property="emailTxt" destination="Dk0-dv-2Qb" id="G63-sv-UFC"/>
                         <outlet property="fullName" destination="NUY-2e-ANg" id="SNe-GN-9c5"/>
                         <outlet property="phoneTxt" destination="BS2-EC-TKL" id="loB-tw-ZuU"/>
@@ -323,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5AE-hy-EXF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1466" y="-887"/>
+            <point key="canvasLocation" x="-1466.4000000000001" y="-887.40629685157433"/>
         </scene>
         <!--Add Services-->
         <scene sceneID="d2o-KS-UDg">
@@ -934,8 +942,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wy-b6-cga">
                                         <rect key="frame" x="100" y="80" width="174" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.2418073989" green="0.24716689459999999" blue="0.2495439404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="Choose Category"/>
+                                        <state key="normal" title="Choose Category">
+                                            <color key="titleColor" red="0.85572652279999994" green="0.85572652279999994" blue="0.85572652279999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="categoryPressed:" destination="66X-ca-WfF" eventType="touchUpInside" id="hvQ-JU-CQe"/>
                                         </connections>
@@ -988,8 +999,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyH-eu-a5d">
                                 <rect key="frame" x="16" y="385" width="168" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2418073989" green="0.24716689459999999" blue="0.2495439404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Date"/>
+                                <state key="normal" title="Date">
+                                    <color key="titleColor" red="0.85572652279999994" green="0.85572652279999994" blue="0.85572652279999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="datePressed:" destination="xZF-0Y-zWO" eventType="touchUpInside" id="98t-9I-gWn"/>
                                 </connections>
@@ -1001,8 +1015,11 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgG-ge-pVI">
                                 <rect key="frame" x="192" y="385" width="177" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2418073989" green="0.24716689459999999" blue="0.2495439404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <state key="normal" title="Time"/>
+                                <state key="normal" title="Time">
+                                    <color key="titleColor" red="0.85572652279999994" green="0.85572652279999994" blue="0.85572652279999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="timePressed:" destination="xZF-0Y-zWO" eventType="touchUpInside" id="c0l-DN-8FB"/>
                                 </connections>
@@ -1326,6 +1343,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.46520066624365486" green="0.27732043872391843" blue="0.29476886857714651" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.41886825389999999" green="0.4153396473" blue="0.50912119290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="e5M-UB-1Rz" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -1385,6 +1407,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.4652006662" green="0.2773204387" blue="0.29476886860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.41886825387041099" green="0.41533964729192346" blue="0.50912119289340096" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="pV0-5c-6M8" kind="relationship" relationship="viewControllers" id="TSX-wY-hNc"/>
@@ -1699,7 +1727,7 @@
         <scene sceneID="jN0-Rp-KSI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tSv-U4-IrA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Services" id="9BB-RU-35m"/>
+                    <tabBarItem key="tabBarItem" title="Services" image="wallet_app" id="9BB-RU-35m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hZN-wU-dHo">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1718,7 +1746,7 @@
         <scene sceneID="kMw-Qw-gDU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0NV-EA-MYM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Add" id="gox-Ip-g4h"/>
+                    <tabBarItem key="tabBarItem" title="Add" image="layers" id="gox-Ip-g4h"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wEh-JX-LUf">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1775,7 +1803,7 @@
         <scene sceneID="v14-06-wYM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pV0-5c-6M8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="first" id="Qwp-cK-sds"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user_male" id="Qwp-cK-sds"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wwj-KQ-CnV">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -1812,18 +1840,18 @@
     </scenes>
     <resources>
         <image name="bgLogin" width="402" height="777"/>
-        <image name="first" width="30" height="30"/>
         <image name="layers" width="30" height="30"/>
         <image name="loginBGCard" width="367" height="477"/>
         <image name="map_marker" width="30" height="30"/>
         <image name="message" width="30" height="30"/>
         <image name="user_male" width="30" height="30"/>
         <image name="userpic" width="256" height="205"/>
+        <image name="wallet_app" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hmR-0I-Mml"/>
         <segue reference="8A6-4E-gWV"/>
-        <segue reference="qGD-yX-6ao"/>
-        <segue reference="ZBI-gI-Q1E"/>
+        <segue reference="lDh-II-RrT"/>
+        <segue reference="wYM-ab-vce"/>
     </inferredMetricsTieBreakers>
 </document>

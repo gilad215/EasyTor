@@ -33,6 +33,8 @@ class AddViewController: UIViewController ,UIPickerViewDelegate, UIPickerViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.categoryBtn.layer.cornerRadius = 10
+        self.categoryBtn.clipsToBounds = true
         ref = Database.database().reference()
         self.pickerView.isHidden=true;
         self.pickerView.dataSource = self;

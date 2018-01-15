@@ -10,16 +10,34 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import SQLite
 
 protocol MyCustomCellDelegator {
     func callSegueFromCell(myData dataobject: AnyObject)
 }
 class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITableViewDelegate,UITableViewDataSource,MyCustomCellDelegator {
+    
+    var database:Connection!
+    let eventsTable = Table("events")
+    let e_id = Expression<String>("id")
+    let e_bname = Expression<String>("bname")
+    let e_bid = Expression<String>("bid")
+    let e_cname = Expression<String>("cname")
+    let e_cid = Expression<String>("cid")
+    let e_service = Expression<String>("service")
+    let e_date = Expression<String>("date")
+    let e_time = Expression<String>("time")
+    let e_bphone = Expression<String>("bphone")
+    let e_cphone = Expression<String>("cphone")
+    let e_address = Expression<String>("address")
+
 
 
     var ref: DatabaseReference! = nil
     var storageRef: StorageReference!=nil
-    var events=[Event]()
+    
+    var local_events=[Event]()
+    var firebase_events=[Event]()
     var user_name:String!
     let imagePicker = UIImagePickerController()
 
@@ -33,7 +51,6 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         storageRef=Storage.storage().reference()
         super.viewDidLoad()
         downloadPic()
-        let clientuid=Auth.auth().currentUser?.uid
         imagePicker.delegate = self
 
         image.layer.borderWidth = 1
@@ -41,30 +58,36 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
-        ref.child("users").child(clientuid!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            let fname = value?["firstName"] as? String ?? ""
-            let lname = value?["lastName"] as? String ?? ""
-            self.user_name=fname+" "+lname
-        })
+        
         startObserving()
         
+        do
+        {
+            let documentDirectory=try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let fileUrl=documentDirectory.appendingPathComponent("events").appendingPathExtension("sqlite3")
+            let database=try Connection(fileUrl.path)
+            self.database=database
+        }
+        catch
+        {
+            print(error)
+        }
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return firebase_events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell") as? ClientEventTableCell else {return UITableViewCell()}
-        cell.businessName.text=events[indexPath.row].bname
-        cell.businessAddress.text=events[indexPath.row].baddress
-        cell.dateLbl.text=events[indexPath.row].date
-        cell.serviceName.text=events[indexPath.row].service
-        cell.timeLbl.text=events[indexPath.row].time
-        cell.businessid=events[indexPath.row].bid
-        cell.eventKey=events[indexPath.row].key
+        cell.businessName.text=local_events[indexPath.row].bname
+        cell.businessAddress.text=local_events[indexPath.row].baddress
+        cell.dateLbl.text=local_events[indexPath.row].date
+        cell.serviceName.text=local_events[indexPath.row].service
+        cell.timeLbl.text=local_events[indexPath.row].time
+        cell.businessid=local_events[indexPath.row].bid
+        cell.eventKey=local_events[indexPath.row].key
         cell.deleteBtn.layer.cornerRadius = 10
         cell.deleteBtn.clipsToBounds = true
         cell.chatBtn.layer.cornerRadius = 10
@@ -84,15 +107,19 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     
 
     func startObserving(){
+        if local_events.isEmpty
+        {
         ref.child("events").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
-            self.events.removeAll()
+            self.firebase_events.removeAll()
             for event in snapshot.children
             {
                 let eventObject=Event(snapshot: event as! DataSnapshot)
-                self.events.append(eventObject)
+                self.firebase_events.append(eventObject)
+                self.local_events.append(eventObject)
             }
             self.tableView.reloadData()
 
+        }
         }
     }
     
@@ -192,6 +219,55 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         }
     }
 
+    func createTable()
+    {
+        let createTable = self.eventsTable.create{(table) in
+            table.column(self.e_id,primaryKey:true)
+            table.column(self.e_bid)
+            table.column(self.e_cid)
+            table.column(self.e_date)
+            table.column(self.e_time)
+            table.column(self.e_service)
+            table.column(self.e_address)
+            table.column(self.e_cname)
+            table.column(self.e_bname)
+            table.column(self.e_bphone)
+            table.column(self.e_cphone)
+        }
+            
+            do {
+                try self.database.run(createTable)
+                print("Created Table")
+            } catch {
+                print(error)
+            }
+            
+    }
+
+    func insertLocalEvent(event:Event)
+    {
+        let insertevent = self.eventsTable.insert(self.e_id <- event.key, self.e_bid <- event.bid, self.e_cid <- event.cid, self.e_date <- event.date, self.e_time <- event.time, self.e_service <- event.service, self.e_address <- event.baddress, self.e_cname <- event.cname, self.e_bname <- event.bname, self.e_bphone <- event.bphone, self.e_cphone <- event.cphone)
+        
+        do {
+            try self.database.run(insertevent)
+            print("INSERTED USER")
+        } catch {
+            print(error)
+        }
+    }
+    
+    func getLocalEvents()
+    {
+        do {
+            let events = try self.database.prepare(self.eventsTable)
+            for event in events {
+                self.local_events.append(Event(service: event[self.e_service], bid: event[self.e_bid], cid: event[self.e_cid], time: event[self.e_time], bname: event[self.e_bname], bphone: event[self.e_bphone], baddress: event[self.e_address], cname: event[self.e_cname], cphone: event[self.e_cphone]))
+            }
+        } catch {
+            print(error)
+        }
+
+    }
     
 }
     

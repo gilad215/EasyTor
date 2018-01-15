@@ -51,6 +51,10 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        self.selectDateBtn.layer.cornerRadius = 10
+        self.selectDateBtn.clipsToBounds = true
+        self.selectTimeBtn.layer.cornerRadius = 10
+        self.selectTimeBtn.clipsToBounds = true
         getOpenDays()
         dateTimePicker.isHidden=true
         timePicker.isHidden=true

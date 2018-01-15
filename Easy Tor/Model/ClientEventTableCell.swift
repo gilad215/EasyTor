@@ -9,11 +9,12 @@
 import Foundation
 import FirebaseAuth
 import FirebaseDatabase
+import SQLite
 
 class ClientEventTableCell: UITableViewCell {
     
     var delegate:MyCustomCellDelegator!
-    
+    var database:Connection!
     @IBOutlet weak var businessName: UILabel!
     @IBOutlet weak var businessAddress: UILabel!
     @IBOutlet weak var serviceName: UILabel!
@@ -35,6 +36,17 @@ class ClientEventTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         ref = Database.database().reference()
+        do
+        {
+            let documentDirectory=try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let fileUrl=documentDirectory.appendingPathComponent("events").appendingPathExtension("sqlite3")
+            let database=try Connection(fileUrl.path)
+            self.database=database
+        }
+        catch
+        {
+            print(error)
+        }
 
         // Initialization code
         
@@ -104,6 +116,8 @@ class ClientEventTableCell: UITableViewCell {
                 self.ref.child("availablehours").child(self.businessid!).child("services").child(self.serviceName.text!).child(self.dateLbl.text!).child(self.timeLbl.text!).updateChildValues(["time":self.timeLbl.text!])
             }
         }
+        
+        
     }
 }
 
