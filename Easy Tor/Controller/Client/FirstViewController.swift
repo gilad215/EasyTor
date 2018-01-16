@@ -92,7 +92,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         cell.chatBtn.clipsToBounds = true
         cell.serviceName.layer.cornerRadius = 10
         cell.serviceName.clipsToBounds = true
-        cell.delegate = self
+        cell.custom_delegate = self
+        cell.delegate=self
         return cell
 
     }

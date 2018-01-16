@@ -79,6 +79,7 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
             cell.eventKey=self.local_events[indexPath.row].key
         cell.clientPhone.text=self.local_events[indexPath.row].cphone
         cell.clientName.text=self.local_events[indexPath.row].cname
+        cell.delegate=self
         return cell
     }
 
