@@ -44,20 +44,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         
         ref = Database.database().reference()
-        let location = CLLocationCoordinate2DMake(31.970169, 34.773900)
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(location, 1500, 1500), animated: true)
-        let pin = PinAnnotation(title: "MY SCHOOL", subTitle: "COME VISIT!", coordinate: location)
-        mapView.addAnnotation(pin)
+
         
         getCity()
 
-        
     }
     
     
     func getCity(){
         
-        print(self.locationManager.location) //ashdod
         let geoCoder = CLGeocoder()
         geoCoder.reverseGeocodeLocation(self.locationManager.location!) { (placemarks, error) in
             
@@ -69,6 +64,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             if let city = addressDict["City"] as? String {
                 print(city)
                 self.city=city
+                self.getBusinessInCity()
             }
 
         }
@@ -98,6 +94,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                         print("COORDINATE!")
                         print(coordinate)
                         self.coordinatesArray.append(coordinate)
+                        let bname=businessObj.name
+                        let category=businessObj.category
+                        self.putAnnotation(coordinate: coordinate, bname: bname!, category: category!)
                     }
                     else
                     {
@@ -106,9 +105,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 })
                 
             }
-            //
+//            for i in 0 ..< self.businessArray.count {
+//                let bname=self.businessArray[i].name
+//                let category=self.businessArray[i].category
+//                let coordinate=self.coordinatesArray[i]
+//
+//                self.putAnnotation(coordinate: coordinate, bname: bname!, category: category!)
         }
         
+    
     }
     
     
@@ -162,8 +167,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         
         self.present(alertController, animated: true, completion: nil)
     }
+
     
-    
+    func putAnnotation(coordinate:CLLocationCoordinate2D,bname:String,category:String)
+    {
+        self.mapView.setRegion(MKCoordinateRegionMakeWithDistance(coordinate, 1500, 1500), animated: true)
+        let pin = PinAnnotation(title: bname, subTitle: category, coordinate: coordinate)
+        self.mapView.addAnnotation(pin)
+        
+    }
     
     
     override func didReceiveMemoryWarning() {
