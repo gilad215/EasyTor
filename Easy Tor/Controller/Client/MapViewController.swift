@@ -69,13 +69,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 
         }
         
-        //        let city = ref.child("users").child("clients").child((Auth.auth().currentUser?.uid)!).observe(DataEventType.value) { (snapshot) in
-//
-//            let value = snapshot.value as? NSDictionary
-//            self.city = value?["city"] as? String ?? ""
-//            self.address = value?["address"] as? String ?? ""
-            //self.getBusinessInCity()
-        //}
     }
     func getBusinessInCity(){
         ref.child("users").child("business").queryOrdered(byChild: "city").queryEqual(toValue: self.city).observe(.value) { (snapshot) in
@@ -105,12 +98,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 })
                 
             }
-//            for i in 0 ..< self.businessArray.count {
-//                let bname=self.businessArray[i].name
-//                let category=self.businessArray[i].category
-//                let coordinate=self.coordinatesArray[i]
-//
-//                self.putAnnotation(coordinate: coordinate, bname: bname!, category: category!)
+
         }
         
     
