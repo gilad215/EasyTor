@@ -170,7 +170,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
                         print("~~~~")
                         print("ONLINE EVENT:")
                         print(event.key)
-                        if event.key==localevent.key {eventExistsLocally=true; print("found online, no need to delete");break}
+                        if event.key==localevent.key {eventExistsLocally=true;break}
                         
                     }
                     if eventExistsLocally==false

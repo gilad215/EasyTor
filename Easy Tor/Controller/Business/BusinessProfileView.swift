@@ -148,8 +148,8 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
                         print("CHECKING IF NEED TO DELETE")
                         print(event.key)
                         print(localevent.key)
-                        if event.key==localevent.key {eventExistsLocally=true}
-                        break
+                        if event.key==localevent.key {eventExistsLocally=true;break}
+                        
                     }
                     if eventExistsLocally==false
                     {

@@ -38,12 +38,6 @@ class ChatViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
         
-        print("chatview loaded!")
-        print(self.senderId)
-        print(self.senderDisplayName)
-        print("chatkey:")
-        print(chatkey)
-        
 
     }
 
