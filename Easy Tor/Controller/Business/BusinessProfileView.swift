@@ -67,6 +67,7 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
         {
             print(error)
         }
+        
         createTable()
         getLocalEvents()
         downloadPic()
