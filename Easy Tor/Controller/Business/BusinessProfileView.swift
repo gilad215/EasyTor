@@ -17,6 +17,7 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
     var storageRef: StorageReference!=nil
     var local_events=[Event]()
     var firebase_events=[Event]()
+    var indicator = UIActivityIndicatorView()
 
     let imagePicker = UIImagePickerController()
 
@@ -95,6 +96,8 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
     }
     
     func startObserving(){
+        indicator.startAnimating()
+        indicator.backgroundColor = UIColor.gray
         ref.child("events").queryOrdered(byChild: "bid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
             self.firebase_events.removeAll()
             
@@ -159,6 +162,8 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
             }
             self.getLocalEvents()
             self.tableView.reloadData()
+            self.indicator.stopAnimating()
+            self.indicator.hidesWhenStopped = true
         }
     }
     
@@ -355,7 +360,14 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
         }
     }
     
-    
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100)))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        indicator.layer.cornerRadius = image.frame.size.width / 2
+        indicator.clipsToBounds = true
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+    }
 }
     
 

@@ -31,7 +31,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     let e_cphone = Expression<String>("cphone")
     let e_address = Expression<String>("address")
 
-
+    var indicator = UIActivityIndicatorView()
+    
 
     var ref: DatabaseReference! = nil
     var storageRef: StorageReference!=nil
@@ -50,6 +51,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         ref = Database.database().reference()
         storageRef=Storage.storage().reference()
         super.viewDidLoad()
+        self.activityIndicator()
         downloadPic()
         imagePicker.delegate = self
 
@@ -112,6 +114,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     
 
     func startObserving(){
+        indicator.startAnimating()
+        indicator.backgroundColor = UIColor.gray
         ref.child("events").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
             self.firebase_events.removeAll()
 
@@ -157,13 +161,17 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
                     print(localevent.key)
                     print("FIRE BASE COUNT")
                     print(self.firebase_events.count)
+                    
+                    print("~~~~~~~~")
                     for event in self.firebase_events
                     {
                         print("CHECKING IF NEED TO DELETE")
-                        print(event.key)
                         print(localevent.key)
-                        if event.key==localevent.key {eventExistsLocally=true}
-                        break
+                        print("~~~~")
+                        print("ONLINE EVENT:")
+                        print(event.key)
+                        if event.key==localevent.key {eventExistsLocally=true; print("found online, no need to delete");break}
+                        
                     }
                     if eventExistsLocally==false
                     {
@@ -176,6 +184,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             }
             self.getLocalEvents()
             self.tableView.reloadData()
+            self.indicator.stopAnimating()
+            self.indicator.hidesWhenStopped = true
         }
     
     }
@@ -383,6 +393,15 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         }
         // DELETE FROM "users"
     }
+    func activityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100)))
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        indicator.layer.cornerRadius = image.frame.size.width / 2
+        indicator.clipsToBounds = true
+        indicator.center = self.view.center
+        self.view.addSubview(indicator)
+    }
+
 }
     
 
