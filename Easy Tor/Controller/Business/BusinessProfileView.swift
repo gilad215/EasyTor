@@ -137,6 +137,8 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
                     }
                     eventExistsLocally=false
                 }
+                if self.firebase_events.count>0
+                {
                 for localevent in self.local_events
                 {
                     print("local:")
@@ -157,6 +159,7 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
                         self.deleteLocalEvent(event: localevent)
                     }
                     eventExistsLocally=false
+                }
                 }
                 
             }

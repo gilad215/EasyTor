@@ -155,7 +155,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
                     }
                     eventExistsLocally=false
                 }
-                for localevent in self.local_events
+                if self.firebase_events.count>0
+                {for localevent in self.local_events
                 {
                     print("local:")
                     print(localevent.key)
@@ -179,6 +180,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
                         self.deleteLocalEvent(event: localevent)
                     }
                     eventExistsLocally=false
+                }
                 }
                 
             }
