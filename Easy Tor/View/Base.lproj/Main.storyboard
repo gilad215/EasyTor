@@ -371,10 +371,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEu-CB-Eqe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="sEu-CB-Eqe">
                                                     <rect key="frame" x="15" y="-10" width="112" height="54"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1592,10 +1592,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVT-8g-E9A">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="eVT-8g-E9A">
                                                     <rect key="frame" x="15" y="-10" width="112" height="54"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1639,10 +1639,13 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clg-cn-1I3">
-                                <rect key="frame" x="161" y="528" width="52" height="34"/>
+                                <rect key="frame" x="127" y="528" width="121" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.2418073989" green="0.24716689459999999" blue="0.2495439404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="ADD"/>
+                                <state key="normal" title="ADD">
+                                    <color key="titleColor" red="1" green="0.98687037219999996" blue="0.98291878590000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="addPressed:" destination="ffX-dQ-9zr" eventType="touchUpInside" id="rNY-wd-YKm"/>
                                 </connections>
@@ -1653,6 +1656,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Services" id="fAs-Yn-4iW"/>
                     <connections>
+                        <outlet property="addBtn" destination="clg-cn-1I3" id="vpD-UC-EZV"/>
                         <outlet property="tableView" destination="1BK-sB-acU" id="xNC-S0-x2i"/>
                         <segue destination="Xq7-vh-a5q" kind="show" identifier="businessAddService" id="ZBI-gI-Q1E"/>
                     </connections>
@@ -1689,9 +1693,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h9k-vS-irf">
-                                                    <rect key="frame" x="15" y="5" width="45" height="20.5"/>
+                                                    <rect key="frame" x="15" y="5" width="48" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1858,7 +1862,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="9Zx-Tt-Mn3"/>
         <segue reference="hiY-Y5-K6Z"/>
-        <segue reference="qGD-yX-6ao"/>
-        <segue reference="wYM-ab-vce"/>
+        <segue reference="h7s-4T-2cA"/>
+        <segue reference="ZBI-gI-Q1E"/>
     </inferredMetricsTieBreakers>
 </document>

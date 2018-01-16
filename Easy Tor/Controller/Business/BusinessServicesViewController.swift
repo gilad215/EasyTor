@@ -8,10 +8,13 @@ class BusinessServicesViewController: UIViewController,UITableViewDelegate, UITa
     var ref: DatabaseReference! = nil
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addBtn: UIButton!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addBtn.layer.cornerRadius = 10
+        addBtn.clipsToBounds = true
         ref = Database.database().reference()
         getServices()
         // Do any additional setup after loading the view.
