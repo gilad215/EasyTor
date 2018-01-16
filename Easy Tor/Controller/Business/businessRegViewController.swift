@@ -1,10 +1,3 @@
-//
-//  businessRegViewController.swift
-//  Easy Tor
-//
-//  Created by Gilad Lekner on 01/01/2018.
-//  Copyright © 2018 Gilad Lekner. All rights reserved.
-//
 
 import UIKit
 import FirebaseDatabase

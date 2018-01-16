@@ -1,10 +1,4 @@
-//
-//  FirstViewController.swift
-//  Easy Tor
-//
-//  Created by Gilad Lekner on 20/12/2017.
-//  Copyright © 2017 Gilad Lekner. All rights reserved.
-//
+
 
 import UIKit
 import FirebaseAuth
@@ -72,7 +66,6 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         {
             print(error)
         }
-       // deleteTable()
         createTable()
         getLocalEvents()
         downloadPic()

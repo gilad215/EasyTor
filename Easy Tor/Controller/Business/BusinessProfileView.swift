@@ -1,10 +1,3 @@
-//
-//  FirstViewController.swift
-//  Easy Tor
-//
-//  Created by Gilad Lekner on 20/12/2017.
-//  Copyright © 2017 Gilad Lekner. All rights reserved.
-//
 
 import UIKit
 import FirebaseAuth
@@ -67,7 +60,6 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
         {
             print(error)
         }
-        
         createTable()
         getLocalEvents()
         downloadPic()
