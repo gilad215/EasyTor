@@ -151,6 +151,14 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
                     eventExistsLocally=false
                 }
                 }
+                else
+                {
+                    for local in self.local_events
+                    {
+                        self.deleteLocalEvent(event: local)
+                    }
+                    self.local_events.removeAll()
+                }
                 
             }
             self.getLocalEvents()
