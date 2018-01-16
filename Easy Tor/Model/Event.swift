@@ -1,10 +1,3 @@
-//
-//  Event.swift
-//  Easy Tor
-//
-//  Created by Gilad Lekner on 30/12/2017.
-//  Copyright © 2017 Gilad Lekner. All rights reserved.
-//
 
 import Foundation
 import FirebaseDatabase

@@ -10,7 +10,6 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
     var storageRef: StorageReference!=nil
     var local_events=[Event]()
     var firebase_events=[Event]()
-    var indicator = UIActivityIndicatorView()
 
     let imagePicker = UIImagePickerController()
 
@@ -89,8 +88,6 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
     }
     
     func startObserving(){
-        indicator.startAnimating()
-        indicator.backgroundColor = UIColor.gray
         ref.child("events").queryOrdered(byChild: "bid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
             self.firebase_events.removeAll()
             
@@ -158,8 +155,7 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
             }
             self.getLocalEvents()
             self.tableView.reloadData()
-            self.indicator.stopAnimating()
-            self.indicator.hidesWhenStopped = true
+
         }
     }
     
@@ -207,7 +203,10 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
         do {
             let events = try self.database.prepare(self.eventsTable)
             for event in events {
+                if event[self.e_bid]==Auth.auth().currentUser?.uid
+                {
                 self.local_events.append(Event(service: event[self.e_service], bid: event[self.e_bid], key:event[self.e_id], cid: event[self.e_cid], time: event[self.e_time], date:event[self.e_date], bname: event[self.e_bname], bphone: event[self.e_bphone], baddress: event[self.e_address], cname: event[self.e_cname], cphone: event[self.e_cphone]))
+                }
             }
             print("local events count!!!!!")
             print(self.local_events.count)
@@ -355,15 +354,7 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
             messageVC.isClient=false
         }
     }
-    
-    func activityIndicator() {
-        indicator = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100)))
-        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        indicator.layer.cornerRadius = image.frame.size.width / 2
-        indicator.clipsToBounds = true
-        indicator.center = self.view.center
-        self.view.addSubview(indicator)
-    }
+
 }
     
 

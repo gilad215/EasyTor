@@ -1,10 +1,4 @@
-//
-//  PinAnnotation.swift
-//  Easy Tor
-//
-//  Created by Sharon Gueta on 15/01/2018.
-//  Copyright © 2018 Gilad Lekner. All rights reserved.
-//
+
 import MapKit
 
 class PinAnnotation : NSObject, MKAnnotation

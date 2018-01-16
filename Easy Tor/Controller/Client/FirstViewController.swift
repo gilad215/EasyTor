@@ -25,7 +25,6 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     let e_cphone = Expression<String>("cphone")
     let e_address = Expression<String>("address")
 
-    var indicator = UIActivityIndicatorView()
     
 
     var ref: DatabaseReference! = nil
@@ -45,7 +44,6 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         ref = Database.database().reference()
         storageRef=Storage.storage().reference()
         super.viewDidLoad()
-        self.activityIndicator()
         downloadPic()
         imagePicker.delegate = self
 
@@ -107,8 +105,6 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
     
 
     func startObserving(){
-        indicator.startAnimating()
-        indicator.backgroundColor = UIColor.gray
         ref.child("events").queryOrdered(byChild: "cid").queryEqual(toValue: Auth.auth().currentUser?.uid).observe(DataEventType.value) { (snapshot) in
             self.firebase_events.removeAll()
 
@@ -179,8 +175,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             }
             self.getLocalEvents()
             self.tableView.reloadData()
-            self.indicator.stopAnimating()
-            self.indicator.hidesWhenStopped = true
+
         }
     
     }
@@ -358,7 +353,10 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         do {
             let events = try self.database.prepare(self.eventsTable)
             for event in events {
+                if event[self.e_cid]==Auth.auth().currentUser?.uid
+                {
                 self.local_events.append(Event(service: event[self.e_service], bid: event[self.e_bid], key:event[self.e_id], cid: event[self.e_cid], time: event[self.e_time], date:event[self.e_date], bname: event[self.e_bname], bphone: event[self.e_bphone], baddress: event[self.e_address], cname: event[self.e_cname], cphone: event[self.e_cphone]))
+                }
             }
             print("local events count!!!!!")
             print(self.local_events.count)
@@ -388,14 +386,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         }
         // DELETE FROM "users"
     }
-    func activityIndicator() {
-        indicator = UIActivityIndicatorView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 100, height: 100)))
-        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        indicator.layer.cornerRadius = image.frame.size.width / 2
-        indicator.clipsToBounds = true
-        indicator.center = self.view.center
-        self.view.addSubview(indicator)
-    }
+
 
 }
     

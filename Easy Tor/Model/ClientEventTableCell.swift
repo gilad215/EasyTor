@@ -1,10 +1,3 @@
-//
-//  ClientEventTableCell.swift
-//  Easy Tor
-//
-//  Created by Gilad Lekner on 11/01/2018.
-//  Copyright © 2018 Gilad Lekner. All rights reserved.
-//
 
 import Foundation
 import FirebaseAuth
@@ -26,7 +19,7 @@ class ClientEventTableCell: UITableViewCell {
     
     
     var ref: DatabaseReference! = nil
-    
+    var cname:String?
     
     var eventKey:String?
     var businessid:String?
@@ -48,6 +41,12 @@ class ClientEventTableCell: UITableViewCell {
         {
             print(error)
         }
+        let cnameGet=ref.child("users").child("clients").child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: DataEventType.value) { (snapshot) in
+            let dictionary=snapshot.value as? NSDictionary
+            
+            let cname = dictionary?["name"] as? String ?? ""
+            self.cname=cname
+        }
 
         // Initialization code
         
@@ -57,6 +56,7 @@ class ClientEventTableCell: UITableViewCell {
     }
     //chatBtnSegue
     @IBAction func chatPressed(_ sender: Any) {
+
         let checkref=ref.child("chats").observeSingleEvent(of: .value) { (snapshot) in
         for chat in snapshot.children
         {
@@ -77,7 +77,7 @@ class ClientEventTableCell: UITableViewCell {
             let cref=self.ref.child("chats").childByAutoId()
             
             let chatItem = [
-                //"cname":self.cname,
+                "cname":self.cname,
                 "cid":Auth.auth().currentUser?.uid,
                 "bname":self.businessName.text!,
                 "bid":self.businessid
@@ -86,14 +86,15 @@ class ClientEventTableCell: UITableViewCell {
             // 3
             self.chat_key=cref.key
             cref.setValue(chatItem)
-            let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessid!, cname: "john", bname: self.businessName.text!,key:self.chat_key)
+            let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessid!, cname: self.cname!, bname: self.businessName.text!,key:self.chat_key)
             if(self.delegate != nil){ //Just to be safe.
                 self.delegate.callSegueFromCell(myData:selectedChat as AnyObject)
             }
         }
             else
         {
-            let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessid!,cname:" ", bname: self.businessName.text!,key:self.chatExists)
+            print("CHAT EXISTS")
+            let selectedChat=Chat(cid: (Auth.auth().currentUser?.uid)!, bid: self.businessid!,cname:self.cname!, bname: self.businessName.text!,key:self.chatExists)
             if(self.delegate != nil){ //Just to be safe.
                 self.delegate.callSegueFromCell(myData:selectedChat as AnyObject)
             }
