@@ -112,6 +112,7 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
             {
             for event in snapshot.children
             {
+                print("LOCAL EMPTY")
                 let eventObject=Event(snapshot: event as! DataSnapshot)
                 self.firebase_events.append(eventObject)
                 self.insertLocalEvent(event: eventObject)
@@ -170,6 +171,14 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
                     }
                     eventExistsLocally=false
                 }
+                }
+                else
+                {
+                    for local in self.local_events
+                    {
+                        self.deleteLocalEvent(event: local)
+                    }
+                    self.local_events.removeAll()
                 }
                 
             }
