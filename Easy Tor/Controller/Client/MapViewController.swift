@@ -24,6 +24,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
 
         // For use when the app is open
         locationManager.requestWhenInUseAuthorization()
@@ -33,20 +34,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
             locationManager.startUpdatingLocation()
+            getCity()
         }
         
         
-        ref = Database.database().reference()
+        
+        
 
         
-        getCity()
 
     }
     
     
     func getCity(){
-        
+        self.locationManager.requestLocation()
         let geoCoder = CLGeocoder()
+
         geoCoder.reverseGeocodeLocation(self.locationManager.location!) { (placemarks, error) in
             
             guard let addressDict = placemarks?[0].addressDictionary else {
@@ -61,7 +64,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             }
 
         }
-        
+
+    
     }
     func getBusinessInCity(){
         ref.child("users").child("business").queryOrdered(byChild: "city").queryEqual(toValue: self.city).observe(.value) { (snapshot) in
@@ -163,6 +167,23 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func showMessagePrompt(str:String)
+    {
+        print("showing message")
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: str, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error:: \(error.localizedDescription)")
+    }
+    
     
     
     

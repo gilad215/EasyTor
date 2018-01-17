@@ -65,9 +65,6 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
 
     @IBAction func createAcc(_ sender: Any) {
         
-        
-        
-        
         ref = Database.database().reference()
         if seg.selectedSegmentIndex == 0
         {

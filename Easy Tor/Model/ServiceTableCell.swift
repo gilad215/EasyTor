@@ -28,7 +28,7 @@ class ServiceTableCell: UITableViewCell {
     @IBAction func deletePressed(_ sender: Any)
     {
         ref = Database.database().reference()
-        print("DELETE PRESSED"); self.ref.child("services").child((Auth.auth().currentUser?.uid)!).child((service?.nameOfService)!).removeValue { (error, refer) in
+        print("DELETE PRESSED"); self.ref.child("services").child((Auth.auth().currentUser?.uid)!).child(((service?.nameOfService)!).lowercased()).removeValue { (error, refer) in
             if error != nil {
                 print(error)
             } else {

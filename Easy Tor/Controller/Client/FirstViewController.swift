@@ -302,8 +302,8 @@ class FirstViewController: UIViewController, UIImagePickerControllerDelegate,UIN
         if let chat = sender as? Chat {
             let chatVc = segue.destination as! ChatViewController
 
-                chatVc.displayName=chat.bname
-                chatVc.ID=chat.bid
+                chatVc.displayName=chat.cname
+                chatVc.ID=chat.cid
                 chatVc.partner=chat.bname
                 chatVc.chatkey=chat.key
         }
