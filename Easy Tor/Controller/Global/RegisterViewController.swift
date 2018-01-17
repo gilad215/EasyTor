@@ -40,6 +40,8 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if Auth.auth().currentUser?.uid==nil {print("NO LOGGED IN USER")}
+        
         self.categoryBtn.layer.cornerRadius = 10
         self.categoryBtn.clipsToBounds = true
         self.createBtn.layer.cornerRadius = 10
@@ -78,6 +80,16 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
             {
                 let error="Please enter a Phone Number"
                 self.showMessagePrompt(str: error)
+                return
+            }
+            if !(CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self.phoneTxt.text!)))
+            {
+                self.showMessagePrompt(str: "Not a valid Phone number")
+                return
+            }
+            if (self.phoneTxt.text?.count)!<9
+            {
+                self.showMessagePrompt(str: "Phone number is too short")
                 return
             }
             if (self.address.text?.isEmpty)!
@@ -119,7 +131,12 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
             }
             self.ref.child("users").child("business").child((user?.uid)!).setValue(["businessName":self.fullName.text,"phone":self.phoneTxt.text,"address":self.address.text,"city":self.city.text,"category":self.category])
             print("Created Business!")
-            self.performSegue(withIdentifier: "createBusiness", sender: self)
+            
+            //serviceVC
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let tabVC = storyboard.instantiateViewController(withIdentifier: "ServiceNav") as! UINavigationController
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController=tabVC
             
             
         }
@@ -127,7 +144,7 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
         else {
             if (self.clientName.text?.isEmpty)!
             {
-                let error="Please enter a Business Name"
+                let error="Please enter a Client Name"
                 self.showMessagePrompt(str: error)
                 return
             }
@@ -135,6 +152,16 @@ class RegisterViewController: UIViewController ,UIPickerViewDelegate, UIPickerVi
             {
                 let error="Please enter a Phone Number"
                 self.showMessagePrompt(str: error)
+                return
+            }
+            if !(CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self.clientPhone.text!)))
+            {
+                self.showMessagePrompt(str: "Not a valid Phone number")
+                return
+            }
+            if (self.clientPhone.text?.count)!<9
+            {
+                self.showMessagePrompt(str: "Phone number is too short")
                 return
             }
             if (self.clientAddress.text?.isEmpty)!

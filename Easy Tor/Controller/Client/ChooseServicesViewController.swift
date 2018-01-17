@@ -18,6 +18,7 @@ class ChooseServicesViewController: UIViewController, UITableViewDelegate, UITab
     let date=Date()
     var calendar = Calendar.current
     let formatter = DateFormatter()
+    var event_date:Date!
     
     var businessUid:String?
     var businessName:String?

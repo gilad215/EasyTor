@@ -217,6 +217,29 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
                 self.local_events.append(Event(service: event[self.e_service], bid: event[self.e_bid], key:event[self.e_id], cid: event[self.e_cid], time: event[self.e_time], date:event[self.e_date], bname: event[self.e_bname], bphone: event[self.e_bphone], baddress: event[self.e_address], cname: event[self.e_cname], cphone: event[self.e_cphone]))
                 }
             }
+            //date regex \d\d
+            //hour regex
+            self.local_events=self.local_events.sorted(by: { (event1, event2) -> Bool in
+                let regex="\\d\\d"
+                let date1=matches(for:regex, in: event1.date)[0]
+                let date2=matches(for:regex, in: event2.date)[0]
+                return date1<date2
+            })
+            self.local_events=self.local_events.sorted(by: { (event1, event2) -> Bool in
+                let regex="\\d\\d"
+                if event1.date==event2.date
+                {
+                    let time1=matches(for:regex, in: event1.time)[0]
+                    let time2=matches(for:regex, in: event2.time)[0]
+                    return time1<time2
+                }
+                else
+                {
+                    let date1=matches(for:regex, in: event1.date)[0]
+                    let date2=matches(for:regex, in: event2.date)[0]
+                    return date1<date2
+                }
+            })
             print("local events count!!!!!")
             print(self.local_events.count)
         } catch {
@@ -302,8 +325,13 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
     
     
     @IBAction func logoutPressed(_ sender: Any) {
-        try! Auth.auth().signOut()
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
         UserDefaults.standard.removeObject(forKey: "savedImage")
+        self.ref.removeAllObservers()
         if let storyboard = self.storyboard {
             let vc = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! UIViewController
             self.present(vc, animated: false, completion: nil)
@@ -363,6 +391,21 @@ class BusinessProfileView: UIViewController, UIImagePickerControllerDelegate,UIN
             messageVC.isClient=false
         }
     }
+    func matches(for regex: String, in text: String) -> [String] {
+        
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let results = regex.matches(in: text,
+                                        range: NSRange(text.startIndex..., in: text))
+            return results.map {
+                String(text[Range($0.range, in: text)!])
+            }
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
+
 
 }
     

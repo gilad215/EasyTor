@@ -18,6 +18,12 @@ class LoginViewController: UIViewController {
         regBtn.layer.cornerRadius = 10
         regBtn.clipsToBounds = true
         ref = Database.database().reference()
+        if !(Auth.auth().currentUser?.uid==nil)
+        {
+            print("CURRENT USER ON LOGIN VIEW:")
+            print(Auth.auth().currentUser?.uid)
+        }
+        else {print("NO LOGGED IN USER")}
         // Do any additional setup after loading the view.
     }
 
@@ -63,13 +69,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func RegisterPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let navVC = storyboard.instantiateViewController(withIdentifier: "navVC") as! UINavigationController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController=navVC
-        
-    }
     
     func showMessagePrompt(str:String)
     {
